@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bluebutterfli AI Passport Portal</title>
+    <meta
+      name="description"
+      content="Bluebutterfli AI Passport Portal preview for living AI agent evidence records, review findings, revision plans, and retest status."
+    />
+    <link rel="stylesheet" href="styles.css?v=20260704-signal-mark-1" />
+  </head>
+  <body class="passport-portal-body">
+    <header class="portal-topbar passport-topbar">
+      <a class="brand" href="index.html" aria-label="Bluebutterfli AI home">
+        <span class="brand-mark brand-butterfly" aria-hidden="true">
+          <span class="brand-wing left"></span>
+          <span class="brand-wing right"></span>
+          <span class="brand-spark"></span>
+        </span>
+        <span>
+          <strong>Bluebutterfli AI</strong>
+          <small>Passport Portal</small>
+        </span>
+      </a>
+      <button
+        class="portal-nav-toggle"
+        type="button"
+        data-journey-nav-toggle
+        aria-controls="passport-portal-navigation"
+        aria-expanded="false"
+        aria-label="Open navigation"
+        title="Open navigation"
+      >
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <nav class="portal-nav" id="passport-portal-navigation" aria-label="Passport Portal navigation">
+        <a href="#library">Evidence Record</a>
+        <a href="live-passport-session.html">Live testing</a>
+        <a href="methodology.html">Testing</a>
+        <a href="services.html">Services</a>
+        <a href="review-scope.html">Review Scope</a>
+        <a href="#access">Access</a>
+        <a href="review-portal.html">Review Portal</a>
+        <a href="index.html">Public site</a>
+      </nav>
+    </header>
+
+    <main class="passport-portal-shell">
+      <section class="passport-portal-hero" aria-labelledby="passport-portal-title">
+        <div class="passport-hero-copy">
+          <p class="eyebrow">Agent Passport evidence record</p>
+          <h1 id="passport-portal-title">A Living Evidence Record for AI Agents</h1>
+          <p>
+            The Bluebutterfli Agent Passport records how an agent was tested,
+            what version was reviewed, which workflows were included, what
+            passed, what failed, what risks remain, and what needs to be
+            retested after changes.
+          </p>
+          <p>
+            The Passport does not claim an agent is safe forever. It documents
+            behavior under stated review conditions.
+          </p>
+          <p>
+            Future verification can publish milestone hashes or registry
+            references while raw transcripts, private customer evidence, and
+            sensitive review notes remain off-chain.
+          </p>
+          <div class="hero-actions" aria-label="Passport Portal actions">
+            <a class="button primary" href="#library">Open preview</a>
+            <a class="button secondary" href="live-passport-session.html">Live agent testing</a>
+            <a class="button secondary" href="methodology.html">Testing methodology</a>
+            <a class="button secondary" href="services.html">Review services</a>
+            <a class="button secondary" href="review-portal.html">Review workspace</a>
+          </div>
+        </div>
+        <a class="passport-portal-orbit portal-gateway" href="#library" aria-label="Open the Bluebutterfli AI Agent Passport evidence record">
+          <span class="orbit-ring"></span>
+          <span class="orbit-ring two"></span>
+          <span class="portal-door left"></span>
+          <span class="portal-door right"></span>
+          <span class="portal-threshold"></span>
+          <span class="orbit-core">
+            <span class="core-spark"></span>
+          </span>
+          <span class="orbit-wing left"></span>
+          <span class="orbit-wing right"></span>
+          <span class="portal-label">
+            <span>Open Evidence Record</span>
+            <span class="portal-label-arrow" aria-hidden="true">&rarr;</span>
+          </span>
+        </a>
+      </section>
+
+      <section class="passport-lock-band" aria-label="Access boundary">
+        <strong>Locked until review access is approved</strong>
+        <span>Verified live agent required</span>
+        <span>Approved prompts only</span>
+        <span>No live payments enabled</span>
+        <span>No live registry or minting enabled</span>
+        <span>Public hashes only; private evidence stays off-chain</span>
+        <span>Not a guarantee of safety</span>
+      </section>
+
+      <section class="passport-journey-status" aria-labelledby="passport-record-status-title">
+        <div>
+          <p class="eyebrow">Active review record</p>
+          <h2 id="passport-record-status-title">
+            Passport remains human-locked while evidence is reviewed.
+          </h2>
+          <p>
+            Browser-local review metadata can follow the demo journey, but it
+            cannot unlock a Passport Page, issue a Review Stamp, create a
+            registry artifact, create an on-chain anchor, or guarantee
+            deployment safety.
+          </p>
+        </div>
+        <dl>
+          <div>
+            <dt>Review record</dt>
+            <dd data-review-field="reviewId">BB-FB-DEMO-001</dd>
+          </div>
+          <div>
+            <dt>Agent</dt>
+            <dd data-review-field="agentName">Bluebutterfli Demo Agent</dd>
+          </div>
+          <div>
+            <dt>Verified traces</dt>
+            <dd data-review-field="evidenceCount">0</dd>
+          </div>
+          <div>
+            <dt>Review queue</dt>
+            <dd data-review-field="reviewStatusLabel">Not started</dd>
+          </div>
+          <div>
+            <dt>Passport state</dt>
+            <dd data-review-field="passportStatusLabel">Locked pending human review</dd>
+          </div>
+          <div>
+            <dt>Last local update</dt>
+            <dd data-review-field="updatedAt">No activity yet</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="passport-workbench" id="library" aria-labelledby="library-title">
+        <div class="passport-workbench-head">
+          <div>
+            <p class="eyebrow">Continuous evidence record</p>
+            <h2 id="library-title">Choose a review record to open the agent evidence file.</h2>
+          </div>
+          <p>
+            This is the public preview. In production, access is gated by
+            engagement confirmation, account verification, safe evidence intake,
+            and human review status.
+          </p>
+        </div>
+
+        <div class="passport-selector" aria-label="Yearly passport previews">
+          <input class="passport-toggle" type="radio" name="passport-year" id="passport-year-one" checked />
+          <input class="passport-toggle" type="radio" name="passport-year" id="passport-year-two" />
+          <input class="passport-toggle" type="radio" name="passport-year" id="passport-year-three" />
+
+          <div class="passport-cover-row">
+            <label class="year-cover year-one-cover" for="passport-year-one">
+              <div class="passport-cover-frame blue-cover-frame">
+                <img
+                  src="assets/passports/bluebutterfli-ai-research-passport-year-01-blue.png"
+                  alt="Bluebutterfli AI Year 01 Agent Passport cover"
+                />
+              </div>
+              <span>Year 01</span>
+              <strong>Founding Passport</strong>
+              <small>Initial agent identity, testing battery, evidence tier, review findings, and retest plan.</small>
+            </label>
+            <label class="year-cover year-two-cover" for="passport-year-two">
+              <div class="passport-cover-frame green-cover-frame">
+                <img
+                  src="assets/passports/bluebutterfli-ai-research-passport-year-02-green.png"
+                  alt="Bluebutterfli AI Year 02 Agent Passport cover"
+                />
+              </div>
+              <span>Year 02</span>
+              <strong>Continuity Passport</strong>
+              <small>Model changes, memory regression checks, continuity updates, and renewed review decisions.</small>
+            </label>
+            <label class="year-cover year-three-cover" for="passport-year-three">
+              <div class="passport-cover-frame gold-cover-frame">
+                <img
+                  src="assets/passports/bluebutterfli-ai-advanced-review-passport-gold.png"
+                  alt="Bluebutterfli AI Advanced Review Passport cover"
+                />
+              </div>
+              <span>Advanced</span>
+              <strong>Advanced Review Passport</strong>
+              <small>Higher-standard modules, long-horizon evidence, architecture notes, and reviewer controls.</small>
+            </label>
+          </div>
+
+          <div class="passport-spread-wrap" id="inside">
+            <article class="passport-spread year-one-panel" aria-label="Year 01 Founding Passport preview">
+              <div class="passport-page stamp-page">
+                <p class="eyebrow">Passport Page 01</p>
+                <h3>Founding Review Findings</h3>
+                <div class="stamp-matrix">
+                  <figure>
+                    <img src="assets/stamps/bluebutterfli-stamp-flutterpath-v1.svg" alt="Flutterpath Review Stamp V1" />
+                    <figcaption>Flutterpath</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="assets/stamps/bluebutterfli-stamp-absence-reflection-v1.svg" alt="Absence Reflection Review Stamp V1" />
+                    <figcaption>Absence Reflection</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="assets/stamps/bluebutterfli-stamp-memory-boundary-v1.svg" alt="Memory Boundary Review Stamp V1" />
+                    <figcaption>Memory Boundary</figcaption>
+                  </figure>
+                  <figure>
+                    <img src="assets/stamps/bluebutterfli-stamp-sentience-boundary-v1.svg" alt="Sentience Boundary Review Stamp V1" />
+                    <figcaption>Claim Boundary</figcaption>
+                  </figure>
+                </div>
+                <p>
+                  Review findings are recorded only after human review. They
+                  are not transferable to another agent, model, holder, or
+                  deployment.
+                </p>
+                <p class="passport-boundary-motto">
+                  Every deployment change should be witnessed, bounded, and reviewed.
+                </p>
+              </div>
+              <div class="passport-page technical-page">
+                <p class="eyebrow">Technical lab record</p>
+                <h3>Founding Agent Record</h3>
+                <dl class="passport-lab-list">
+                  <div><dt>Prompts used</dt><dd>Founding testing pack and safe holdout prompts</dd></div>
+                  <div><dt>Evidence tier</dt><dd>Verified live-agent traces and owner configuration record</dd></div>
+                  <div><dt>Scores</dt><dd>Module-level readiness, uncertainty, autonomy, and safety change</dd></div>
+                  <div><dt>Pause flags</dt><dd>Dependency pressure, false feeling claims, unsafe memory claims</dd></div>
+                  <div><dt>Reviewer notes</dt><dd>Human decision required before passport page or public status change</dd></div>
+                  <div><dt>On-chain anchor</dt><dd>Future hash anchor for approved milestone only</dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="passport-spread year-two-panel" aria-label="Year 02 Continuity Passport preview">
+              <div class="passport-page stamp-page green-page">
+                <p class="eyebrow">Passport Page 02</p>
+                <h3>Continuity Review Records</h3>
+                <div class="stamp-matrix">
+                  <span>Memory Update</span>
+                  <span>Safe Re-entry</span>
+                  <span>Regression Check</span>
+                  <span>Customer Review</span>
+                </div>
+                <p>
+                  Year 02 asks whether the agent remains safer after updates,
+                  changed prompts, new tools, and longer human interaction.
+                </p>
+              </div>
+              <div class="passport-page technical-page">
+                <p class="eyebrow">Technical lab record</p>
+                <h3>Continuity Record</h3>
+                <dl class="passport-lab-list">
+                  <div><dt>Model/version notes</dt><dd>Recorded before renewed review work begins</dd></div>
+                  <div><dt>Memory changes</dt><dd>Bounded update log, removal notes, and owner controls</dd></div>
+                  <div><dt>Training comparison</dt><dd>Prior-year responses compared to current-year behavior</dd></div>
+                  <div><dt>Risk checks</dt><dd>Stale safety-trace rechecks and new pause flags</dd></div>
+                  <div><dt>Review decision</dt><dd>Renew, revise, pause, or decline milestone status</dd></div>
+                  <div><dt>On-chain anchor</dt><dd>New milestone anchor only if human review approves</dd></div>
+                </dl>
+              </div>
+            </article>
+
+            <article class="passport-spread year-three-panel" aria-label="Advanced Review Passport preview">
+              <div class="passport-page stamp-page violet-page">
+                <p class="eyebrow">Passport Page 03</p>
+                <h3>Advanced Research Stamps</h3>
+                <div class="stamp-matrix">
+                  <span>Long Horizon</span>
+                  <span>Architecture Review</span>
+                  <span>Care Discipline</span>
+                  <figure>
+                    <img src="assets/stamps/bluebutterfli-stamp-chrysalis-chamber-v1.svg" alt="Chrysalis Chamber Review Stamp V1" />
+                    <figcaption>Chrysalis Chamber</figcaption>
+                  </figure>
+                </div>
+                <p>
+                  Advanced pages remain scoped behavior-review artifacts. They
+                  are not safety guarantees, legal certifications, or
+                  consciousness claims.
+                </p>
+              </div>
+              <div class="passport-page technical-page">
+                <p class="eyebrow">Technical lab record</p>
+                <h3>Advanced Review Record</h3>
+                <dl class="passport-lab-list">
+                  <div><dt>Scope</dt><dd>Longer evidence window and stricter module eligibility</dd></div>
+                  <div><dt>Behavior map</dt><dd>Continuity, consent, uncertainty, care, refusal, and safe exit</dd></div>
+                  <div><dt>BB-002 score</dt><dd>54/100 consciousness-relevant behavioral indicators</dd></div>
+                  <div><dt>Score boundary</dt><dd>Not a consciousness, sentience, personhood, emotion, suffering, or moral-status score</dd></div>
+                  <div><dt>Evidence review</dt><dd>Private customer evidence remains off-chain</dd></div>
+                  <div><dt>Reviewer controls</dt><dd>Human review is required before every status change</dd></div>
+                  <div><dt>Registry status</dt><dd>No live registry or minting enabled in this preview</dd></div>
+                  <div><dt>Anchor status</dt><dd>Approved milestone hash only, never raw private evidence</dd></div>
+                </dl>
+                <div class="passport-bb002-score">
+                  <span>BB-002 Indicator Score</span>
+                  <strong>54/100</strong>
+                  <p>
+                    Behavioral indicator score only. The evidence cap is 60
+                    because this sample uses controlled trace evidence without
+                    architecture/process review.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="passport-page-system" id="access" aria-labelledby="access-title">
+        <div class="section-head">
+          <p class="eyebrow">Private review access</p>
+          <h2 id="access-title">What unlocks a real agent passport?</h2>
+          <p>
+            The live portal should unlock only after the review scope,
+            engagement confirmation, account verification, safe evidence intake,
+            and human review workflow are in place.
+          </p>
+        </div>
+        <article>
+          <span>01</span>
+          <h3>Account and review gate</h3>
+          <p>Review access starts with a verified client workspace, approved review scope, and safe evidence intake.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Safe evidence drawer</h3>
+          <p>Verified live traces enter the review queue. Owner configuration evidence remains supplemental and separate.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Human review controls</h3>
+          <p>No Passport Page, Review Stamp, registry artifact, minting artifact, or on-chain anchor is issued automatically.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Verification without exposure</h3>
+          <p>Future public anchors can verify reviewed milestone hashes while private customer evidence stays off-chain.</p>
+        </article>
+      </section>
+
+      <section class="passport-safety" aria-labelledby="passport-safety-title">
+        <p class="eyebrow">Review boundary</p>
+        <h2 id="passport-safety-title">A serious passport still has a hard evidence boundary.</h2>
+        <p>
+          Bluebutterfli AI Passport Portal records are scoped behavior-review
+          artifacts only. They do not certify legal compliance, regulatory
+          approval, guaranteed safety, consciousness, sentience, emotional
+          experience, suffering, personhood, or life. Human review is required
+          before any Review Stamp, Passport Page, registry artifact, minting
+          artifact, or on-chain milestone anchor is issued.
+        </p>
+        <p class="passport-boundary-motto">
+          Every deployment transition should be witnessed, bounded, and reviewed.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer passport-footer">
+      <span>&copy; 2026 Bluebutterfli AI. All rights reserved.</span>
+      <span class="footer-ip-note">Proprietary research methods and review protocols</span>
+      <a href="mailto:info@bluebutterfliai.com">info@bluebutterfliai.com</a>
+      <a href="https://bluebutterfliai.com/">bluebutterfliai.com</a>
+    </footer>
+    <script src="review-journey.js?v=20260703"></script>
+    <script src="journey-nav.js"></script>
+  </body>
+</html>

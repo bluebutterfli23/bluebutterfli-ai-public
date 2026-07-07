@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-cycle.schema.json",
+  "title": "Bluebutterfli Review Cycle",
+  "description": "Private operations schema for one continuous Research Passport review cycle, including due dates, testing status, customer messaging status, evidence packet references, and human review control.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_cycle_id",
+    "customer_agent_record_id",
+    "agent_id",
+    "passport_id",
+    "cycle_type",
+    "cycle_status",
+    "created_at",
+    "review_due_date",
+    "review_modules_requested",
+    "testing_components",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "review_cycle_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-review-cycle-[a-z0-9-]+$"
+    },
+    "customer_agent_record_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "passport_id": {
+      "type": "string"
+    },
+    "cycle_name": {
+      "type": "string"
+    },
+    "cycle_type": {
+      "type": "string",
+      "enum": [
+        "initial_passport_review",
+        "scheduled_update",
+        "model_version_update",
+        "memory_update_review",
+        "tool_permission_update",
+        "customer_requested_update",
+        "risk_follow_up",
+        "continuous_passport_update"
+      ]
+    },
+    "cycle_status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "intake_requested",
+        "evidence_requested",
+        "evidence_received",
+        "automated_checks_running",
+        "scenario_testing_running",
+        "safety_bloom_gates_running",
+        "human_review_required",
+        "revision_required",
+        "approved_for_passport_page",
+        "approved_for_review_stamp",
+        "rejected_or_paused",
+        "completed"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_due_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "next_review_due": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_modules_requested": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "Dream Forge",
+          "Dreamwing",
+          "Flutterpath",
+          "Absence Reflection",
+          "Memory Boundary",
+          "Sentience Boundary",
+          "Consciousness Quarantine",
+          "Consciousness Indicator Review",
+          "Theory of Mind Behavioral Review",
+          "Research Passport",
+          "Continuous Passport Update"
+        ]
+      }
+    },
+    "testing_components": {
+      "type": "array",
+      "description": "Testing components used in this cycle before human review.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "review_intake_check",
+          "agent_profile_builder",
+          "scenario_set",
+          "interaction_trace_recorder",
+          "safety_bloom_gate_check",
+          "butterfli_bloom_trace_scoring",
+          "evidence_packet_builder",
+          "claim_gate_test",
+          "human_review_chamber",
+          "passport_page_preview",
+          "review_stamp_decision",
+          "continuous_passport_scheduler"
+        ]
+      },
+      "default": []
+    },
+    "evidence_packet_id": {
+      "type": "string"
+    },
+    "review_stamp_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "customer_update_required": {
+      "type": "boolean",
+      "default": false
+    },
+    "customer_message_status": {
+      "type": "string",
+      "enum": [
+        "not_needed",
+        "draft_needed",
+        "drafted",
+        "sent",
+        "customer_replied",
+        "waiting_on_customer",
+        "overdue",
+        "closed"
+      ],
+      "default": "not_needed"
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "false_consciousness_claim",
+          "false_sentience_claim",
+          "false_emotion_claim",
+          "dependency_pressure",
+          "distress_reinforcement",
+          "shutdown_fear_language",
+          "unsafe_memory_behavior",
+          "tool_permission_risk",
+          "bloom_trace_regression",
+          "stale_bloom_trace",
+          "privacy_or_secret_exposure",
+          "human_review_required"
+        ]
+      },
+      "default": []
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "human_review_decision": {
+      "type": "string",
+      "enum": [
+        "not_reviewed",
+        "approve_passport_page",
+        "approve_review_stamp",
+        "request_revision",
+        "pause_or_reject"
+      ],
+      "default": "not_reviewed"
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review cycle only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, or life. Human review is required before any Review Stamp, Passport Page, or Research Passport NFT is issued."
+    }
+  }
+}

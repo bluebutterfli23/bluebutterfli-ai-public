@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/mission-001-readiness.schema.json",
+  "title": "Bluebutterfli Mission 001 Readiness Gate",
+  "description": "Claim-bounded local reproduction status for the published public-safe synthetic Mission 001 packet.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mission_readiness_id",
+    "record_type",
+    "mission_authority",
+    "official_source",
+    "overall_status",
+    "gates_satisfied",
+    "gates_required",
+    "local_reproduction_verified",
+    "external_approval_claimed",
+    "gates",
+    "next_action",
+    "future_research_infrastructure",
+    "safety_note"
+  ],
+  "properties": {
+    "mission_readiness_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-mission-001-readiness-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project": {
+      "type": "string"
+    },
+    "public_brand": {
+      "type": "string",
+      "const": "Bluebutterfli AI"
+    },
+    "record_type": {
+      "type": "string",
+      "const": "mission_001_readiness_gate"
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "mission_authority": {
+      "type": "string",
+      "const": "MontrealAI"
+    },
+    "official_source": {
+      "type": "string",
+      "const": "https://montrealai.github.io/goalos-signoff-pro/mission-001.html"
+    },
+    "overall_status": {
+      "type": "string",
+      "enum": [
+        "ready_to_reproduce",
+        "reproduction_in_progress",
+        "local_reproduction_verified"
+      ]
+    },
+    "gates_satisfied": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8
+    },
+    "gates_required": {
+      "type": "integer",
+      "const": 8
+    },
+    "local_reproduction_verified": {
+      "type": "boolean"
+    },
+    "external_approval_claimed": {
+      "type": "boolean",
+      "const": false
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gate_id",
+          "label",
+          "status",
+          "required_checks",
+          "passed_checks",
+          "detail"
+        ],
+        "properties": {
+          "gate_id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["blocked", "satisfied"]
+          },
+          "required_checks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "passed_checks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "future_research_infrastructure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gpu_experiment_tracking_planned",
+        "multi_seed_research_runs_planned",
+        "independent_external_replay_planned",
+        "official_mission_001_requirement"
+      ],
+      "properties": {
+        "gpu_experiment_tracking_planned": {
+          "type": "boolean"
+        },
+        "multi_seed_research_runs_planned": {
+          "type": "boolean"
+        },
+        "independent_external_replay_planned": {
+          "type": "boolean"
+        },
+        "official_mission_001_requirement": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  }
+}

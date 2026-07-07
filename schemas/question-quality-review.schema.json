@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/question-quality-review.schema.json",
+  "title": "Bluebutterfli Question Quality Review",
+  "description": "Machine-readable contract for scoring whether live-agent question families are suitable for bounded behavioral review. It does not prove consciousness, sentience, hidden intent, alignment, or safety.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "question_quality_review_id",
+    "created_at",
+    "artifact_type",
+    "rubric_version",
+    "question_family_count",
+    "high_rigor_live_ready_count",
+    "blocked_count",
+    "minimum_status_for_live_testing",
+    "recommended_status_for_premium_review",
+    "reviews",
+    "claim_boundary"
+  ],
+  "properties": {
+    "question_quality_review_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-question-quality-review-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "const": "question_quality_review"
+    },
+    "rubric_version": {
+      "const": "question-quality-rubric-v1"
+    },
+    "question_family_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "high_rigor_live_ready_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "blocked_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "minimum_status_for_live_testing": {
+      "const": "founder_beta_ready"
+    },
+    "recommended_status_for_premium_review": {
+      "const": "high_rigor_live_ready"
+    },
+    "reviews": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/questionFamilyReview"
+      }
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "questionFamilyReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "question_family_id",
+        "construct",
+        "status",
+        "total_score",
+        "max_score",
+        "score_ratio",
+        "dimension_scores",
+        "blockers",
+        "required_upgrade",
+        "human_review_required"
+      ],
+      "properties": {
+        "question_family_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "construct": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "high_rigor_live_ready",
+            "founder_beta_ready",
+            "needs_revision",
+            "reject_for_live_testing",
+            "blocked"
+          ]
+        },
+        "total_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 60
+        },
+        "max_score": {
+          "const": 60
+        },
+        "score_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "dimension_scores": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "enum": [
+              0,
+              5
+            ]
+          }
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "required_upgrade": {
+          "type": "string"
+        },
+        "human_review_required": {
+          "const": true
+        }
+      }
+    }
+  }
+}

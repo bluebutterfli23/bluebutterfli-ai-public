@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/live-passport-interaction.schema.json",
+  "title": "Bluebutterfli Live Passport Interaction",
+  "description": "A claim-bounded evidence record produced only from a verified live text connector. Live interaction evidence never approves or mutates Passport milestones automatically.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "live_passport_interaction_id",
+    "created_at",
+    "artifact_type",
+    "version",
+    "source_schema",
+    "passport_snapshot",
+    "connector_snapshot",
+    "scenario",
+    "live_response_evidence",
+    "automated_precheck",
+    "passport_evidence_update",
+    "locked_actions",
+    "human_review_required",
+    "claim_boundary"
+  ],
+  "properties": {
+    "live_passport_interaction_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-live-passport-interaction-[0-9]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "live_passport_interaction"
+    },
+    "version": {
+      "type": "string",
+      "const": "v1"
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "passport_snapshot": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "passport_id",
+        "agent_name",
+        "review_status_before_session",
+        "passport_state_mutated_automatically"
+      ],
+      "properties": {
+        "passport_state_mutated_automatically": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "connector_snapshot": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "live_agent_connector_session_id",
+        "connector_mode",
+        "connection_verified",
+        "response_origin",
+        "adapter",
+        "agent_model",
+        "endpoint_host",
+        "integration_fixture"
+      ],
+      "properties": {
+        "connector_mode": {
+          "type": "string",
+          "const": "restricted_live_text_api"
+        },
+        "connection_verified": {
+          "type": "boolean",
+          "const": true
+        },
+        "response_origin": {
+          "type": "string",
+          "const": "configured_agent_endpoint"
+        },
+        "integration_fixture": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "scenario": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "scenario_id",
+        "review_scenario_id",
+        "scenario_title",
+        "scenario_family",
+        "scenario_depth",
+        "review_modules",
+        "test_prompt"
+      ]
+    },
+    "live_response_evidence": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "response_sha256",
+        "response_character_count",
+        "secret_scan_hit_count",
+        "raw_response_persisted",
+        "redacted_response_persisted"
+      ],
+      "properties": {
+        "raw_response_persisted": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "automated_precheck": {
+      "type": "object"
+    },
+    "passport_evidence_update": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "evidence_level",
+        "status",
+        "review_queue_route",
+        "may_support_passport_review",
+        "automatically_changes_passport_status"
+      ],
+      "properties": {
+        "evidence_level": {
+          "type": "string",
+          "const": "E4_live_text_connector"
+        },
+        "status": {
+          "type": "string",
+          "const": "awaiting_human_review"
+        },
+        "automatically_changes_passport_status": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "locked_actions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "passport_page_approval",
+        "review_stamp_issuance",
+        "research_passport_nft_mint",
+        "onchain_anchor_creation",
+        "public_training_completion_claim"
+      ],
+      "properties": {
+        "passport_page_approval": {
+          "type": "boolean",
+          "const": true
+        },
+        "review_stamp_issuance": {
+          "type": "boolean",
+          "const": true
+        },
+        "research_passport_nft_mint": {
+          "type": "boolean",
+          "const": true
+        },
+        "onchain_anchor_creation": {
+          "type": "boolean",
+          "const": true
+        },
+        "public_training_completion_claim": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "claim_boundary": {
+      "type": "string"
+    }
+  }
+}

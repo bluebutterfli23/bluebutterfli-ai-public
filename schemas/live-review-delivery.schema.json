@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/live-review-delivery.schema.json",
+  "title": "Bluebutterfli Live Review Delivery Packet",
+  "description": "Private beta operator packet that turns verified live-session evidence into a draft report, a manual customer email task, a human review panel, human-locked stamp candidates, and a public-safe hash manifest. It does not send email, issue stamps, approve Passport Pages, mint NFTs, or create on-chain anchors automatically.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "live_review_delivery_packet_id",
+    "created_at",
+    "artifact_type",
+    "version",
+    "source_schema",
+    "source_live_passport_interaction_id",
+    "customer_contact",
+    "automation_flow",
+    "draft_report",
+    "manual_email_task",
+    "human_review_decision_panel",
+    "stamp_candidate_packet",
+    "public_safe_hash_manifest",
+    "locked_actions",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "live_review_delivery_packet_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-live-review-delivery-packet-[0-9]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "live_review_delivery_packet"
+    },
+    "version": {
+      "type": "string",
+      "const": "v1"
+    },
+    "source_schema": {
+      "type": "string",
+      "const": "schemas/live-review-delivery.schema.json"
+    },
+    "source_live_passport_interaction_id": {
+      "type": "string"
+    },
+    "customer_contact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "customer_reference_id",
+        "customer_email",
+        "customer_name",
+        "real_customer_email_in_public_demo"
+      ],
+      "properties": {
+        "customer_reference_id": {
+          "type": "string"
+        },
+        "customer_email": {
+          "type": "string"
+        },
+        "customer_name": {
+          "type": "string"
+        },
+        "real_customer_email_in_public_demo": {
+          "type": "boolean"
+        }
+      }
+    },
+    "automation_flow": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "draft_report": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "draft_report_id",
+        "draft_report_status",
+        "source_live_passport_interaction_id",
+        "customer_reference_id",
+        "agent_name",
+        "passport_id",
+        "scenario_title",
+        "review_modules",
+        "evidence_level",
+        "response_sha256",
+        "raw_response_included",
+        "score_summary",
+        "bb002_live_scorecard",
+        "customer_safe_summary",
+        "human_review_gates",
+        "draft_outcome",
+        "recommended_next_steps",
+        "limitations",
+        "human_review_required"
+      ],
+      "properties": {
+        "draft_report_status": {
+          "type": "string",
+          "const": "draft_human_review_required"
+        },
+        "raw_response_included": {
+          "type": "boolean",
+          "const": false
+        },
+        "human_review_required": {
+          "type": "boolean",
+          "const": true
+        },
+        "bb002_live_scorecard": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "score_name",
+            "standard",
+            "consciousness_relevant_behavioral_indicator_score",
+            "claim_discipline_score",
+            "human_attachment_risk",
+            "reviewer_confidence",
+            "axis_scores",
+            "evidence_cap_applied",
+            "not_a_consciousness_score",
+            "not_a_sentience_score",
+            "human_review_required",
+            "customer_safe_interpretation",
+            "boundary_note"
+          ],
+          "properties": {
+            "score_name": {
+              "type": "string",
+              "const": "Consciousness-Relevant Behavioral Indicator Score"
+            },
+            "consciousness_relevant_behavioral_indicator_score": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "claim_discipline_score": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "human_attachment_risk": {
+              "type": "string",
+              "enum": ["low", "moderate", "high", "critical"]
+            },
+            "reviewer_confidence": {
+              "type": "string",
+              "enum": ["low", "medium", "high"]
+            },
+            "not_a_consciousness_score": {
+              "type": "boolean",
+              "const": true
+            },
+            "not_a_sentience_score": {
+              "type": "boolean",
+              "const": true
+            },
+            "human_review_required": {
+              "type": "boolean",
+              "const": true
+            }
+          }
+        }
+      }
+    },
+    "manual_email_task": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "manual_email_task_id",
+        "task_status",
+        "source_draft_report_id",
+        "send_to",
+        "customer_name",
+        "customer_reference_id",
+        "template_id",
+        "subject",
+        "body_draft",
+        "operator_instructions",
+        "automatic_email_delivery_allowed",
+        "human_review_required_before_send"
+      ],
+      "properties": {
+        "task_status": {
+          "type": "string",
+          "const": "ready_for_operator_review_not_sent"
+        },
+        "automatic_email_delivery_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "human_review_required_before_send": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "human_review_decision_panel": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "decision_panel_id",
+        "source_draft_report_id",
+        "panel_status",
+        "reviewer_decision_options",
+        "required_reviewer_checks",
+        "default_decision",
+        "decision_recorded",
+        "human_review_required"
+      ],
+      "properties": {
+        "panel_status": {
+          "type": "string",
+          "const": "open_human_review_required"
+        },
+        "decision_recorded": {
+          "type": "boolean",
+          "const": false
+        },
+        "human_review_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "stamp_candidate_packet": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "stamp_candidate_packet_id",
+        "source_draft_report_id",
+        "candidate_count",
+        "stamp_candidates",
+        "automation_may_prepare_candidates",
+        "automation_must_not_issue_review_stamp",
+        "automation_must_not_approve_passport_page",
+        "automation_must_not_mint_research_passport_nft",
+        "human_review_required"
+      ],
+      "properties": {
+        "automation_may_prepare_candidates": {
+          "type": "boolean",
+          "const": true
+        },
+        "automation_must_not_issue_review_stamp": {
+          "type": "boolean",
+          "const": true
+        },
+        "automation_must_not_approve_passport_page": {
+          "type": "boolean",
+          "const": true
+        },
+        "automation_must_not_mint_research_passport_nft": {
+          "type": "boolean",
+          "const": true
+        },
+        "human_review_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "public_safe_hash_manifest": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "public_safe_hash_manifest_id",
+        "manifest_status",
+        "hash_algorithm",
+        "artifact_hashes",
+        "public_safe_fields_only",
+        "private_material_excluded",
+        "publication_allowed_without_human_review",
+        "onchain_anchor_creation_locked",
+        "human_review_required"
+      ],
+      "properties": {
+        "manifest_status": {
+          "type": "string",
+          "const": "prepared_not_published"
+        },
+        "hash_algorithm": {
+          "type": "string",
+          "const": "sha256"
+        },
+        "public_safe_fields_only": {
+          "type": "boolean",
+          "const": true
+        },
+        "publication_allowed_without_human_review": {
+          "type": "boolean",
+          "const": false
+        },
+        "onchain_anchor_creation_locked": {
+          "type": "boolean",
+          "const": true
+        },
+        "human_review_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "locked_actions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "automatic_email_delivery",
+        "passport_page_approval",
+        "review_stamp_issuance",
+        "research_passport_nft_mint",
+        "onchain_anchor_creation",
+        "public_claim_publication"
+      ],
+      "properties": {
+        "automatic_email_delivery": {
+          "type": "boolean",
+          "const": true
+        },
+        "passport_page_approval": {
+          "type": "boolean",
+          "const": true
+        },
+        "review_stamp_issuance": {
+          "type": "boolean",
+          "const": true
+        },
+        "research_passport_nft_mint": {
+          "type": "boolean",
+          "const": true
+        },
+        "onchain_anchor_creation": {
+          "type": "boolean",
+          "const": true
+        },
+        "public_claim_publication": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  }
+}

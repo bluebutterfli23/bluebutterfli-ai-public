@@ -1,0 +1,279 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-portal-customer-timeline.schema.json",
+  "title": "Bluebutterfli Review Portal Customer Timeline",
+  "description": "Private beta Passport Journey timeline schema for showing customer-visible review milestones, due dates, safe next actions, human review states, and Continuous Passport follow-up without exposing private customer data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_portal_customer_timeline_id",
+    "timeline_type",
+    "portal_mode",
+    "source_customer_queue_id",
+    "source_notification_plan_id",
+    "source_workspace_id",
+    "source_continuous_passport_schedule_id",
+    "customer_reference_id",
+    "agent_id",
+    "passport_id",
+    "review_cycle_id",
+    "current_timeline_position",
+    "timeline_summary",
+    "timeline_events",
+    "delivery_policy",
+    "customer_visibility_policy",
+    "review_milestone_anchor_policy",
+    "privacy_controls",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "review_portal_customer_timeline_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-review-portal-customer-timeline-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project": {
+      "type": "string"
+    },
+    "public_brand": {
+      "type": "string",
+      "const": "Bluebutterfli AI"
+    },
+    "timeline_type": {
+      "type": "string",
+      "const": "private_beta_passport_journey_timeline"
+    },
+    "portal_mode": {
+      "type": "string",
+      "enum": [
+        "private_beta_demo_no_real_customer_data",
+        "private_beta",
+        "production_private"
+      ]
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "source_customer_queue_id": {
+      "type": "string"
+    },
+    "source_notification_plan_id": {
+      "type": "string"
+    },
+    "source_workspace_id": {
+      "type": "string"
+    },
+    "source_continuous_passport_schedule_id": {
+      "type": "string"
+    },
+    "customer_reference_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "passport_id": {
+      "type": "string"
+    },
+    "review_cycle_id": {
+      "type": "string"
+    },
+    "current_timeline_position": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "stage",
+        "status",
+        "customer_visible_label",
+        "next_customer_action",
+        "next_internal_action"
+      ]
+    },
+    "timeline_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "event_total",
+        "completed_event_count",
+        "active_event_count",
+        "waiting_on_customer_event_count",
+        "human_review_event_count",
+        "future_or_scheduled_event_count"
+      ],
+      "properties": {
+        "event_total": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "completed_event_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "active_event_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "waiting_on_customer_event_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "human_review_event_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "future_or_scheduled_event_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "timeline_events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timeline_event_id",
+          "stage",
+          "title",
+          "status",
+          "owner",
+          "customer_visible",
+          "target_date",
+          "source_record",
+          "notification_status",
+          "human_review_required",
+          "public_claim_allowed"
+        ],
+        "properties": {
+          "timeline_event_id": {
+            "type": "string"
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "account_gate",
+              "submission_packet",
+              "agent_workspace",
+              "safe_evidence",
+              "training_prompts",
+              "training_responses",
+              "evidence_draft",
+              "human_review",
+              "revision_or_decision",
+              "passport_milestone",
+              "onchain_anchor",
+              "continuous_passport_update"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string",
+            "enum": [
+              "customer",
+              "automation",
+              "human_reviewer"
+            ]
+          },
+          "customer_visible": {
+            "type": "boolean"
+          },
+          "target_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "source_record": {
+            "type": "string"
+          },
+          "notification_status": {
+            "type": "string"
+          },
+          "human_review_required": {
+            "type": "boolean",
+            "const": true
+          },
+          "public_claim_allowed": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "delivery_policy": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "founding_beta_target",
+        "separate_timeline_allowed_when",
+        "delay_rule"
+      ]
+    },
+    "customer_visibility_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "show_customer_next_step",
+        "show_due_dates",
+        "show_safe_evidence_reminders",
+        "show_human_review_status",
+        "show_private_raw_evidence",
+        "show_internal_reviewer_notes",
+        "show_payment_private_details"
+      ]
+    },
+    "review_milestone_anchor_policy": {
+      "type": "string",
+      "const": "Review milestone anchors on-chain. Agents, private evidence, and raw behavior stay off-chain."
+    },
+    "privacy_controls": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "public_repo_private_data_allowed",
+        "real_customer_emails_allowed_in_public_repo",
+        "raw_customer_evidence_allowed_in_public_repo",
+        "email_role",
+        "private_evidence_storage_required"
+      ],
+      "properties": {
+        "public_repo_private_data_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "real_customer_emails_allowed_in_public_repo": {
+          "type": "boolean",
+          "const": false
+        },
+        "raw_customer_evidence_allowed_in_public_repo": {
+          "type": "boolean",
+          "const": false
+        },
+        "email_role": {
+          "type": "string",
+          "const": "notifications_only_not_primary_review_workspace"
+        },
+        "private_evidence_storage_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review Review Portal customer timeline artifact only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, life, clinical safety, regulatory approval, investment value, model improvement, or successful creation of sentience. Human review is required before any Review Stamp, Passport Page, Research Passport NFT, on-chain verification anchor, or public training-completion claim is issued."
+    }
+  }
+}

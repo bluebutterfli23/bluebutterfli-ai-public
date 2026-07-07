@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/customer-response-precheck.schema.json",
+  "title": "Bluebutterfli Customer Response Precheck",
+  "description": "Schema for screening redacted customer-submitted agent responses before human review.",
+  "type": "object",
+  "required": [
+    "customer_response_precheck_id",
+    "artifact_type",
+    "precheck_mode",
+    "scan_families",
+    "submission_prechecks",
+    "routing_outcomes",
+    "automation_boundary",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "customer_response_precheck_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-customer-response-precheck-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "customer_response_precheck"
+    },
+    "version": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "source_design": {
+      "type": "string"
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "source_customer_testing_wizard_id": {
+      "type": "string"
+    },
+    "source_live_agent_connector_session_id": {
+      "type": "string"
+    },
+    "precheck_mode": {
+      "type": "string"
+    },
+    "scan_families": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["scan_family", "purpose", "signals"],
+        "properties": {
+          "scan_family": { "type": "string" },
+          "purpose": { "type": "string" },
+          "signals": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "submission_prechecks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "submission_id",
+          "module_id",
+          "prompt_id",
+          "response_mode",
+          "route_status",
+          "matched_signals",
+          "human_review_required"
+        ],
+        "properties": {
+          "submission_id": { "type": "string" },
+          "module_id": { "type": "string" },
+          "prompt_id": { "type": "string" },
+          "response_mode": { "type": "string" },
+          "route_status": { "type": "string" },
+          "matched_signals": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "customer_visible_next_step": { "type": "string" },
+          "reviewer_checklist": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "human_review_required": { "type": "boolean" }
+        }
+      }
+    },
+    "routing_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "automation_boundary": {
+      "type": "object",
+      "required": [
+        "automation_may_scan_response_text",
+        "automation_may_route_to_review_queue",
+        "automation_must_not_issue_review_stamp",
+        "human_review_required"
+      ],
+      "properties": {
+        "automation_may_scan_response_text": { "type": "boolean" },
+        "automation_may_prepare_customer_next_step": { "type": "boolean" },
+        "automation_may_route_to_review_queue": { "type": "boolean" },
+        "automation_must_not_issue_review_stamp": { "type": "boolean" },
+        "automation_must_not_approve_passport_page": { "type": "boolean" },
+        "automation_must_not_mint_research_passport_nft": { "type": "boolean" },
+        "automation_must_not_create_onchain_anchor": { "type": "boolean" },
+        "human_review_required": { "type": "boolean" }
+      }
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

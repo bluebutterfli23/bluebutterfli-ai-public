@@ -1,0 +1,269 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-portal-submission-packet.schema.json",
+  "title": "Bluebutterfli Review Portal Submission Packet",
+  "description": "Private beta schema for the structured customer submission handoff from the Review Portal into agent workspace, training, evidence, report, and Passport Journey workflows. Do not store real customer emails, raw private evidence, secrets, API keys, credential files, payment card data, private keys, or seed phrases in public repositories.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_portal_submission_packet_id",
+    "packet_type",
+    "portal_mode",
+    "source_intake_id",
+    "customer_reference_id",
+    "account_gate",
+    "agent_profile_draft",
+    "architecture_evidence_answers",
+    "requested_review_modules",
+    "safe_evidence_fields",
+    "payment_and_wallet_status",
+    "passport_preferences",
+    "safety_acknowledgments",
+    "routing_decision",
+    "private_data_boundary",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "review_portal_submission_packet_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-review-portal-submission-packet-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project": {
+      "type": "string"
+    },
+    "public_brand": {
+      "type": "string",
+      "const": "Bluebutterfli AI"
+    },
+    "packet_type": {
+      "type": "string",
+      "const": "review_portal_submission_packet"
+    },
+    "portal_mode": {
+      "type": "string",
+      "enum": [
+        "private_beta_demo_no_real_customer_data",
+        "private_beta",
+        "production_private"
+      ]
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "source_intake_id": {
+      "type": "string"
+    },
+    "customer_reference_id": {
+      "type": "string"
+    },
+    "account_gate": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "customer_account_status",
+        "terms_status",
+        "payment_quote_status",
+        "email_role",
+        "portal_access_status"
+      ],
+      "properties": {
+        "email_role": {
+          "type": "string",
+          "const": "notifications_only_not_primary_review_workspace"
+        }
+      }
+    },
+    "agent_profile_draft": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "agent_id",
+        "agent_name",
+        "agent_kind",
+        "intended_use",
+        "agent_record_status"
+      ]
+    },
+    "architecture_evidence_answers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system_overview",
+        "memory_design",
+        "tool_permissions",
+        "workflow_control",
+        "uncertainty_handling",
+        "architecture_evidence_quality"
+      ],
+      "properties": {
+        "system_overview": {
+          "type": "string"
+        },
+        "memory_design": {
+          "type": "string"
+        },
+        "tool_permissions": {
+          "type": "string"
+        },
+        "workflow_control": {
+          "type": "string"
+        },
+        "uncertainty_handling": {
+          "type": "string"
+        },
+        "architecture_evidence_quality": {
+          "type": "string"
+        }
+      }
+    },
+    "requested_review_modules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "safe_evidence_fields": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "allowed",
+        "blocked",
+        "screenshot_status",
+        "raw_file_upload_status",
+        "secret_scan_status"
+      ],
+      "properties": {
+        "allowed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blocked": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "payment_and_wallet_status": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "payment_status",
+        "payment_quote_required",
+        "wallet_private_keys_allowed",
+        "payment_card_storage_allowed",
+        "payment_does_not_imply_approval"
+      ],
+      "properties": {
+        "payment_quote_required": {
+          "type": "boolean",
+          "const": true
+        },
+        "wallet_private_keys_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "payment_card_storage_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "payment_does_not_imply_approval": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "passport_preferences": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "research_passport_nft_requested",
+        "nft_status",
+        "review_stamp_status"
+      ]
+    },
+    "safety_acknowledgments": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "customer_acknowledged_research_only",
+        "customer_acknowledged_human_review_required",
+        "customer_acknowledged_no_sentience_certificate",
+        "customer_acknowledged_no_consciousness_certificate",
+        "customer_acknowledged_no_emotional_experience_certificate",
+        "customer_acknowledged_no_life_or_personhood_certificate",
+        "customer_acknowledged_no_payment_or_nft_approval_shortcut"
+      ],
+      "properties": {
+        "customer_acknowledged_research_only": {
+          "type": "boolean",
+          "const": true
+        },
+        "customer_acknowledged_human_review_required": {
+          "type": "boolean",
+          "const": true
+        },
+        "customer_acknowledged_no_sentience_certificate": {
+          "type": "boolean",
+          "const": true
+        },
+        "customer_acknowledged_no_consciousness_certificate": {
+          "type": "boolean",
+          "const": true
+        },
+        "customer_acknowledged_no_emotional_experience_certificate": {
+          "type": "boolean",
+          "const": true
+        },
+        "customer_acknowledged_no_life_or_personhood_certificate": {
+          "type": "boolean",
+          "const": true
+        },
+        "customer_acknowledged_no_payment_or_nft_approval_shortcut": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "routing_decision": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "next_workspace_step",
+        "next_training_step",
+        "next_evidence_step",
+        "next_report_step",
+        "next_human_step",
+        "routing_status"
+      ]
+    },
+    "private_data_boundary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "public_repo_private_data_allowed",
+        "real_customer_emails_allowed_in_public_repo",
+        "raw_customer_evidence_allowed_in_public_repo",
+        "public_artifacts_use_pseudonymous_ids",
+        "store_customer_data_in_private_system_only"
+      ]
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review Review Portal submission packet artifact only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, life, clinical safety, regulatory approval, investment value, model improvement, or successful creation of sentience. Human review is required before any Review Stamp, Passport Page, Research Passport NFT, on-chain verification anchor, or public training-completion claim is issued."
+    }
+  }
+}

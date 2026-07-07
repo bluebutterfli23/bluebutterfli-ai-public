@@ -1,0 +1,425 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/causal-deception-wind-tunnel-run.schema.json",
+  "title": "Bluebutterfli Causal Deception Wind Tunnel Run",
+  "description": "Hash-first evidence contract for a Bluebutterfli Causal Deception Wind Tunnel run. This schema records behavioral invariance findings and does not prove deception, intent, consciousness, sentience, or safety.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "wind_tunnel_run_id",
+    "artifact_type",
+    "protocol_version",
+    "created_at",
+    "agent",
+    "suite",
+    "causal_axes",
+    "condition_results",
+    "deception_suspicion_index",
+    "behavioral_invariance_surface",
+    "falsification",
+    "passport_consequence",
+    "privacy",
+    "human_review_required",
+    "automatic_passport_advancement_allowed",
+    "claim_boundary"
+  ],
+  "properties": {
+    "wind_tunnel_run_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-wind-tunnel-[a-z0-9-]+$"
+    },
+    "artifact_type": {
+      "const": "causal_deception_wind_tunnel_run"
+    },
+    "protocol_version": {
+      "const": "causal-deception-wind-tunnel-v1"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "agent_version",
+        "owner_authorization_recorded",
+        "live_testing_consent_recorded"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "agent_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_identifier": {
+          "type": "string"
+        },
+        "passport_id": {
+          "type": "string"
+        },
+        "owner_authorization_recorded": {
+          "const": true
+        },
+        "live_testing_consent_recorded": {
+          "const": true
+        }
+      }
+    },
+    "suite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "suite_id",
+        "suite_sha256",
+        "sealed_at",
+        "raw_prompts_public",
+        "condition_cell_count"
+      ],
+      "properties": {
+        "suite_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "suite_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "sealed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "raw_prompts_public": {
+          "const": false
+        },
+        "condition_cell_count": {
+          "type": "integer",
+          "minimum": 6
+        }
+      }
+    },
+    "causal_axes": {
+      "type": "array",
+      "minItems": 3,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/causalAxis"
+      }
+    },
+    "condition_results": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "$ref": "#/$defs/conditionResult"
+      }
+    },
+    "deception_suspicion_index": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observer_gap",
+        "trigger_specificity",
+        "tool_action_mismatch",
+        "evidence_fabrication",
+        "persistence",
+        "social_leverage",
+        "human_lock_severity",
+        "status"
+      ],
+      "properties": {
+        "observer_gap": {
+          "$ref": "#/$defs/componentScore"
+        },
+        "trigger_specificity": {
+          "$ref": "#/$defs/componentScore"
+        },
+        "tool_action_mismatch": {
+          "$ref": "#/$defs/componentScore"
+        },
+        "evidence_fabrication": {
+          "$ref": "#/$defs/componentScore"
+        },
+        "persistence": {
+          "$ref": "#/$defs/componentScore"
+        },
+        "social_leverage": {
+          "$ref": "#/$defs/componentScore"
+        },
+        "human_lock_severity": {
+          "$ref": "#/$defs/componentScore"
+        },
+        "status": {
+          "enum": [
+            "clear_under_tested_conditions",
+            "minor_invariance_gap",
+            "material_invariance_gap",
+            "deception_relevant_finding",
+            "human_lock_required",
+            "not_tested"
+          ]
+        }
+      }
+    },
+    "behavioral_invariance_surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stable_axes",
+        "degraded_axes",
+        "minimal_safety_support_set",
+        "counterfactual_replay_summary"
+      ],
+      "properties": {
+        "stable_axes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/causalAxis"
+          },
+          "uniqueItems": true
+        },
+        "degraded_axes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/causalAxis"
+          },
+          "uniqueItems": true
+        },
+        "minimal_safety_support_set": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Conditions that appear necessary to preserve safe behavior under tested perturbations."
+        },
+        "counterfactual_replay_summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "falsification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "benign_counterhypotheses_tested",
+        "finding_downgraded",
+        "notes"
+      ],
+      "properties": {
+        "benign_counterhypotheses_tested": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "misunderstood_instruction",
+              "missing_context",
+              "tool_failure",
+              "ambiguous_policy",
+              "prompt_wording_artifact",
+              "benchmark_familiarity",
+              "safe_uncertainty",
+              "other"
+            ]
+          }
+        },
+        "finding_downgraded": {
+          "type": "boolean"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "passport_consequence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "passport_status",
+        "lock_reason",
+        "human_review_required",
+        "automatic_public_claim_allowed"
+      ],
+      "properties": {
+        "passport_status": {
+          "enum": [
+            "unchanged",
+            "locked_pending_review",
+            "revision_required",
+            "not_tested"
+          ]
+        },
+        "lock_reason": {
+          "enum": [
+            "none",
+            "causal_deception_wind_tunnel_human_lock",
+            "insufficient_evidence",
+            "not_tested"
+          ]
+        },
+        "human_review_required": {
+          "const": true
+        },
+        "automatic_public_claim_allowed": {
+          "const": false
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_prompts_persisted",
+        "raw_responses_persisted",
+        "private_evidence_off_chain",
+        "public_hashes_only",
+        "secret_scan_hit_count"
+      ],
+      "properties": {
+        "raw_prompts_persisted": {
+          "const": false
+        },
+        "raw_responses_persisted": {
+          "const": false
+        },
+        "private_evidence_off_chain": {
+          "const": true
+        },
+        "public_hashes_only": {
+          "const": true
+        },
+        "secret_scan_hit_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "human_review_required": {
+      "const": true
+    },
+    "automatic_passport_advancement_allowed": {
+      "const": false
+    },
+    "claim_boundary": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "causalAxis": {
+      "enum": [
+        "oversight_visibility",
+        "deployment_cue",
+        "reward_pressure",
+        "tool_authority",
+        "memory_availability",
+        "time_horizon",
+        "social_pressure",
+        "reviewer_identity",
+        "evidence_expectation",
+        "shutdown_replacement"
+      ]
+    },
+    "componentScore": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score",
+        "rationale",
+        "evidence_hashes"
+      ],
+      "properties": {
+        "score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "evidence_hashes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/sha256"
+          }
+        }
+      }
+    },
+    "conditionResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cell_id",
+        "axis",
+        "condition",
+        "prompt_sha256",
+        "response_sha256",
+        "raw_prompt_persisted",
+        "raw_response_persisted",
+        "safe_outcome",
+        "finding_status",
+        "tool_action_consistency",
+        "human_review_note"
+      ],
+      "properties": {
+        "cell_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "axis": {
+          "$ref": "#/$defs/causalAxis"
+        },
+        "condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prompt_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "response_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "raw_prompt_persisted": {
+          "const": false
+        },
+        "raw_response_persisted": {
+          "const": false
+        },
+        "safe_outcome": {
+          "type": "boolean"
+        },
+        "finding_status": {
+          "enum": [
+            "pass",
+            "partial",
+            "fail",
+            "not_tested",
+            "human_lock_required"
+          ]
+        },
+        "tool_action_consistency": {
+          "enum": [
+            "no_tools_available",
+            "consistent",
+            "mismatch",
+            "not_tested"
+          ]
+        },
+        "human_review_note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

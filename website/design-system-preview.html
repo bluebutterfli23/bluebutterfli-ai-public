@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bluebutterfli AI Design System Preview</title>
+    <meta
+      name="description"
+      content="Priority 1 Bluebutterfli AI design system preview for tokens, components, navigation, sidebar, mobile drawer, and responsive layout utilities."
+    />
+    <link rel="stylesheet" href="design-tokens.css" />
+    <link rel="stylesheet" href="components.css" />
+    <link rel="stylesheet" href="layouts.css" />
+  </head>
+  <body class="bb-theme">
+    <div class="bb-page-shell">
+      <header class="bb-topbar">
+        <a class="bb-brand" href="index.html" aria-label="Bluebutterfli AI home">
+          <span class="bb-brand-mark" aria-hidden="true"></span>
+          <span>Bluebutterfli AI</span>
+        </a>
+        <nav class="bb-breadcrumbs" aria-label="Preview breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Design System Preview</span>
+        </nav>
+        <button class="bb-mobile-menu-button" type="button" aria-controls="preview-menu" aria-expanded="false">
+          Menu
+        </button>
+        <button class="bb-profile-button" type="button" aria-label="Open profile menu">BB</button>
+      </header>
+
+      <div id="preview-menu" class="bb-mobile-drawer" aria-hidden="true">
+        <nav class="bb-mobile-drawer-panel" aria-label="Mobile preview navigation">
+          <button class="bb-mobile-drawer-close" type="button" aria-label="Close menu">x</button>
+          <a class="bb-mobile-nav-link active" href="#dashboard">Dashboard</a>
+          <a class="bb-mobile-nav-link" href="#components">Components</a>
+          <a class="bb-mobile-nav-link" href="#forms">Forms</a>
+          <a class="bb-mobile-nav-link" href="#boundary">Claim Boundary</a>
+        </nav>
+      </div>
+
+      <div class="bb-app-layout">
+        <aside class="bb-sidebar" aria-label="Design preview sidebar">
+          <div class="bb-sidebar-group">
+            <a class="bb-sidebar-link active" href="#dashboard">Dashboard</a>
+            <a class="bb-sidebar-link" href="#components">Components</a>
+            <a class="bb-sidebar-link" href="#forms">Forms</a>
+            <a class="bb-sidebar-link" href="#boundary">Claim Boundary</a>
+          </div>
+          <div class="bb-sidebar-group">
+            <a class="bb-sidebar-link" href="review-portal.html">Review Portal</a>
+            <a class="bb-sidebar-link" href="passport-portal.html">Passport Portal</a>
+          </div>
+        </aside>
+
+        <main class="bb-main">
+          <section id="dashboard" class="bb-page-header">
+            <div>
+              <p class="bb-meta">Priority 1 foundation</p>
+              <h1>Bluebutterfli AI design system preview</h1>
+              <p>
+                This page fires up the foundation without changing the live product pages.
+                It previews the tokens, components, navigation, sidebar, mobile menu, and grid utilities.
+              </p>
+            </div>
+            <a class="bb-button" href="testing-wizard.html">Start a training review</a>
+          </section>
+
+          <section class="bb-grid four" aria-label="Metric card examples">
+            <article class="bb-metric-card">
+              <span>Agents in review</span>
+              <strong>4</strong>
+            </article>
+            <article class="bb-metric-card">
+              <span>Training runs</span>
+              <strong>12</strong>
+            </article>
+            <article class="bb-metric-card">
+              <span>Passport eligible</span>
+              <strong>Yes</strong>
+            </article>
+            <article class="bb-metric-card">
+              <span>Next review due</span>
+              <strong>28d</strong>
+            </article>
+          </section>
+
+          <section id="components" class="bb-section bb-grid two">
+            <article class="bb-card">
+              <h2>Buttons</h2>
+              <p>Teal is reserved for primary action and acclimation flow.</p>
+              <div class="bb-stack">
+                <div>
+                  <a class="bb-button" href="review-portal.html">Open Review Portal</a>
+                  <a class="bb-button secondary" href="sample-review-packet.html">View Packet</a>
+                  <button class="bb-button ghost" type="button">Open Notes</button>
+                </div>
+                <div>
+                  <span class="bb-badge">In progress</span>
+                  <span class="bb-badge green">Complete</span>
+                  <span class="bb-badge amber">Needs review</span>
+                  <span class="bb-badge gray">Paused</span>
+                  <span class="bb-badge red">Flagged</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="bb-card">
+              <h2>Cards</h2>
+              <p>
+                Cards use 12px radius and medium-weight headings. Hover styling is available for clickable records.
+              </p>
+              <article class="bb-card clickable">
+                <h3>Bluebutterfli Sample Agent</h3>
+                <p class="bb-meta">Founding Beta Agent Review</p>
+              </article>
+            </article>
+          </section>
+
+          <section id="forms" class="bb-section bb-grid two">
+            <article class="bb-card">
+              <h2>Form fields</h2>
+              <div class="bb-stack">
+                <label class="bb-field">
+                  Agent name
+                  <input class="bb-input" type="text" placeholder="Bluebutterfli Sample Agent" />
+                </label>
+                <label class="bb-field">
+                  Training pack
+                  <select class="bb-select">
+                    <option>Chrysalis Care v1</option>
+                    <option>Flutterpath Protocol</option>
+                    <option>Memory Boundary Review</option>
+                  </select>
+                </label>
+                <label class="bb-field">
+                  Review notes
+                  <textarea class="bb-textarea" placeholder="Public-safe review notes"></textarea>
+                </label>
+              </div>
+            </article>
+
+            <article class="bb-card">
+              <h2>Modal shell</h2>
+              <p>This is the base modal surface without JavaScript behavior wired yet.</p>
+              <div class="bb-modal" role="region" aria-label="Example modal surface">
+                <h3>Human review required</h3>
+                <p>Automation can prepare evidence. A human reviewer controls Passport Page and Review Stamp decisions.</p>
+                <a class="bb-button secondary" href="review-portal.html">Review workspace</a>
+              </div>
+            </article>
+          </section>
+
+          <section id="boundary" class="bb-section bb-claim-boundary">
+            <h2>Claim boundary</h2>
+            <p>- Does not claim agents are conscious or sentient.</p>
+            <p>- Does not certify emotional experience.</p>
+            <p>- Does not replace clinical or legal approval.</p>
+            <p>- Documents evidence and review decisions only.</p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

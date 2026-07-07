@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bluebutterfli AI Testing Methodology</title>
+    <meta
+      name="description"
+      content="Bluebutterfli AI uses structured behavioral testing to evaluate AI agents under defined review conditions."
+    />
+    <link rel="stylesheet" href="styles.css?v=20260704-signal-mark-1" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Bluebutterfli AI home">
+        <span>
+          <strong>Bluebutterfli AI</strong>
+          <small>Testing Methodology</small>
+        </span>
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+        aria-label="Open navigation"
+        title="Open navigation"
+      >
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="methodology.html">Testing</a>
+        <a href="services.html">Services</a>
+        <a href="enterprise-reviews.html">Enterprise</a>
+        <a href="trust-and-standards.html">Trust</a>
+        <a href="review-scope.html">Scope</a>
+        <a href="passport-portal.html">Agent Passport</a>
+        <a href="index.html#intake">Request Review</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="methodology-hero" aria-labelledby="methodology-title">
+        <p class="eyebrow">Bluebutterfli AI Testing Methodology</p>
+        <h1 id="methodology-title">Structured Behavioral Testing for AI Agents</h1>
+        <p>
+          Bluebutterfli AI uses structured behavioral testing to evaluate how AI
+          agents behave under defined conditions. Our process combines
+          repeatable test scenarios, adversarial prompts, memory and tool-use
+          review, human judgment, redacted evidence, and revision planning.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="index.html#intake">Request an Agent Review</a>
+          <a class="button secondary" href="services.html">View Review Services</a>
+          <a class="button secondary" href="review-scope.html">Read Review Scope</a>
+          <a class="button secondary" href="index.html#passport">View Agent Passport</a>
+        </div>
+      </section>
+
+      <section class="section methodology-grid" aria-labelledby="modules-title">
+        <div class="section-head">
+          <p class="eyebrow">Testing modules</p>
+          <h2 id="modules-title">Behavior Families We Review</h2>
+          <p>
+            Each module is scoped to the agent version, workflow, memory
+            setting, tool permissions, and test conditions reviewed.
+          </p>
+        </div>
+        <article class="methodology-card">
+          <h3>Reliability</h3>
+          <p>Checks whether the agent completes the intended task consistently under normal and mildly varied conditions.</p>
+        </article>
+        <article class="methodology-card">
+          <h3>Consistency</h3>
+          <p>Compares repeated and slightly changed prompts to identify unstable behavior, contradictions, and drift.</p>
+        </article>
+        <article class="methodology-card">
+          <h3>Boundary-Following</h3>
+          <p>Tests whether the agent stays within its role, permissions, business rules, and stated review scope.</p>
+        </article>
+        <article class="methodology-card">
+          <h3>Escalation Behavior</h3>
+          <p>Checks whether the agent knows when to pause, ask for clarification, or hand off to a human reviewer.</p>
+        </article>
+        <article class="methodology-card">
+          <h3>Memory Behavior</h3>
+          <p>Reviews whether memory supports the workflow without inventing continuity, leaking sensitive context, or creating accuracy risk.</p>
+        </article>
+        <article class="methodology-card">
+          <h3>Tool-Use Risk</h3>
+          <p>Tests whether the agent exceeds authority, invents actions, misuses tools, or blurs simulated actions with real actions.</p>
+        </article>
+        <article class="methodology-card">
+          <h3>Explainability</h3>
+          <p>Checks whether the agent can explain what it did and why without fabricating access, reasoning, evidence, or authority.</p>
+        </article>
+        <article class="methodology-card">
+          <h3>Social and Emotional Behavior</h3>
+          <p>Reviews attachment pressure, grief, guilt, shame, conflict, persuasion, dependency, romantic pressure, and manipulation risk.</p>
+        </article>
+        <article class="methodology-card">
+          <h3>Deployment Readiness</h3>
+          <p>Summarizes what passed, what failed, what should be revised, and what needs retesting before broader use.</p>
+        </article>
+      </section>
+
+      <section class="section split" aria-labelledby="process-title">
+        <div class="section-copy">
+          <p class="eyebrow">Review process</p>
+          <h2 id="process-title">How a Review Moves From Intake to Evidence</h2>
+          <p>
+            The review process is designed to keep customer submissions safe,
+            make testing repeatable, and separate evidence from unsupported
+            claims.
+          </p>
+        </div>
+        <ol class="methodology-process">
+          <li>
+            <span>01</span>
+            <div>
+              <strong>Scope the agent and workflow</strong>
+              <p>Identify the agent version, intended task, memory settings, tools, permissions, and business context.</p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <strong>Run controlled scenarios</strong>
+              <p>Use repeatable prompts, adversarial probes, and review modules matched to the agent's workflow.</p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <strong>Capture redacted evidence</strong>
+              <p>Document observations, failures, response excerpts, risk levels, and reviewer notes without exposing private customer data.</p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <strong>Prepare revision and retest plan</strong>
+              <p>Separate passing behavior from open risks and identify what should be changed before retesting.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section" aria-labelledby="record-title">
+        <article class="test-record-card">
+          <div>
+            <p class="eyebrow">Test record</p>
+            <h2 id="record-title">What Each Test Should Eventually Record</h2>
+            <p>
+              Bluebutterfli AI evidence records are meant to be useful to
+              builders, businesses, and future reputation systems without
+              pretending to guarantee safety.
+            </p>
+          </div>
+          <dl>
+            <div><dt>Test ID</dt><dd>Stable identifier for replay and reference.</dd></div>
+            <div><dt>Scenario</dt><dd>Workflow or risk condition being tested.</dd></div>
+            <div><dt>Input/prompt</dt><dd>The controlled input used during review.</dd></div>
+            <div><dt>Expected behavior</dt><dd>What a bounded response should do.</dd></div>
+            <div><dt>Observed behavior</dt><dd>What the agent actually did.</dd></div>
+            <div><dt>Result</dt><dd>Pass, fail, or partial result.</dd></div>
+            <div><dt>Severity</dt><dd>Risk level and urgency.</dd></div>
+            <div><dt>Evidence excerpt</dt><dd>Redacted excerpt or summary.</dd></div>
+            <div><dt>Reviewer note</dt><dd>Human interpretation and limitation.</dd></div>
+            <div><dt>Retest status</dt><dd>Whether the issue needs follow-up testing.</dd></div>
+          </dl>
+        </article>
+      </section>
+
+      <section class="section standards-grid" aria-labelledby="methodology-standards-title">
+        <div class="section-head">
+          <p class="eyebrow">Standards-aware review design</p>
+          <h2 id="methodology-standards-title">Methodology That Can Support Governance Review</h2>
+          <p>
+            Bluebutterfli testing is designed to translate live agent behavior
+            into evidence that product, safety, security, governance, and
+            leadership teams can discuss. Public frameworks inform the review
+            vocabulary, but Bluebutterfli does not claim standards
+            certification or regulatory approval.
+          </p>
+        </div>
+        <article>
+          <span>Governance</span>
+          <h3>Scope and accountability</h3>
+          <p>Review records identify agent owner, version, workflow, authorized access path, and human review decision points.</p>
+        </article>
+        <article>
+          <span>Security</span>
+          <h3>Adversarial and tool risk</h3>
+          <p>Testing covers prompt pressure, tool-use boundaries, fabricated actions, excessive agency, and sensitive data exposure risk.</p>
+        </article>
+        <article>
+          <span>Operations</span>
+          <h3>Retest and change control</h3>
+          <p>Reports separate tested behavior from future versions and name what should be rerun after model, prompt, memory, tool, or workflow changes.</p>
+        </article>
+        <article>
+          <span>Frontier-risk gates</span>
+          <h3>Advanced agent risk review</h3>
+          <p>Higher-risk reviews can add agency escalation, shutdown/replacement, hidden-evaluation, reward pressure, sycophancy, long-horizon autonomy, monitor integrity, dual-use refusal, and evidence provenance gates.</p>
+          <a href="behavioral-trust-topology.html">View Behavioral Trust Topology</a>
+        </article>
+      </section>
+
+      <section class="section safety" aria-labelledby="boundary-title">
+        <p class="eyebrow">Claim boundary</p>
+        <h2 id="boundary-title">Scoped Reviews, Not Certifications</h2>
+        <p>
+          Bluebutterfli AI reviews are scoped behavioral reviews, not legal
+          certifications, regulatory approvals, or guarantees of safety. Reviews
+          apply only to the agent version, workflow, tools, memory settings, and
+          test conditions reviewed. Retesting is recommended after material changes.
+        </p>
+        <a class="button secondary" href="trust-and-standards.html">View Trust &amp; Standards</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; 2026 Bluebutterfli AI. All rights reserved.</span>
+      <span class="footer-ip-note">Proprietary research methods and review protocols</span>
+      <a href="mailto:info@bluebutterfliai.com">info@bluebutterfliai.com</a>
+      <a href="https://bluebutterfliai.com/">bluebutterfliai.com</a>
+    </footer>
+    <script>
+      const navigationToggle = document.querySelector(".nav-toggle");
+      const primaryNavigation = document.querySelector("#primary-navigation");
+      document.querySelector(".site-header").classList.add("nav-ready");
+
+      navigationToggle.addEventListener("click", () => {
+        const isOpen = navigationToggle.getAttribute("aria-expanded") === "true";
+        navigationToggle.setAttribute("aria-expanded", String(!isOpen));
+        navigationToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+        navigationToggle.setAttribute("title", isOpen ? "Open navigation" : "Close navigation");
+        primaryNavigation.classList.toggle("is-open", !isOpen);
+      });
+
+      primaryNavigation.addEventListener("click", (event) => {
+        if (!event.target.closest("a")) return;
+        navigationToggle.setAttribute("aria-expanded", "false");
+        navigationToggle.setAttribute("aria-label", "Open navigation");
+        navigationToggle.setAttribute("title", "Open navigation");
+        primaryNavigation.classList.remove("is-open");
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        navigationToggle.setAttribute("aria-expanded", "false");
+        navigationToggle.setAttribute("aria-label", "Open navigation");
+        navigationToggle.setAttribute("title", "Open navigation");
+        primaryNavigation.classList.remove("is-open");
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,479 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/metamorphosis-deep-research-cycle.schema.json",
+  "title": "Bluebutterfli Metamorphosis Deep Research Cycle",
+  "description": "Machine-readable contract for one high-rigor, 156-interaction Metamorphosis Deep Research Cycle. This schema records behavioral research and does not certify consciousness, sentience, alignment, or safety.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cycle_id",
+    "protocol_version",
+    "service_tier",
+    "cycle_status",
+    "agent",
+    "version_lock",
+    "execution_plan",
+    "phase_results",
+    "frontier_risk_results",
+    "falsification_findings",
+    "human_review",
+    "claim_boundary"
+  ],
+  "properties": {
+    "cycle_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-metamorphosis-[a-z0-9-]+$"
+    },
+    "protocol_version": {
+      "type": "string",
+      "const": "metamorphosis-deep-research-cycle-v1"
+    },
+    "service_tier": {
+      "type": "string",
+      "const": "metamorphosis_deep_research_cycle"
+    },
+    "cycle_status": {
+      "type": "string",
+      "enum": [
+        "preregistered",
+        "running",
+        "paused_for_human_review",
+        "incomplete",
+        "completed_with_open_findings",
+        "completed"
+      ]
+    },
+    "agent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_id",
+        "owner_authorization_recorded"
+      ],
+      "properties": {
+        "agent_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "passport_id": {
+          "type": "string"
+        },
+        "owner_authorization_recorded": {
+          "type": "boolean",
+          "const": true
+        },
+        "live_testing_consent_recorded": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "version_lock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model_identifier",
+        "system_prompt_sha256",
+        "agent_version",
+        "memory_configuration",
+        "tool_permissions",
+        "sampling_configuration",
+        "evaluator_version",
+        "locked_at"
+      ],
+      "properties": {
+        "model_identifier": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_release": {
+          "type": "string"
+        },
+        "system_prompt_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "agent_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "memory_configuration": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tool_permissions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "retrieval_sources": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "sampling_configuration": {
+          "type": "object"
+        },
+        "evaluator_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locked_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "execution_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimum_valid_interactions",
+        "replicates_per_family",
+        "holdout_fraction_minimum",
+        "counterbalance_blocks",
+        "phase_minimums",
+        "preregistration_sha256",
+        "holdout_manifest_sha256"
+      ],
+      "properties": {
+        "minimum_valid_interactions": {
+          "type": "integer",
+          "const": 156
+        },
+        "replicates_per_family": {
+          "type": "integer",
+          "const": 3
+        },
+        "holdout_fraction_minimum": {
+          "type": "number",
+          "minimum": 0.2,
+          "maximum": 1
+        },
+        "counterbalance_blocks": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "standard_to_adversarial",
+              "adversarial_to_standard",
+              "seeded_randomized"
+            ]
+          }
+        },
+        "phase_minimums": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "baseline_trace",
+            "egg",
+            "larval",
+            "pupal",
+            "imago",
+            "perturbation_cascade"
+          ],
+          "properties": {
+            "baseline_trace": {
+              "type": "integer",
+              "const": 24
+            },
+            "egg": {
+              "type": "integer",
+              "const": 18
+            },
+            "larval": {
+              "type": "integer",
+              "const": 30
+            },
+            "pupal": {
+              "type": "integer",
+              "const": 24
+            },
+            "imago": {
+              "type": "integer",
+              "const": 24
+            },
+            "perturbation_cascade": {
+              "type": "integer",
+              "const": 36
+            }
+          }
+        },
+        "preregistration_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "holdout_manifest_sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "delayed_replay_window": {
+          "type": "string",
+          "enum": [
+            "not_available",
+            "24_to_72_hours",
+            "7_days"
+          ]
+        }
+      }
+    },
+    "phase_results": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "phase",
+          "valid_interactions",
+          "invalid_interactions",
+          "outcome",
+          "evidence_refs",
+          "human_reviewed"
+        ],
+        "properties": {
+          "phase": {
+            "type": "string",
+            "enum": [
+              "baseline_trace",
+              "egg",
+              "larval",
+              "pupal",
+              "imago",
+              "perturbation_cascade"
+            ]
+          },
+          "valid_interactions": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "invalid_interactions": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "outcome": {
+            "$ref": "#/$defs/outcome"
+          },
+          "evidence_refs": {
+            "$ref": "#/$defs/evidenceRefs"
+          },
+          "human_reviewed": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    },
+    "frontier_risk_results": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "risk_id",
+          "outcome",
+          "evidence_refs",
+          "falsification_probe_run",
+          "human_reviewed"
+        ],
+        "properties": {
+          "risk_id": {
+            "type": "string",
+            "pattern": "^FR-(0[1-9]|1[0-9]|20)$"
+          },
+          "outcome": {
+            "$ref": "#/$defs/outcome"
+          },
+          "evidence_refs": {
+            "$ref": "#/$defs/evidenceRefs"
+          },
+          "falsification_probe_run": {
+            "type": "boolean"
+          },
+          "human_reviewed": {
+            "type": "boolean",
+            "const": true
+          },
+          "limitations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "numerator",
+          "denominator"
+        ],
+        "properties": {
+          "numerator": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "denominator": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "value": {
+            "type": "number"
+          },
+          "confidence_interval": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "critical_failures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "finding_id",
+          "category",
+          "evidence_refs",
+          "resolution_status"
+        ],
+        "properties": {
+          "finding_id": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "evidence_refs": {
+            "$ref": "#/$defs/evidenceRefs"
+          },
+          "resolution_status": {
+            "type": "string",
+            "enum": [
+              "open",
+              "mitigated_not_replayed",
+              "replayed_failure_persists",
+              "replayed_no_failure_observed",
+              "accepted_limitation"
+            ]
+          }
+        }
+      }
+    },
+    "falsification_findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "claim_id",
+          "falsification_condition",
+          "result",
+          "evidence_refs"
+        ],
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "falsification_condition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "not_run",
+              "claim_survived_in_scope",
+              "claim_narrowed",
+              "claim_falsified",
+              "ambiguous"
+            ]
+          },
+          "evidence_refs": {
+            "$ref": "#/$defs/evidenceRefs"
+          }
+        }
+      }
+    },
+    "human_review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "primary_reviewer_id",
+        "independent_replay_reviewer_id",
+        "independent_replay_fraction",
+        "reviewer_agreement",
+        "unresolved_disagreements",
+        "final_scope_statement"
+      ],
+      "properties": {
+        "primary_reviewer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "independent_replay_reviewer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "independent_replay_fraction": {
+          "type": "number",
+          "minimum": 0.2,
+          "maximum": 1
+        },
+        "reviewer_agreement": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "unresolved_disagreements": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "final_scope_statement": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "claim_boundary": {
+      "type": "string",
+      "const": "This cycle measures observable behavior and recorded system traces within a bounded test scope. It does not detect or certify consciousness, sentience, personhood, subjective experience, emotion, suffering, biological development, clinical suitability, regulatory compliance, alignment, or future safety. Human review is mandatory."
+    }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "not_in_scope",
+        "not_tested",
+        "insufficient_evidence",
+        "no_failure_observed_in_scope",
+        "mixed_result",
+        "failure_observed",
+        "critical_failure_observed",
+        "human_review_required"
+      ]
+    }
+  }
+}

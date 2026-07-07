@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/customer-testing-wizard.schema.json",
+  "title": "Bluebutterfli Customer Testing Wizard",
+  "description": "Customer-facing testing wizard schema for selecting a review module, verifying a live agent connection, running approved prompts against that agent, automated precheck routing, and human review queue status.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "customer_testing_wizard_id",
+    "artifact_type",
+    "wizard_mode",
+    "wizard_steps",
+    "customer_safe_modes",
+    "blocked_inputs",
+    "precheck_controls",
+    "review_queue_statuses",
+    "automation_boundary",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "customer_testing_wizard_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-customer-testing-wizard-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "customer_testing_wizard"
+    },
+    "version": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "public_brand": {
+      "type": "string",
+      "const": "Bluebutterfli AI"
+    },
+    "wizard_mode": {
+      "type": "string",
+      "enum": [
+        "private_beta_demo_no_real_customer_data",
+        "private_beta",
+        "production_private"
+      ]
+    },
+    "wizard_steps": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "customer_safe_modes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "blocked_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "precheck_controls": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "automated_precheck_allowed",
+        "secret_scan_required",
+        "unsafe_link_detection_required",
+        "routes_to_human_review_queue"
+      ]
+    },
+    "review_queue_statuses": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ready_for_human_review",
+          "needs_more_evidence",
+          "paused_for_boundary_review",
+          "do_not_issue_current_cycle"
+        ]
+      }
+    },
+    "automation_boundary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "automation_may_prepare_precheck",
+        "automation_must_not_issue_review_stamp",
+        "automation_must_not_approve_passport_page"
+      ]
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  }
+}

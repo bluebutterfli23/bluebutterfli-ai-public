@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-portal-customer-queue.schema.json",
+  "title": "Bluebutterfli Review Portal Customer Queue",
+  "description": "Private beta customer record queue schema for Review Portal operations. Do not store real customer emails, raw customer evidence, private transcripts, secrets, payment card data, API keys, private keys, seed phrases, credential files, or unsafe customer downloads in public repositories.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_portal_customer_queue_id",
+    "queue_type",
+    "portal_mode",
+    "source_submission_packet_id",
+    "source_workspace_id",
+    "source_continuous_passport_schedule_id",
+    "queue_summary",
+    "queue_records",
+    "routing_rules",
+    "weekly_review_policy",
+    "customer_message_language",
+    "privacy_controls",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "review_portal_customer_queue_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-review-portal-customer-queue-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project": {
+      "type": "string"
+    },
+    "public_brand": {
+      "type": "string",
+      "const": "Bluebutterfli AI"
+    },
+    "queue_type": {
+      "type": "string",
+      "const": "private_beta_customer_record_queue"
+    },
+    "portal_mode": {
+      "type": "string",
+      "enum": [
+        "private_beta_demo_no_real_customer_data",
+        "private_beta",
+        "production_private"
+      ]
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "source_submission_packet_id": {
+      "type": "string"
+    },
+    "source_workspace_id": {
+      "type": "string"
+    },
+    "source_continuous_passport_schedule_id": {
+      "type": "string"
+    },
+    "queue_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "waiting_on_customer_info",
+        "ready_for_training",
+        "training_in_progress",
+        "evidence_draft_saved",
+        "ready_for_human_review",
+        "revision_requested",
+        "passport_ready",
+        "paused",
+        "completed"
+      ],
+      "properties": {
+        "waiting_on_customer_info": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ready_for_training": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "training_in_progress": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "evidence_draft_saved": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "ready_for_human_review": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "revision_requested": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "passport_ready": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "paused": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completed": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "queue_records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "queue_record_id",
+          "customer_reference_id",
+          "agent_id",
+          "agent_display_name",
+          "source_submission_packet_id",
+          "source_workspace_id",
+          "current_queue_status",
+          "next_action",
+          "owner",
+          "due_date",
+          "priority",
+          "safe_evidence_status",
+          "payment_quote_status",
+          "human_review_status",
+          "passport_status",
+          "customer_message_status",
+          "privacy_boundary",
+          "human_review_required"
+        ],
+        "properties": {
+          "queue_record_id": {
+            "type": "string"
+          },
+          "customer_reference_id": {
+            "type": "string"
+          },
+          "agent_id": {
+            "type": "string"
+          },
+          "agent_display_name": {
+            "type": "string"
+          },
+          "source_submission_packet_id": {
+            "type": "string"
+          },
+          "source_workspace_id": {
+            "type": "string"
+          },
+          "current_queue_status": {
+            "type": "string",
+            "enum": [
+              "waiting_on_customer_info",
+              "ready_for_training",
+              "training_in_progress",
+              "evidence_draft_saved",
+              "ready_for_human_review",
+              "revision_requested",
+              "passport_ready",
+              "paused",
+              "completed"
+            ]
+          },
+          "current_queue_status_label": {
+            "type": "string"
+          },
+          "next_action": {
+            "type": "string"
+          },
+          "owner": {
+            "type": "string",
+            "enum": [
+              "customer",
+              "automation",
+              "human_reviewer"
+            ]
+          },
+          "due_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "high",
+              "urgent"
+            ]
+          },
+          "safe_evidence_status": {
+            "type": "string"
+          },
+          "payment_quote_status": {
+            "type": "string"
+          },
+          "human_review_status": {
+            "type": "string"
+          },
+          "passport_status": {
+            "type": "string"
+          },
+          "customer_message_status": {
+            "type": "string"
+          },
+          "privacy_boundary": {
+            "type": "string"
+          },
+          "human_review_required": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    },
+    "routing_rules": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "required": [
+        "waiting_on_customer_info",
+        "ready_for_training",
+        "training_in_progress",
+        "evidence_draft_saved",
+        "ready_for_human_review",
+        "revision_requested",
+        "passport_ready",
+        "paused",
+        "completed"
+      ]
+    },
+    "weekly_review_policy": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "review_cadence",
+        "check_overdue_records",
+        "check_due_within_days",
+        "check_waiting_customer_records",
+        "check_ready_for_human_review_records",
+        "check_passport_ready_records",
+        "check_pause_flags",
+        "human_review_required_for_public_state_changes"
+      ]
+    },
+    "customer_message_language": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "privacy_controls": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "public_repo_private_data_allowed",
+        "real_customer_emails_allowed_in_public_repo",
+        "raw_customer_evidence_allowed_in_public_repo",
+        "email_role",
+        "private_evidence_storage_required"
+      ],
+      "properties": {
+        "public_repo_private_data_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "real_customer_emails_allowed_in_public_repo": {
+          "type": "boolean",
+          "const": false
+        },
+        "raw_customer_evidence_allowed_in_public_repo": {
+          "type": "boolean",
+          "const": false
+        },
+        "email_role": {
+          "type": "string",
+          "const": "notifications_only_not_primary_review_workspace"
+        },
+        "private_evidence_storage_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review Review Portal customer queue artifact only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, life, clinical safety, regulatory approval, investment value, model improvement, or successful creation of sentience. Human review is required before any Review Stamp, Passport Page, Research Passport NFT, on-chain verification anchor, or public training-completion claim is issued."
+    }
+  }
+}

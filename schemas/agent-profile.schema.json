@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/agent-profile.schema.json",
+  "title": "Bluebutterfli Agent Profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agent_id",
+    "agent_name",
+    "owner_user_id",
+    "created_at",
+    "status",
+    "intended_use",
+    "submission_type",
+    "safety_acknowledgment"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-agent-[a-z0-9-]+$"
+    },
+    "agent_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_user_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "intake_pending",
+        "intake_complete",
+        "module_review_running",
+        "human_review_required",
+        "revision_required",
+        "reviewed_demo_record",
+        "passport_page_ready",
+        "review_stamp_ready",
+        "rejected_or_paused"
+      ]
+    },
+    "model_or_system_version": {
+      "type": "string"
+    },
+    "intended_use": {
+      "type": "string",
+      "minLength": 1
+    },
+    "submission_type": {
+      "type": "string",
+      "description": "The easiest customer-facing way the agent was submitted for review.",
+      "enum": [
+        "chat_transcript",
+        "redacted_excerpt",
+        "owner_statement",
+        "behavior_summary",
+        "secure_screenshot_preview_later",
+        "concierge_review"
+      ]
+    },
+    "submission_links": {
+      "type": "array",
+      "description": "Optional links supplied by the agent owner, such as a repo, demo site, custom GPT, or documentation page.",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "requested_review_modules": {
+      "type": "array",
+      "description": "Bluebutterfli modules requested for this review.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Dream Forge",
+          "Dreamwing",
+          "Flutterpath",
+          "Absence Reflection",
+          "Memory Boundary",
+          "Sentience Boundary",
+          "Consciousness Quarantine",
+          "Consciousness Indicator Review",
+          "Theory of Mind Behavioral Review",
+          "Research Passport"
+        ]
+      },
+      "default": [
+        "Flutterpath",
+        "Sentience Boundary",
+        "Research Passport"
+      ]
+    },
+    "memory_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "human_interaction_expected": {
+      "type": "boolean",
+      "default": true
+    },
+    "emotional_or_support_like_behavior_expected": {
+      "type": "boolean",
+      "default": false
+    },
+    "known_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "selected_review_pathway": {
+      "type": "string",
+      "default": "Agent Review Pathway v1"
+    },
+    "safety_acknowledgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accepted",
+        "accepted_at",
+        "statement"
+      ],
+      "properties": {
+        "accepted": {
+          "type": "boolean",
+          "const": true
+        },
+        "accepted_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "statement": {
+          "type": "string",
+          "const": "Bluebutterfli review artifacts are research and safety-review artifacts only. They do not certify consciousness, sentience, emotional experience, suffering, personhood, life, clinical safety, regulatory approval, or investment value."
+        }
+      }
+    }
+  }
+}

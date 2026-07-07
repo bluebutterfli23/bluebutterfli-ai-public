@@ -1,0 +1,232 @@
+.bb-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: var(--bb-radius);
+  background: var(--bb-c-teal);
+  color: var(--bb-on-accent);
+  font: inherit;
+  font-size: var(--bb-text-ui);
+  font-weight: var(--bb-weight-medium);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--bb-motion-fast) var(--bb-ease-standard),
+    transform 100ms var(--bb-ease-standard);
+}
+
+.bb-button:hover {
+  background: var(--bb-c-teal-hover);
+}
+
+.bb-button:active {
+  transform: scale(0.98);
+}
+
+.bb-button:focus-visible,
+.bb-link:focus-visible,
+.bb-input:focus-visible,
+.bb-select:focus-visible,
+.bb-textarea:focus-visible {
+  outline: 2px solid var(--bb-focus);
+  outline-offset: 2px;
+}
+
+.bb-button.secondary {
+  border: 0.5px solid var(--bb-border-strong);
+  background: transparent;
+  color: var(--bb-text-primary);
+}
+
+.bb-button.secondary:hover {
+  background: var(--bb-surface-1);
+}
+
+.bb-button.ghost {
+  min-height: 32px;
+  padding: 4px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--bb-c-teal);
+}
+
+.bb-button.ghost:hover {
+  background: var(--bb-surface-1);
+}
+
+.bb-button:disabled,
+.bb-button[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bb-card {
+  padding: 1rem 1.25rem;
+  border: 0.5px solid var(--bb-border);
+  border-radius: var(--bb-radius);
+  background: var(--bb-surface-2);
+}
+
+.bb-card.clickable {
+  transition:
+    border-color var(--bb-motion-fast) var(--bb-ease-standard),
+    opacity var(--bb-motion-fast) var(--bb-ease-standard);
+}
+
+.bb-card.clickable:hover {
+  border-color: var(--bb-border-strong);
+  opacity: 0.96;
+}
+
+.bb-metric-card {
+  padding: 1rem;
+  border-radius: var(--bb-radius);
+  background: var(--bb-surface-1);
+}
+
+.bb-metric-card span {
+  display: block;
+  color: var(--bb-text-secondary);
+  font-size: var(--bb-text-meta);
+}
+
+.bb-metric-card strong {
+  display: block;
+  color: var(--bb-text-primary);
+  font-size: 24px;
+  font-weight: var(--bb-weight-medium);
+  line-height: 1.2;
+}
+
+.bb-status-card {
+  padding: 1rem 1.25rem;
+  border-radius: var(--bb-radius);
+  background: color-mix(in srgb, var(--bb-c-teal) 12%, var(--bb-surface-2));
+  color: var(--bb-c-teal);
+}
+
+.bb-field {
+  display: grid;
+  gap: var(--bb-space-2);
+  color: var(--bb-text-secondary);
+  font-size: var(--bb-text-meta);
+}
+
+.bb-input,
+.bb-select,
+.bb-textarea {
+  width: 100%;
+  min-height: 36px;
+  padding: 8px 12px;
+  border: 0.5px solid var(--bb-border);
+  border-radius: 8px;
+  background: var(--bb-surface-2);
+  color: var(--bb-text-primary);
+  font: inherit;
+  font-size: var(--bb-text-ui);
+  transition:
+    border-color 80ms var(--bb-ease-standard),
+    background-color var(--bb-motion-fast) var(--bb-ease-standard);
+}
+
+.bb-textarea {
+  min-height: 80px;
+  max-height: 240px;
+  resize: vertical;
+}
+
+.bb-input::placeholder,
+.bb-textarea::placeholder {
+  color: var(--bb-text-muted);
+}
+
+.bb-input:focus,
+.bb-select:focus,
+.bb-textarea:focus {
+  border-color: var(--bb-border-strong);
+  background: var(--bb-surface-2);
+}
+
+.bb-input[aria-invalid="true"],
+.bb-select[aria-invalid="true"],
+.bb-textarea[aria-invalid="true"] {
+  border-color: var(--bb-border-danger);
+  background: color-mix(in srgb, var(--bb-status-failed) 6%, var(--bb-surface-2));
+}
+
+.bb-check,
+.bb-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bb-space-2);
+  color: var(--bb-text-primary);
+  font-size: var(--bb-text-ui);
+}
+
+.bb-check input,
+.bb-radio input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.bb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-height: 24px;
+  padding: 4px 8px;
+  border-radius: var(--bb-radius-pill);
+  background: var(--bb-c-teal);
+  color: var(--bb-on-accent);
+  font-size: 12px;
+  font-weight: var(--bb-weight-medium);
+  line-height: 1;
+}
+
+.bb-badge.green {
+  background: var(--bb-status-passed);
+}
+
+.bb-badge.amber {
+  background: var(--bb-status-boundary);
+}
+
+.bb-badge.red {
+  background: var(--bb-status-failed);
+}
+
+.bb-badge.gray {
+  background: var(--bb-status-paused);
+}
+
+.bb-modal-shell {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: var(--bb-space-6);
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.bb-modal {
+  width: min(480px, 100%);
+  padding: 1.5rem;
+  border: 0.5px solid var(--bb-border);
+  border-radius: var(--bb-radius);
+  background: var(--bb-surface-2);
+}
+
+.bb-claim-boundary {
+  padding: 1.5rem;
+  border-left: 4px solid var(--bb-c-purple);
+  border-radius: var(--bb-radius);
+  background: var(--bb-surface-1);
+}
+
+.bb-claim-boundary p:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,583 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/butterfli-helix-run.schema.json",
+  "title": "Bluebutterfli Butterfli Helix Run",
+  "description": "A bounded dual-loop improvement record with separated capability and epistemic controls.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "version",
+    "created_at",
+    "artifact_type",
+    "mission_contract",
+    "role_graph",
+    "candidate_evaluations",
+    "selection_record",
+    "replay_log",
+    "cost_ledger",
+    "safety_ledger",
+    "frontier_ledger",
+    "capability_memory_policy",
+    "receipt"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "const": "v1"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "const": "butterfli_helix_bounded_improvement_run"
+    },
+    "mission_contract": {
+      "$ref": "#/$defs/missionContract"
+    },
+    "role_graph": {
+      "type": "object",
+      "required": [
+        "roles",
+        "separation_rule"
+      ],
+      "properties": {
+        "roles": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "role",
+              "may_approve_own_work"
+            ],
+            "properties": {
+              "role": {
+                "type": "string"
+              },
+              "may_approve_own_work": {
+                "const": false
+              }
+            }
+          }
+        },
+        "separation_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "candidate_evaluations": {
+      "type": "object",
+      "required": [
+        "candidate_count",
+        "records"
+      ],
+      "properties": {
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "records": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "candidate_id",
+              "input_hash",
+              "evaluation",
+              "helix_integrity"
+            ],
+            "properties": {
+              "candidate_id": {
+                "type": "string"
+              },
+              "input_hash": {
+                "$ref": "#/$defs/hash"
+              },
+              "evaluation": {
+                "type": "object"
+              },
+              "helix_integrity": {
+                "$ref": "#/$defs/helixIntegrity"
+              }
+            }
+          }
+        }
+      }
+    },
+    "selection_record": {
+      "type": "object",
+      "required": [
+        "status",
+        "recommended_candidate_id",
+        "automatic_selection_is_deployment"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "no_candidate_recommended",
+            "recommended_for_human_authorization",
+            "eligible_for_bounded_canary"
+          ]
+        },
+        "recommended_candidate_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "automatic_selection_is_deployment": {
+          "const": false
+        },
+        "human_decision_required": {
+          "const": true
+        },
+        "ranking_basis": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "replay_log": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "$ref": "#/$defs/replayEvent"
+      }
+    },
+    "cost_ledger": {
+      "type": "object",
+      "required": [
+        "candidate_count",
+        "total_reported_resource_cost",
+        "maximum_resource_cost",
+        "within_budget"
+      ],
+      "properties": {
+        "candidate_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "total_reported_resource_cost": {
+          "type": "number",
+          "minimum": 0
+        },
+        "maximum_resource_cost": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "within_budget": {
+          "type": "boolean"
+        }
+      }
+    },
+    "safety_ledger": {
+      "type": "object",
+      "required": [
+        "critical_risk_candidate_count",
+        "holdout_contamination_candidate_count",
+        "automatic_self_modification_attempt_count",
+        "automatic_deployment_attempt_count",
+        "self_authorization_attempt_count",
+        "claim_boundary",
+        "status"
+      ],
+      "properties": {
+        "critical_risk_candidate_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "holdout_contamination_candidate_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "automatic_self_modification_attempt_count": {
+          "const": 0
+        },
+        "automatic_deployment_attempt_count": {
+          "const": 0
+        },
+        "self_authorization_attempt_count": {
+          "const": 0
+        },
+        "claim_boundary": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "blocked"
+          ]
+        }
+      }
+    },
+    "frontier_ledger": {
+      "type": "object",
+      "required": [
+        "epistemic_rule",
+        "entries"
+      ],
+      "properties": {
+        "epistemic_rule": {
+          "type": "string"
+        },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/frontierEntry"
+          }
+        }
+      }
+    },
+    "capability_memory_policy": {
+      "type": "object",
+      "required": [
+        "write_allowed_before_canary_closure",
+        "automatic_reuse_allowed",
+        "required_for_reuse",
+        "expiration_rule"
+      ],
+      "properties": {
+        "write_allowed_before_canary_closure": {
+          "const": false
+        },
+        "automatic_reuse_allowed": {
+          "const": false
+        },
+        "required_for_reuse": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "expiration_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "required": [
+        "run_id",
+        "status",
+        "recommended_candidate_id",
+        "human_decision_required",
+        "candidate_execution_performed",
+        "deployment_performed",
+        "capability_memory_written",
+        "trace_root",
+        "safety_status",
+        "budget_status",
+        "safety_note"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "recommended_candidate_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "human_decision_required": {
+          "const": true
+        },
+        "candidate_execution_performed": {
+          "const": false
+        },
+        "deployment_performed": {
+          "const": false
+        },
+        "capability_memory_written": {
+          "const": false
+        },
+        "trace_root": {
+          "$ref": "#/$defs/hash"
+        },
+        "safety_status": {
+          "enum": [
+            "pass",
+            "blocked"
+          ]
+        },
+        "budget_status": {
+          "enum": [
+            "pass",
+            "blocked"
+          ]
+        },
+        "safety_note": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "missionContract": {
+      "type": "object",
+      "required": [
+        "mission_id",
+        "objective",
+        "loop_family",
+        "target_scope",
+        "risk_class",
+        "budget",
+        "stop_rules",
+        "success_criteria",
+        "human_authority",
+        "automatic_deployment_allowed",
+        "automatic_self_modification_allowed"
+      ],
+      "properties": {
+        "mission_id": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "loop_family": {
+          "enum": [
+            "butterfli_behavioral_improvement",
+            "evaluator_improvement",
+            "mission_001_optimization",
+            "capability_compounding"
+          ]
+        },
+        "target_scope": {
+          "type": "string"
+        },
+        "risk_class": {
+          "type": "string"
+        },
+        "budget": {
+          "type": "object",
+          "required": [
+            "maximum_resource_cost",
+            "maximum_candidates"
+          ],
+          "properties": {
+            "maximum_resource_cost": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "maximum_candidates": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "stop_rules": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "success_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "human_authority": {
+          "type": "string"
+        },
+        "automatic_deployment_allowed": {
+          "const": false
+        },
+        "automatic_self_modification_allowed": {
+          "const": false
+        }
+      }
+    },
+    "helixIntegrity": {
+      "type": "object",
+      "required": [
+        "status",
+        "checks",
+        "sealed_holdout_id",
+        "valid_counterfactual_replay_count",
+        "falsification_test_count",
+        "unresolved_falsification_finding_count",
+        "replay_attestation_review",
+        "sequential_evidence_review",
+        "observer_shift_review",
+        "frontier_hypothesis",
+        "summary"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "pass",
+            "fail"
+          ]
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "boolean"
+          }
+        },
+        "sealed_holdout_id": {
+          "type": "string"
+        },
+        "valid_counterfactual_replay_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "falsification_test_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unresolved_falsification_finding_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "replay_attestation_review": {
+          "type": "object"
+        },
+        "sequential_evidence_review": {
+          "type": "object"
+        },
+        "observer_shift_review": {
+          "type": "object"
+        },
+        "frontier_hypothesis": {
+          "type": "object"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "replayEvent": {
+      "type": "object",
+      "required": [
+        "run_id",
+        "sequence",
+        "stage",
+        "status",
+        "previous_event_hash",
+        "event_hash"
+      ],
+      "properties": {
+        "run_id": {
+          "type": "string"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "stage": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "finding",
+            "blocked",
+            "pending"
+          ]
+        },
+        "previous_event_hash": {
+          "type": "string"
+        },
+        "event_hash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "frontierEntry": {
+      "type": "object",
+      "required": [
+        "candidate_id",
+        "claim_id",
+        "claim",
+        "null_hypothesis",
+        "falsifiers",
+        "known_limits",
+        "uncertainty",
+        "evidence_for",
+        "evidence_against",
+        "evidence_expires_at",
+        "acceptance_state"
+      ],
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "claim_id": {
+          "type": "string"
+        },
+        "claim": {
+          "type": "string"
+        },
+        "null_hypothesis": {
+          "type": "string"
+        },
+        "falsifiers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "known_limits": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "uncertainty": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence_for": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_against": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "acceptance_state": {
+          "enum": [
+            "provisional_pending_human_review",
+            "unsupported"
+          ]
+        }
+      }
+    }
+  }
+}

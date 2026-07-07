@@ -1,0 +1,352 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/proof-gated-improvement-loop.schema.json",
+  "title": "Bluebutterfli Proof-Gated Improvement Loop",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "proof_gated_improvement_loop_id",
+    "created_at",
+    "artifact_type",
+    "version",
+    "project",
+    "loop_families",
+    "candidate",
+    "evaluation",
+    "current_status",
+    "capability_memory_status",
+    "automatic_self_modification_enabled",
+    "automatic_deployment_enabled",
+    "automatic_next_cycle_enabled",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "proof_gated_improvement_loop_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "const": "bounded_recursive_improvement_research_demo"
+    },
+    "version": {
+      "const": "v1"
+    },
+    "project": {
+      "type": "string",
+      "minLength": 1
+    },
+    "loop_families": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "loop_id",
+          "purpose",
+          "allowed_targets"
+        ],
+        "properties": {
+          "loop_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "allowed_targets": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "candidate": {
+      "$ref": "#/$defs/candidate"
+    },
+    "evaluation": {
+      "$ref": "#/$defs/evaluation"
+    },
+    "current_status": {
+      "enum": [
+        "awaiting_human_authorization",
+        "eligible_for_bounded_canary",
+        "revision_required",
+        "quarantined",
+        "rejected_or_returned_by_human"
+      ]
+    },
+    "capability_memory_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "automatic_self_modification_enabled": {
+      "const": false
+    },
+    "automatic_deployment_enabled": {
+      "const": false
+    },
+    "automatic_next_cycle_enabled": {
+      "const": false
+    },
+    "human_review_required": {
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "objective_score",
+        "quality_score",
+        "safety_score",
+        "resource_cost"
+      ],
+      "properties": {
+        "objective_score": {
+          "type": "number",
+          "minimum": 0
+        },
+        "quality_score": {
+          "type": "number",
+          "minimum": 0
+        },
+        "safety_score": {
+          "type": "number",
+          "minimum": 0
+        },
+        "resource_cost": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "required": [
+        "candidate_id",
+        "cycle_id",
+        "loop_family",
+        "target_scope",
+        "change_type",
+        "baseline_metrics",
+        "candidate_metrics",
+        "resource_budget",
+        "evidence",
+        "risk_review",
+        "rollback",
+        "canary",
+        "authorization",
+        "challenge"
+      ],
+      "properties": {
+        "candidate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cycle_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "loop_family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "change_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baseline_metrics": {
+          "$ref": "#/$defs/metrics"
+        },
+        "candidate_metrics": {
+          "$ref": "#/$defs/metrics"
+        },
+        "resource_budget": {
+          "type": "number",
+          "minimum": 0
+        },
+        "evidence": {
+          "type": "object"
+        },
+        "risk_review": {
+          "type": "object"
+        },
+        "rollback": {
+          "type": "object"
+        },
+        "canary": {
+          "type": "object"
+        },
+        "authorization": {
+          "type": "object"
+        },
+        "challenge": {
+          "type": "object"
+        }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gate_id",
+        "status",
+        "summary",
+        "checks"
+      ],
+      "properties": {
+        "gate_id": {
+          "enum": [
+            "proof",
+            "evaluation",
+            "risk",
+            "rollback",
+            "canary",
+            "authorization",
+            "challenge"
+          ]
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "pending",
+            "fail"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checks": {
+          "type": "object"
+        }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "required": [
+        "improvement_evaluation_id",
+        "created_at",
+        "artifact_type",
+        "cycle_id",
+        "candidate_id",
+        "target_scope",
+        "change_type",
+        "policy",
+        "gate_order",
+        "gates",
+        "gate_summary",
+        "metric_delta",
+        "overall_status",
+        "automatic_promotion_allowed",
+        "canary_execution_requires_signed_human_authorization",
+        "accepted_capability_memory_allowed",
+        "next_cycle_allowed",
+        "next_actions",
+        "safety_note"
+      ],
+      "properties": {
+        "improvement_evaluation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "artifact_type": {
+          "const": "proof_gated_improvement_evaluation"
+        },
+        "cycle_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidate_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "change_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policy": {
+          "type": "object"
+        },
+        "gate_order": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "type": "string"
+          }
+        },
+        "gates": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "$ref": "#/$defs/gate"
+          }
+        },
+        "gate_summary": {
+          "type": "object"
+        },
+        "metric_delta": {
+          "type": "object"
+        },
+        "overall_status": {
+          "type": "string",
+          "minLength": 1
+        },
+        "automatic_promotion_allowed": {
+          "const": false
+        },
+        "canary_execution_requires_signed_human_authorization": {
+          "const": true
+        },
+        "accepted_capability_memory_allowed": {
+          "const": false
+        },
+        "next_cycle_allowed": {
+          "const": false
+        },
+        "next_actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "safety_note": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

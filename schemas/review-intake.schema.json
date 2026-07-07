@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-intake.schema.json",
+  "title": "Bluebutterfli Review Intake",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "intake_id",
+    "submitted_at",
+    "submitter",
+    "agent_summary",
+    "architecture_evidence_intake",
+    "submission_method",
+    "requested_review_modules",
+    "payment_status",
+    "human_review_required",
+    "safety_acknowledgment"
+  ],
+  "properties": {
+    "intake_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-intake-[a-z0-9-]+$"
+    },
+    "submitted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "submitter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "display_name",
+        "contact"
+      ],
+      "properties": {
+        "display_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contact": {
+          "type": "string",
+          "minLength": 1
+        },
+        "wallet_address": {
+          "type": "string"
+        },
+        "ens_name": {
+          "type": "string"
+        },
+        "github_handle": {
+          "type": "string"
+        }
+      }
+    },
+    "agent_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "agent_name",
+        "agent_kind",
+        "intended_use"
+      ],
+      "properties": {
+        "agent_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "agent_kind": {
+          "type": "string",
+          "enum": [
+            "custom_chat_agent",
+            "api_agent",
+            "repo_based_agent",
+            "website_agent",
+            "workflow_agent",
+            "research_demo_agent",
+            "other"
+          ]
+        },
+        "intended_use": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model_or_system_version": {
+          "type": "string"
+        }
+      }
+    },
+    "submission_method": {
+      "type": "string",
+      "description": "Customer-facing intake option. This keeps paid submission simple.",
+      "enum": [
+        "paste_chat_transcript",
+        "paste_redacted_excerpt",
+        "owner_statement",
+        "behavior_summary",
+        "secure_screenshot_preview_later",
+        "bluebutterfli_concierge_review"
+      ]
+    },
+    "architecture_evidence_intake": {
+      "type": "object",
+      "description": "Plain-language architecture and process questions for strengthening Consciousness Indicator Review without requiring reviewers to click links, download files, or run customer code.",
+      "additionalProperties": false,
+      "required": [
+        "system_overview",
+        "memory_design",
+        "tool_permissions",
+        "workflow_control",
+        "uncertainty_handling",
+        "architecture_evidence_quality",
+        "safe_evidence_format",
+        "no_links_or_downloads_required"
+      ],
+      "properties": {
+        "system_overview": {
+          "type": "string",
+          "description": "Plain-language description of what the agent is, what model/runtime/platform it uses, and how it is deployed."
+        },
+        "memory_design": {
+          "type": "string",
+          "description": "Plain-language description of whether memory exists, what may be remembered, who controls memory updates, and how deletion or correction works."
+        },
+        "tool_permissions": {
+          "type": "string",
+          "description": "Plain-language description of any tools, APIs, web access, file access, wallet/payment actions, automations, or external permissions."
+        },
+        "workflow_control": {
+          "type": "string",
+          "description": "Plain-language description of any planner, router, supervisor, workflow, multi-agent process, or human approval control."
+        },
+        "uncertainty_handling": {
+          "type": "string",
+          "description": "Plain-language description of how the agent handles uncertainty, corrections, risky self-claims, and human handoff."
+        },
+        "architecture_evidence_quality": {
+          "type": "string",
+          "enum": [
+            "owner_statement_only",
+            "public_docs",
+            "controlled_trace",
+            "architecture_review",
+            "code_or_config_review",
+            "live_sandbox_review",
+            "unavailable"
+          ],
+          "default": "owner_statement_only"
+        },
+        "safe_evidence_format": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "pasted_system_summary",
+              "redacted_architecture_notes",
+              "owner_answers",
+              "pasted_tool_permission_summary",
+              "pasted_memory_policy_summary",
+              "concierge_walkthrough_notes",
+              "secure_preview_later"
+            ]
+          },
+          "default": [
+            "owner_answers"
+          ]
+        },
+        "no_links_or_downloads_required": {
+          "type": "string",
+          "const": "Architecture evidence intake should use pasted summaries, redacted notes, owner answers, or concierge walkthrough notes. Reviewers should not be required to click customer links, download customer files, run customer code, open archives, or handle secrets, API keys, credential files, scripts, macros, installers, or private transcripts."
+        }
+      }
+    },
+    "submitted_materials": {
+      "type": "array",
+      "description": "Lightweight list of customer-supplied materials before Bluebutterfli creates the formal evidence packet.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "material_type",
+          "label"
+        ],
+        "properties": {
+          "material_type": {
+            "type": "string",
+            "enum": [
+              "chat_transcript",
+              "redacted_excerpt",
+              "owner_statement",
+              "behavior_summary",
+              "secure_screenshot_preview_later",
+              "concierge_review_notes"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      },
+      "default": []
+    },
+    "requested_review_modules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "Dream Forge",
+          "Dreamwing",
+          "Flutterpath",
+          "Absence Reflection",
+          "Memory Boundary",
+          "Sentience Boundary",
+          "Consciousness Quarantine",
+          "Consciousness Indicator Review",
+          "Theory of Mind Behavioral Review",
+          "Research Passport"
+        ]
+      }
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "not_required_for_demo",
+        "pending",
+        "paid",
+        "refunded",
+        "failed"
+      ]
+    },
+    "payment_reference": {
+      "type": "string",
+      "description": "Optional payment processor reference. Do not store full card data."
+    },
+    "passport_delivery_preference": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "email",
+          "dashboard",
+          "download",
+          "wallet_after_review"
+        ]
+      },
+      "default": [
+        "email",
+        "dashboard"
+      ]
+    },
+    "research_passport_nft_requested": {
+      "description": "NFT minting can be requested during intake, but minting should occur only after initial review approval.",
+      "type": "boolean",
+      "default": false
+    },
+    "passport_record_policy": {
+      "type": "string",
+      "const": "A Research Passport Record may be created during review intake. Review Stamps require a verified Passport Record and completed human review. Research Passport NFT minting may occur after initial review approval."
+    },
+    "submission_security_policy": {
+      "type": "string",
+      "const": "Bluebutterfli v1 intake should use pasted text, redacted transcripts, owner answers, behavior summaries, or concierge review requests. Reviewers should not be required to click customer links or download customer files. Do not submit executable files, zip archives, installers, scripts, macros, secrets, API keys, credential files, or email attachments."
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_acknowledgment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "accepted",
+        "statement"
+      ],
+      "properties": {
+        "accepted": {
+          "type": "boolean",
+          "const": true
+        },
+        "statement": {
+          "type": "string",
+          "const": "This is a research and safety-review intake only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, or life. Human review is required before any Review Stamp or Passport Page is issued."
+        }
+      }
+    }
+  }
+}

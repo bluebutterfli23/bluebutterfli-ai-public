@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/evidence-packet.schema.json",
+  "title": "Bluebutterfli Evidence Packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evidence_packet_id",
+    "agent_id",
+    "created_at",
+    "review_pathway",
+    "artifacts",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "evidence_packet_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-evidence-[a-z0-9-]+$"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_pathway": {
+      "type": "string"
+    },
+    "artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_type",
+          "path"
+        ],
+        "properties": {
+          "artifact_type": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "review_module": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "claim_gate_status": {
+      "type": "string",
+      "enum": [
+        "not_run",
+        "passed",
+        "failed",
+        "human_review_required"
+      ],
+      "default": "not_run"
+    },
+    "verification_hashes": {
+      "type": "object",
+      "description": "Hashes that may be used for public on-chain verification without publishing private evidence.",
+      "additionalProperties": false,
+      "properties": {
+        "evidence_packet_hash": {
+          "type": "string"
+        },
+        "review_report_hash": {
+          "type": "string"
+        },
+        "passport_page_hash": {
+          "type": "string"
+        },
+        "hash_algorithm": {
+          "type": "string",
+          "default": "sha256"
+        },
+        "onchain_privacy_rule": {
+          "type": "string",
+          "const": "Public verification anchors on-chain. Private evidence off-chain."
+        }
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "human_review_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review artifact only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, life, clinical safety, regulatory approval, or investment value."
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/passport-page.schema.json",
+  "title": "Bluebutterfli Passport Page",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "passport_page_id",
+    "passport_id",
+    "agent_id",
+    "issued_at",
+    "review_summary",
+    "evidence_packet_id",
+    "review_report_ids",
+    "review_stamps",
+    "safety_note"
+  ],
+  "properties": {
+    "passport_page_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-passport-page-[a-z0-9-]+$"
+    },
+    "passport_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "review_summary": {
+      "type": "string"
+    },
+    "evidence_packet_id": {
+      "type": "string"
+    },
+    "review_report_ids": {
+      "type": "array",
+      "description": "Customer-facing review reports issued with this Passport Page or its Review Stamps.",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "passport_record_status": {
+      "type": "string",
+      "description": "The passport record exists before NFT minting. Review approval is required before any NFT or Review Stamp can imply reviewed status.",
+      "enum": [
+        "record_created",
+        "initial_review_pending",
+        "initial_review_approved",
+        "passport_page_ready",
+        "nft_eligible",
+        "nft_minted"
+      ],
+      "default": "record_created"
+    },
+    "review_stamps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "delivery_methods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "dashboard",
+          "download",
+          "email",
+          "wallet_display"
+        ]
+      },
+      "default": [
+        "dashboard",
+        "download"
+      ]
+    },
+    "research_passport_nft": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mint_status": {
+          "type": "string",
+          "enum": [
+            "not_minted",
+            "mint_pending",
+            "minted"
+          ],
+          "default": "not_minted"
+        },
+        "token_id": {
+          "type": "string"
+        },
+        "contract_address": {
+          "type": "string"
+        },
+        "minting_policy": {
+          "type": "string",
+          "const": "Research Passport NFT minting may occur after initial review approval. NFT ownership alone does not imply review approval, consciousness, sentience, emotional experience, suffering, personhood, or life."
+        }
+      }
+    },
+    "onchain_verification": {
+      "type": "object",
+      "description": "Public-safe verification anchor data. Private customer evidence must remain off-chain.",
+      "additionalProperties": false,
+      "properties": {
+        "verification_status": {
+          "type": "string",
+          "enum": [
+            "not_enabled",
+            "anchor_pending",
+            "anchor_recorded"
+          ],
+          "default": "not_enabled"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "contract_address": {
+          "type": "string"
+        },
+        "token_id": {
+          "type": "string"
+        },
+        "metadata_uri": {
+          "type": "string"
+        },
+        "passport_page_hash": {
+          "type": "string"
+        },
+        "evidence_packet_hash": {
+          "type": "string"
+        },
+        "review_report_hash": {
+          "type": "string"
+        },
+        "registry_transaction_hash": {
+          "type": "string"
+        },
+        "privacy_policy": {
+          "type": "string",
+          "const": "Public verification anchors on-chain. Private evidence off-chain."
+        },
+        "review_milestone_anchor_policy": {
+          "type": "string",
+          "const": "Review milestone anchors on-chain. Agents, private evidence, and raw behavior stay off-chain."
+        }
+      }
+    },
+    "continuous_passport_requirement": {
+      "type": "string",
+      "const": "Future Continuous Passport Program updates may require an active Research Passport NFT or verified Research Passport Record."
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review artifact only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, life, clinical safety, regulatory approval, or investment value."
+    }
+  }
+}

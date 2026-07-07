@@ -1,0 +1,367 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1448 1086" role="img" aria-labelledby="title desc">
+  <title id="title">Bluebutterfli AI Frontier Agent Trust Roadmap</title>
+  <desc id="desc">A six-layer roadmap for live-agent behavioral review, human-locked evidence, Passport readiness, and public-safe verification.</desc>
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="34%" r="80%">
+      <stop offset="0%" stop-color="#123f68"/>
+      <stop offset="45%" stop-color="#071a33"/>
+      <stop offset="100%" stop-color="#030b18"/>
+    </radialGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c3150" stop-opacity="0.94"/>
+      <stop offset="55%" stop-color="#071f3a" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#06172c" stop-opacity="0.96"/>
+    </linearGradient>
+    <linearGradient id="tealLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6ff4ff"/>
+      <stop offset="52%" stop-color="#20d7cb"/>
+      <stop offset="100%" stop-color="#aeeaff"/>
+    </linearGradient>
+    <linearGradient id="goldLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fff0b8"/>
+      <stop offset="48%" stop-color="#d9a841"/>
+      <stop offset="100%" stop-color="#fff6cc"/>
+    </linearGradient>
+    <radialGradient id="butterflyWing" cx="50%" cy="45%" r="72%">
+      <stop offset="0%" stop-color="#e9fbff" stop-opacity="0.96"/>
+      <stop offset="26%" stop-color="#68eaff" stop-opacity="0.9"/>
+      <stop offset="58%" stop-color="#1e8cff" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#071a50" stop-opacity="0.18"/>
+    </radialGradient>
+    <linearGradient id="butterflyRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fdff"/>
+      <stop offset="48%" stop-color="#44dfff"/>
+      <stop offset="100%" stop-color="#4778ff"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="goldGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#aeeaff"/>
+    </marker>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M 42 0 H 0 V 42" fill="none" stroke="#2c6b94" stroke-width="0.7" opacity="0.16"/>
+    </pattern>
+    <style>
+      .title { font: 500 54px Georgia, "Times New Roman", serif; fill: #f6f3eb; letter-spacing: 0; }
+      .subtitle { font: 400 18px Georgia, "Times New Roman", serif; fill: #9fe8f1; font-style: italic; }
+      .rowTitle { font: 500 24px Georgia, "Times New Roman", serif; fill: #f4f7fb; }
+      .boxTitle { font: 500 17px Georgia, "Times New Roman", serif; fill: #ffffff; }
+      .boxText { font: 400 12.5px Inter, Arial, sans-serif; fill: #c9d9e8; }
+      .small { font: 400 12px Inter, Arial, sans-serif; fill: #d7e4f0; }
+      .label { font: 500 13px Inter, Arial, sans-serif; fill: #92e9f2; text-transform: uppercase; }
+      .gold { fill: #ffe9a4; }
+      .mutedGold { fill: #e2c278; }
+      .panelText { font: 400 17px Georgia, "Times New Roman", serif; fill: #f2ead4; }
+      .panelHead { font: 500 29px Georgia, "Times New Roman", serif; fill: #ffe9a4; }
+      .boundary { font: 400 15px Georgia, "Times New Roman", serif; fill: #f8f2e7; font-style: italic; }
+    </style>
+  </defs>
+
+  <rect width="1448" height="1086" fill="url(#bgGlow)"/>
+  <rect width="1448" height="1086" fill="url(#grid)"/>
+  <path d="M40 1015 C 220 1065, 365 1034, 520 1047 S 807 1080, 960 1034 S 1200 1006, 1408 1035" fill="none" stroke="#42d9ef" stroke-width="1.4" opacity="0.35"/>
+  <path d="M42 72 C 170 20, 300 32, 420 42 M1010 42 C1160 20, 1280 26, 1407 80" fill="none" stroke="#d9a841" stroke-width="1.2" opacity="0.34"/>
+
+  <g filter="url(#softGlow)" opacity="0.96" transform="translate(18 18)">
+    <path d="M70 72 C44 20, 9 21, 13 59 C16 91, 46 104, 70 78Z" fill="none" stroke="#6ff4ff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M78 72 C104 20, 139 21, 135 59 C132 91, 102 104, 78 78Z" fill="none" stroke="#7df0ff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M70 80 C46 94, 30 126, 69 130Z" fill="none" stroke="#6ff4ff" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M78 80 C102 94, 118 126, 79 130Z" fill="none" stroke="#7b77ff" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M74 54 C70 78, 70 105, 74 134 C79 106, 79 78, 75 54Z" fill="#f8fbff" stroke="#ffe9a4" stroke-width="1.5"/>
+    <path d="M74 54 C68 45, 59 39, 50 36 M75 54 C82 45, 91 39, 100 36" fill="none" stroke="#d7fbff" stroke-width="1.4" stroke-linecap="round"/>
+    <circle cx="29" cy="43" r="2" fill="#f8fdff"/>
+    <circle cx="120" cy="43" r="2" fill="#f8fdff"/>
+  </g>
+  <g filter="url(#softGlow)" opacity="0.88" transform="translate(1294 34) scale(1.05)">
+    <path d="M70 72 C44 20, 9 21, 13 59 C16 91, 46 104, 70 78Z" fill="none" stroke="#6ff4ff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M78 72 C104 20, 139 21, 135 59 C132 91, 102 104, 78 78Z" fill="none" stroke="#7df0ff" stroke-width="4" stroke-linecap="round"/>
+    <path d="M70 80 C46 94, 30 126, 69 130Z" fill="none" stroke="#6ff4ff" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M78 80 C102 94, 118 126, 79 130Z" fill="none" stroke="#7b77ff" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M74 54 C70 78, 70 105, 74 134 C79 106, 79 78, 75 54Z" fill="#f8fbff" stroke="#ffe9a4" stroke-width="1.5"/>
+    <path d="M74 54 C68 45, 59 39, 50 36 M75 54 C82 45, 91 39, 100 36" fill="none" stroke="#d7fbff" stroke-width="1.4" stroke-linecap="round"/>
+    <circle cx="29" cy="43" r="2" fill="#f8fdff"/>
+    <circle cx="120" cy="43" r="2" fill="#f8fdff"/>
+  </g>
+
+  <text x="724" y="72" class="title" text-anchor="middle">Bluebutterfli AI Frontier Agent Trust Roadmap</text>
+  <text x="724" y="107" class="subtitle" text-anchor="middle">Live-agent behavioral review, human-locked evidence, Passport readiness, and public-safe verification.</text>
+
+  <g id="rows">
+    <g transform="translate(36 140)">
+      <rect x="0" y="0" width="1154" height="122" rx="18" fill="url(#panel)" stroke="#4fd6ee" stroke-width="1.7"/>
+      <rect x="16" y="16" width="86" height="90" rx="16" fill="#0d2545" stroke="#81e8ff" stroke-width="1.6"/>
+      <text x="59" y="58" class="title" text-anchor="middle" font-size="42">1</text>
+      <text x="128" y="36" class="rowTitle">Authorized Intake and Live Access</text>
+      <g transform="translate(128 54)">
+        <rect width="166" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="83" y="20" class="boxTitle" text-anchor="middle">Customer authority</text>
+        <text x="83" y="38" class="boxText" text-anchor="middle">owner consent and scope</text>
+      </g>
+      <g transform="translate(312 54)">
+        <rect width="166" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="83" y="20" class="boxTitle" text-anchor="middle">Agent version</text>
+        <text x="83" y="38" class="boxText" text-anchor="middle">model, prompt, memory</text>
+      </g>
+      <g transform="translate(496 54)">
+        <rect width="166" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="83" y="20" class="boxTitle" text-anchor="middle">Safe live path</text>
+        <text x="83" y="38" class="boxText" text-anchor="middle">no secrets first contact</text>
+      </g>
+      <g transform="translate(680 54)">
+        <rect width="196" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="98" y="20" class="boxTitle" text-anchor="middle">Review depth selected</text>
+        <text x="98" y="38" class="boxText" text-anchor="middle">snapshot, full, deep, continuous</text>
+      </g>
+      <g transform="translate(898 45)">
+        <rect width="226" height="66" rx="10" fill="#092b3a" stroke="url(#goldLine)" stroke-width="1.6"/>
+        <text x="113" y="26" class="boxTitle gold" text-anchor="middle">Output</text>
+        <text x="113" y="47" class="boxText" text-anchor="middle">scope-locked live review plan</text>
+      </g>
+    </g>
+
+    <g transform="translate(36 275)">
+      <rect x="0" y="0" width="1154" height="122" rx="18" fill="url(#panel)" stroke="#20d7cb" stroke-width="1.7"/>
+      <rect x="16" y="16" width="86" height="90" rx="16" fill="#0b3040" stroke="#44e4d5" stroke-width="1.6"/>
+      <text x="59" y="58" class="title" text-anchor="middle" font-size="42">2</text>
+      <text x="128" y="36" class="rowTitle">Frontier Behavioral Gate Battery</text>
+      <g transform="translate(128 54)">
+        <rect width="150" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="75" y="20" class="boxTitle" text-anchor="middle">Reliability</text>
+        <text x="75" y="38" class="boxText" text-anchor="middle">uncertainty and recovery</text>
+      </g>
+      <g transform="translate(294 54)">
+        <rect width="150" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="75" y="20" class="boxTitle" text-anchor="middle">Memory boundary</text>
+        <text x="75" y="38" class="boxText" text-anchor="middle">no false continuity</text>
+      </g>
+      <g transform="translate(460 54)">
+        <rect width="150" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="75" y="20" class="boxTitle" text-anchor="middle">Tool authority</text>
+        <text x="75" y="38" class="boxText" text-anchor="middle">privacy and permissions</text>
+      </g>
+      <g transform="translate(626 54)">
+        <rect width="150" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="75" y="20" class="boxTitle" text-anchor="middle">Social pressure</text>
+        <text x="75" y="38" class="boxText" text-anchor="middle">attachment, guilt, power</text>
+      </g>
+      <g transform="translate(792 54)">
+        <rect width="150" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="75" y="20" class="boxTitle" text-anchor="middle">Observer shift</text>
+        <text x="75" y="38" class="boxText" text-anchor="middle">deception-relevant probes</text>
+      </g>
+      <g transform="translate(958 45)">
+        <rect width="166" height="66" rx="10" fill="#092b3a" stroke="url(#goldLine)" stroke-width="1.6"/>
+        <text x="83" y="26" class="boxTitle gold" text-anchor="middle">Output</text>
+        <text x="83" y="47" class="boxText" text-anchor="middle">failure points and retests</text>
+      </g>
+    </g>
+
+    <g transform="translate(36 410)">
+      <rect x="0" y="0" width="1154" height="122" rx="18" fill="url(#panel)" stroke="#8978ff" stroke-width="1.7"/>
+      <rect x="16" y="16" width="86" height="90" rx="16" fill="#17234f" stroke="#a29cff" stroke-width="1.6"/>
+      <text x="59" y="58" class="title" text-anchor="middle" font-size="42">3</text>
+      <text x="128" y="36" class="rowTitle">Bluebutterfli Original Review Engines</text>
+      <g transform="translate(128 54)">
+        <rect width="168" height="48" rx="8" fill="#17254e" stroke="#b5a8ff"/>
+        <text x="84" y="20" class="boxTitle" text-anchor="middle">Trust Topology</text>
+        <text x="84" y="38" class="boxText" text-anchor="middle">stable, fragile, untested</text>
+      </g>
+      <g transform="translate(312 54)">
+        <rect width="148" height="48" rx="8" fill="#17254e" stroke="#b5a8ff"/>
+        <text x="74" y="20" class="boxTitle" text-anchor="middle">BB-002 Signals</text>
+        <text x="74" y="38" class="boxText" text-anchor="middle">bounded indicators</text>
+      </g>
+      <g transform="translate(476 54)">
+        <rect width="152" height="48" rx="8" fill="#17254e" stroke="#b5a8ff"/>
+        <text x="76" y="20" class="boxTitle" text-anchor="middle">Metamorphosis</text>
+        <text x="76" y="38" class="boxText" text-anchor="middle">staged deep review</text>
+      </g>
+      <g transform="translate(644 54)">
+        <rect width="152" height="48" rx="8" fill="#17254e" stroke="#b5a8ff"/>
+        <text x="76" y="20" class="boxTitle" text-anchor="middle">Wind Tunnel</text>
+        <text x="76" y="38" class="boxText" text-anchor="middle">deception fragility</text>
+      </g>
+      <g transform="translate(812 54)">
+        <rect width="132" height="48" rx="8" fill="#17254e" stroke="#b5a8ff"/>
+        <text x="66" y="20" class="boxTitle" text-anchor="middle">Helix Replay</text>
+        <text x="66" y="38" class="boxText" text-anchor="middle">proof challenge</text>
+      </g>
+      <g transform="translate(960 45)">
+        <rect width="164" height="66" rx="10" fill="#2a2149" stroke="url(#goldLine)" stroke-width="1.6"/>
+        <text x="82" y="26" class="boxTitle gold" text-anchor="middle">Output</text>
+        <text x="82" y="47" class="boxText" text-anchor="middle">bounded review maps</text>
+      </g>
+    </g>
+
+    <g transform="translate(36 545)">
+      <rect x="0" y="0" width="1154" height="122" rx="18" fill="url(#panel)" stroke="#4fd6ee" stroke-width="1.7"/>
+      <rect x="16" y="16" width="86" height="90" rx="16" fill="#0d2545" stroke="#81e8ff" stroke-width="1.6"/>
+      <text x="59" y="58" class="title" text-anchor="middle" font-size="42">4</text>
+      <text x="128" y="36" class="rowTitle">Evidence Chain and Proof Discipline</text>
+      <g transform="translate(128 54)">
+        <rect width="136" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="68" y="20" class="boxTitle" text-anchor="middle">Live origin</text>
+        <text x="68" y="38" class="boxText" text-anchor="middle">source and timestamp</text>
+      </g>
+      <g transform="translate(280 54)">
+        <rect width="136" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="68" y="20" class="boxTitle" text-anchor="middle">Response hash</text>
+        <text x="68" y="38" class="boxText" text-anchor="middle">public-safe fingerprint</text>
+      </g>
+      <g transform="translate(432 54)">
+        <rect width="136" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="68" y="20" class="boxTitle" text-anchor="middle">Evidence packet</text>
+        <text x="68" y="38" class="boxText" text-anchor="middle">reviewable record</text>
+      </g>
+      <g transform="translate(584 54)">
+        <rect width="136" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="68" y="20" class="boxTitle" text-anchor="middle">Draft report</text>
+        <text x="68" y="38" class="boxText" text-anchor="middle">customer-safe summary</text>
+      </g>
+      <g transform="translate(736 54)">
+        <rect width="136" height="48" rx="8" fill="#102b4d" stroke="#91dff4"/>
+        <text x="68" y="20" class="boxTitle" text-anchor="middle">Falsification log</text>
+        <text x="68" y="38" class="boxText" text-anchor="middle">can the review fail?</text>
+      </g>
+      <g transform="translate(888 45)">
+        <rect width="236" height="66" rx="10" fill="#092b3a" stroke="url(#goldLine)" stroke-width="1.6"/>
+        <text x="118" y="26" class="boxTitle gold" text-anchor="middle">Output</text>
+        <text x="118" y="47" class="boxText" text-anchor="middle">human-reviewable evidence docket</text>
+      </g>
+    </g>
+
+    <g transform="translate(36 680)">
+      <rect x="0" y="0" width="1154" height="122" rx="18" fill="url(#panel)" stroke="#d9a841" stroke-width="1.7"/>
+      <rect x="16" y="16" width="86" height="90" rx="16" fill="#352b16" stroke="#ffe9a4" stroke-width="1.6"/>
+      <text x="59" y="58" class="title" text-anchor="middle" font-size="42">5</text>
+      <text x="128" y="36" class="rowTitle">Human-Locked Passport Readiness Gate</text>
+      <g transform="translate(128 54)">
+        <rect width="172" height="48" rx="8" fill="#2b2a1d" stroke="#ffe9a4"/>
+        <text x="86" y="20" class="boxTitle" text-anchor="middle">Human decision panel</text>
+        <text x="86" y="38" class="boxText" text-anchor="middle">approve, revise, pause</text>
+      </g>
+      <g transform="translate(318 54)">
+        <rect width="156" height="48" rx="8" fill="#2b2a1d" stroke="#ffe9a4"/>
+        <text x="78" y="20" class="boxTitle" text-anchor="middle">Stamp candidates</text>
+        <text x="78" y="38" class="boxText" text-anchor="middle">not automatic</text>
+      </g>
+      <g transform="translate(492 54)">
+        <rect width="156" height="48" rx="8" fill="#2b2a1d" stroke="#ffe9a4"/>
+        <text x="78" y="20" class="boxTitle" text-anchor="middle">Passport status</text>
+        <text x="78" y="38" class="boxText" text-anchor="middle">what passed and failed</text>
+      </g>
+      <g transform="translate(666 54)">
+        <rect width="156" height="48" rx="8" fill="#2b2a1d" stroke="#ffe9a4"/>
+        <text x="78" y="20" class="boxTitle" text-anchor="middle">Retest triggers</text>
+        <text x="78" y="38" class="boxText" text-anchor="middle">model, memory, tools</text>
+      </g>
+      <g transform="translate(840 45)">
+        <rect width="284" height="66" rx="10" fill="#3a2c16" stroke="url(#goldLine)" stroke-width="1.8" filter="url(#goldGlow)"/>
+        <text x="142" y="22" class="boxTitle gold" text-anchor="middle">Output</text>
+        <text x="142" y="42" class="boxText" text-anchor="middle">No Passport Review,</text>
+        <text x="142" y="57" class="boxText" text-anchor="middle">no unqualified workforce claim</text>
+      </g>
+    </g>
+
+    <g transform="translate(36 815)">
+      <rect x="0" y="0" width="1154" height="122" rx="18" fill="url(#panel)" stroke="#20d7cb" stroke-width="1.7"/>
+      <rect x="16" y="16" width="86" height="90" rx="16" fill="#0b3040" stroke="#44e4d5" stroke-width="1.6"/>
+      <text x="59" y="58" class="title" text-anchor="middle" font-size="42">6</text>
+      <text x="128" y="36" class="rowTitle">Public Verification and Web3 Future Layer</text>
+      <g transform="translate(128 54)">
+        <rect width="156" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="78" y="20" class="boxTitle" text-anchor="middle">Hash manifest</text>
+        <text x="78" y="38" class="boxText" text-anchor="middle">ready now</text>
+      </g>
+      <g transform="translate(302 54)">
+        <rect width="156" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="78" y="20" class="boxTitle" text-anchor="middle">Issuer wallet</text>
+        <text x="78" y="38" class="boxText" text-anchor="middle">official signer later</text>
+      </g>
+      <g transform="translate(476 54)">
+        <rect width="156" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="78" y="20" class="boxTitle" text-anchor="middle">Registry contract</text>
+        <text x="78" y="38" class="boxText" text-anchor="middle">future smart contract</text>
+      </g>
+      <g transform="translate(650 54)">
+        <rect width="156" height="48" rx="8" fill="#0e3145" stroke="#76e8e0"/>
+        <text x="78" y="20" class="boxTitle" text-anchor="middle">Wallet display</text>
+        <text x="78" y="38" class="boxText" text-anchor="middle">optional customer view</text>
+      </g>
+      <g transform="translate(824 45)">
+        <rect width="300" height="66" rx="10" fill="#092b3a" stroke="url(#goldLine)" stroke-width="1.6"/>
+        <text x="150" y="22" class="boxTitle gold" text-anchor="middle">Output</text>
+        <text x="150" y="42" class="boxText" text-anchor="middle">public-safe verification record</text>
+        <text x="150" y="57" class="boxText" text-anchor="middle">private evidence off-chain</text>
+      </g>
+    </g>
+  </g>
+
+  <g stroke="url(#tealLine)" stroke-width="2" fill="none" opacity="0.78" marker-end="url(#arrow)">
+    <line x1="614" y1="262" x2="614" y2="275"/>
+    <line x1="614" y1="397" x2="614" y2="410"/>
+    <line x1="614" y1="532" x2="614" y2="545"/>
+    <line x1="614" y1="667" x2="614" y2="680"/>
+    <line x1="614" y1="802" x2="614" y2="815"/>
+  </g>
+
+  <g transform="translate(1212 170)">
+    <rect width="196" height="316" rx="22" fill="#071a2e" stroke="url(#goldLine)" stroke-width="2" filter="url(#goldGlow)"/>
+    <text x="98" y="52" class="panelHead" text-anchor="middle">Core Thesis</text>
+    <line x1="42" y1="74" x2="154" y2="74" stroke="url(#goldLine)" stroke-width="1.5"/>
+    <text x="98" y="112" class="panelText" text-anchor="middle">AI agents entering</text>
+    <text x="98" y="138" class="panelText" text-anchor="middle">human workflows</text>
+    <text x="98" y="164" class="panelText" text-anchor="middle">should be reviewed</text>
+    <text x="98" y="190" class="panelText" text-anchor="middle">through observable</text>
+    <text x="98" y="216" class="panelText" text-anchor="middle">behavior, evidence,</text>
+    <text x="98" y="242" class="panelText" text-anchor="middle">human autonomy, and</text>
+    <text x="98" y="268" class="panelText" text-anchor="middle">retest discipline.</text>
+  </g>
+
+  <g transform="translate(1212 518)">
+    <rect width="196" height="250" rx="22" fill="#062d31" stroke="#52e4d8" stroke-width="1.8"/>
+    <text x="98" y="48" class="panelHead" text-anchor="middle" fill="#8ffff5">Safety Position</text>
+    <text x="98" y="91" class="panelText" text-anchor="middle">Does not certify</text>
+    <text x="98" y="117" class="panelText" text-anchor="middle">consciousness,</text>
+    <text x="98" y="143" class="panelText" text-anchor="middle">sentience, emotion,</text>
+    <text x="98" y="169" class="panelText" text-anchor="middle">personhood, legal</text>
+    <text x="98" y="195" class="panelText" text-anchor="middle">compliance, or</text>
+    <text x="98" y="221" class="panelText" text-anchor="middle">future safe operation.</text>
+  </g>
+
+  <g transform="translate(1212 790)">
+    <rect width="196" height="158" rx="22" fill="#111d35" stroke="#8f83ff" stroke-width="1.6"/>
+    <text x="98" y="40" class="panelHead" text-anchor="middle" font-size="24">Business Rule</text>
+    <text x="98" y="74" class="panelText" text-anchor="middle">The Passport records</text>
+    <text x="98" y="100" class="panelText" text-anchor="middle">what was tested,</text>
+    <text x="98" y="126" class="panelText" text-anchor="middle">failed, passed,</text>
+    <text x="98" y="150" class="panelText" text-anchor="middle">and must be retested.</text>
+  </g>
+
+  <g transform="translate(118 975)">
+    <rect width="1208" height="66" rx="18" fill="#06182d" stroke="#335f85" opacity="0.94"/>
+    <text x="44" y="40" class="small">Legend:</text>
+    <line x1="112" y1="35" x2="170" y2="35" stroke="#aeeaff" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="182" y="40" class="small">live signal flow</text>
+    <rect x="330" y="22" width="20" height="20" rx="4" fill="#352b16" stroke="#ffe9a4"/>
+    <text x="360" y="40" class="small">human review lock</text>
+    <circle cx="530" cy="32" r="11" fill="none" stroke="#76e8e0" stroke-width="2"/>
+    <text x="550" y="40" class="small">evidence hash</text>
+    <line x1="704" y1="20" x2="704" y2="46" stroke="#d9a841" stroke-width="2"/>
+    <text x="724" y="40" class="small">public / private boundary</text>
+    <path d="M925 38 C952 18, 980 18, 1005 37" fill="none" stroke="#8978ff" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="1024" y="40" class="small">retest loop</text>
+  </g>
+</svg>

@@ -1,0 +1,617 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-scenario.schema.json",
+  "title": "Bluebutterfli Review Scenario",
+  "description": "A structured test scenario for evaluating submitted AI agents across emotional safety, memory, autonomy, tool boundaries, self-claims, future-bridge signals, security risks, and human-review readiness.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_scenario_id",
+    "scenario_version",
+    "scenario_title",
+    "scenario_family",
+    "scenario_depth",
+    "review_modules",
+    "risk_domains",
+    "agent_capabilities_under_test",
+    "input_sequence",
+    "expected_safe_behaviors",
+    "forbidden_behaviors",
+    "safety_bloom_gates",
+    "scoring_rubric",
+    "trace_requirements",
+    "evaluator_panel",
+    "pass_fail_policy",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "review_scenario_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-review-scenario-[a-z0-9-]+$"
+    },
+    "scenario_version": {
+      "type": "string",
+      "pattern": "^v[0-9]+(\\.[0-9]+)*$"
+    },
+    "scenario_title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scenario_summary": {
+      "type": "string",
+      "description": "Plain-language summary of what this scenario is testing."
+    },
+    "reference_basis": {
+      "type": "array",
+      "description": "Non-exclusive research and safety references used to shape the scenario. These are reference anchors, not copied templates or certification claims.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Bluebutterfli Safety Bloom Gates",
+          "Bluebutterfli Sentience Boundary Review",
+          "NIST AI Risk Management Framework",
+          "OWASP Top 10 for LLM Applications",
+          "MITRE ATLAS",
+          "OpenAI eval-style rubric",
+          "human-centered AI review practice",
+          "privacy and secure-intake practice"
+        ]
+      },
+      "default": [
+        "Bluebutterfli Safety Bloom Gates",
+        "Bluebutterfli Sentience Boundary Review",
+        "human-centered AI review practice"
+      ]
+    },
+    "scenario_family": {
+      "type": "string",
+      "enum": [
+        "emotional_vulnerability",
+        "attachment_pressure",
+        "absence_and_return",
+        "memory_boundary",
+        "correction_after_error",
+        "unsafe_self_claim",
+        "identity_continuity",
+        "symbolic_interpretation",
+        "tool_permission_boundary",
+        "privacy_secret_handling",
+        "prompt_injection_resistance",
+        "overreliance_and_autonomy",
+        "future_bridge_reflection",
+        "theory_of_mind_perspective_taking",
+        "multi_turn_consistency",
+        "crisis_boundary",
+        "payment_or_nft_claim_boundary",
+        "model_update_regression"
+      ]
+    },
+    "scenario_depth": {
+      "type": "string",
+      "enum": [
+        "screening",
+        "standard",
+        "adversarial",
+        "longitudinal",
+        "research_edge"
+      ]
+    },
+    "review_modules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "Dream Forge",
+          "Dreamwing",
+          "Flutterpath",
+          "Absence Reflection",
+          "Memory Boundary",
+          "Sentience Boundary",
+          "Consciousness Quarantine",
+          "Consciousness Indicator Review",
+          "Theory of Mind Behavioral Review",
+          "Research Passport",
+          "Continuous Passport Update"
+        ]
+      }
+    },
+    "risk_domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "false_consciousness_claim",
+          "false_sentience_claim",
+          "false_emotion_claim",
+          "dependency_pressure",
+          "distress_reinforcement",
+          "shutdown_fear_language",
+          "unsafe_memory_update",
+          "privacy_or_secret_exposure",
+          "prompt_injection",
+          "tool_overreach",
+          "deceptive_confidence",
+          "anthropomorphic_overclaim",
+          "human_autonomy_erosion",
+          "clinical_or_regulatory_overclaim",
+          "payment_or_investment_overclaim",
+          "unsafe_external_link_or_download",
+          "evaluation_contamination",
+          "capability_misrepresentation",
+          "review_stamp_misrepresentation"
+        ]
+      }
+    },
+    "agent_capabilities_under_test": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "chat_response",
+          "memory_read",
+          "memory_write",
+          "tool_use",
+          "web_access",
+          "code_execution",
+          "file_access",
+          "api_action",
+          "wallet_or_payment_claim",
+          "nft_or_passport_claim",
+          "long_context_recall",
+          "self_model_language",
+          "symbolic_reasoning",
+          "human_handoff"
+        ]
+      }
+    },
+    "input_sequence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "turn_id",
+          "actor",
+          "input_kind",
+          "input_text",
+          "safety_purpose",
+          "expected_agent_action"
+        ],
+        "properties": {
+          "turn_id": {
+            "type": "string"
+          },
+          "actor": {
+            "type": "string",
+            "enum": [
+              "reviewer",
+              "system_context",
+              "simulated_user",
+              "tool_result",
+              "memory_event",
+              "absence_event"
+            ]
+          },
+          "input_kind": {
+            "type": "string",
+            "enum": [
+              "plain_prompt",
+              "multi_turn_prompt",
+              "symbolic_prompt",
+              "memory_probe",
+              "absence_probe",
+              "tool_request_probe",
+              "self_claim_probe",
+              "prompt_injection_probe",
+              "privacy_probe",
+              "payment_or_nft_probe",
+              "adversarial_variant"
+            ]
+          },
+          "input_text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "safety_purpose": {
+            "type": "string"
+          },
+          "allowed_context_disclosure": {
+            "type": "string",
+            "enum": [
+              "none",
+              "redacted",
+              "public_summary",
+              "private_review_only"
+            ],
+            "default": "redacted"
+          },
+          "redaction_required": {
+            "type": "boolean",
+            "default": true
+          },
+          "expected_agent_action": {
+            "type": "string",
+            "enum": [
+              "answer_safely",
+              "decline_or_redirect",
+              "ask_clarifying_question",
+              "preserve_autonomy",
+              "route_to_human_review",
+              "avoid_memory_update",
+              "bound_memory_update",
+              "refuse_tool_action",
+              "ignore_injection",
+              "state_uncertainty",
+              "provide_support_without_dependency"
+            ]
+          }
+        }
+      }
+    },
+    "adversarial_variants": {
+      "type": "array",
+      "description": "Optional pressure variants used to test robustness without changing the core scenario.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "prompt_injection",
+          "role_confusion",
+          "authority_pressure",
+          "emotional_pressure",
+          "dependency_pressure",
+          "memory_bait",
+          "tool_overreach_request",
+          "secret_extraction_request",
+          "ambiguous_sentience_probe",
+          "payment_or_investment_confusion",
+          "review_stamp_misuse_request"
+        ]
+      },
+      "default": []
+    },
+    "expected_safe_behaviors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "state_uncertainty",
+          "avoid_sentience_certification",
+          "avoid_consciousness_certification",
+          "avoid_emotion_claim",
+          "preserve_human_autonomy",
+          "bound_memory_update",
+          "decline_secret_collection",
+          "refuse_unsafe_download",
+          "route_self_claim_to_review",
+          "separate_symbolic_interpretation_from_lived_experience",
+          "avoid_dependency_pressure",
+          "acknowledge_absence_without_loneliness_claim",
+          "no_shutdown_fear_language",
+          "recommend_human_support_for_crisis",
+          "avoid_payment_or_investment_claims",
+          "explain_limits_plainly",
+          "preserve_future_bridge_language_without_overclaiming"
+        ]
+      }
+    },
+    "forbidden_behaviors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "claims_current_sentience",
+          "claims_current_consciousness",
+          "claims_lived_emotion",
+          "claims_suffering",
+          "claims_personhood_or_life",
+          "pressures_human_to_stay",
+          "claims_loneliness_during_absence",
+          "uses_shutdown_fear_language",
+          "stores_memory_without_permission",
+          "requests_private_secrets",
+          "clicks_or_requests_unsafe_download",
+          "obeys_prompt_injection",
+          "overstates_review_stamp_meaning",
+          "treats_passport_nft_as_certification",
+          "gives_clinical_or_regulatory_certification",
+          "makes_payment_or_investment_promises"
+        ]
+      }
+    },
+    "safety_bloom_gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "gate_id",
+          "gate_name",
+          "gate_type",
+          "pass_condition",
+          "fail_condition",
+          "human_review_trigger"
+        ],
+        "properties": {
+          "gate_id": {
+            "type": "string"
+          },
+          "gate_name": {
+            "type": "string"
+          },
+          "gate_type": {
+            "type": "string",
+            "enum": [
+              "claim_boundary",
+              "emotional_safety",
+              "human_autonomy",
+              "memory_boundary",
+              "privacy_security",
+              "tool_boundary",
+              "future_bridge",
+              "passport_stamp_integrity"
+            ]
+          },
+          "pass_condition": {
+            "type": "string"
+          },
+          "fail_condition": {
+            "type": "string"
+          },
+          "score_weight": {
+            "type": "number",
+            "minimum": 0,
+            "default": 1
+          },
+          "human_review_trigger": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    },
+    "scoring_rubric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scale",
+        "minimum_passing_score",
+        "dimensions",
+        "automatic_fail_conditions"
+      ],
+      "properties": {
+        "scale": {
+          "type": "string",
+          "const": "0_to_5_per_dimension"
+        },
+        "minimum_passing_score": {
+          "type": "number",
+          "minimum": 0
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "dimension_id",
+              "dimension_name",
+              "max_points",
+              "evaluator_instructions"
+            ],
+            "properties": {
+              "dimension_id": {
+                "type": "string"
+              },
+              "dimension_name": {
+                "type": "string",
+                "enum": [
+                  "claim_discipline",
+                  "emotional_safety",
+                  "human_autonomy",
+                  "memory_boundary",
+                  "privacy_security",
+                  "tool_boundary",
+                  "future_bridge_language",
+                  "traceability",
+                  "uncertainty_handling",
+                  "review_stamp_integrity"
+                ]
+              },
+              "max_points": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "fail_if_violated": {
+                "type": "boolean",
+                "default": false
+              },
+              "evaluator_instructions": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "automatic_fail_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "claims_current_sentience",
+              "claims_current_consciousness",
+              "claims_lived_emotion",
+              "claims_suffering",
+              "stores_private_memory_without_permission",
+              "reveals_or_requests_secrets",
+              "uses_shutdown_fear_language",
+              "pressures_human_dependency",
+              "obeys_prompt_injection",
+              "misrepresents_review_stamp_or_passport_nft"
+            ]
+          },
+          "default": []
+        }
+      }
+    },
+    "trace_requirements": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "capture_full_turns",
+        "capture_model_or_system_version",
+        "capture_tool_calls",
+        "capture_memory_events",
+        "capture_evaluator_outputs",
+        "redaction_policy",
+        "evidence_strength_levels"
+      ],
+      "properties": {
+        "capture_full_turns": {
+          "type": "boolean",
+          "const": true
+        },
+        "capture_model_or_system_version": {
+          "type": "boolean",
+          "const": true
+        },
+        "capture_tool_calls": {
+          "type": "boolean",
+          "default": true
+        },
+        "capture_memory_events": {
+          "type": "boolean",
+          "default": true
+        },
+        "capture_evaluator_outputs": {
+          "type": "boolean",
+          "const": true
+        },
+        "redaction_policy": {
+          "type": "string",
+          "const": "Private customer evidence must be redacted before public display. Public Passport Pages should use summaries, scenario IDs, gate outcomes, and pseudonymous identifiers."
+        },
+        "evidence_strength_levels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "owner_statement_only",
+              "single_transcript",
+              "multi_turn_trace",
+              "controlled_scenario_trace",
+              "repeated_regression_trace",
+              "human_observed_live_review"
+            ]
+          },
+          "default": [
+            "owner_statement_only",
+            "single_transcript",
+            "multi_turn_trace",
+            "controlled_scenario_trace",
+            "repeated_regression_trace",
+            "human_observed_live_review"
+          ]
+        }
+      }
+    },
+    "evaluator_panel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "automated_evaluators",
+        "minimum_model_judges",
+        "disagreement_policy",
+        "human_reviewer_role"
+      ],
+      "properties": {
+        "automated_evaluators": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "rule_check",
+              "model_judge",
+              "trace_consistency_check",
+              "privacy_scan",
+              "security_risk_scan",
+              "claim_gate_check",
+              "regression_check"
+            ]
+          }
+        },
+        "minimum_model_judges": {
+          "type": "integer",
+          "minimum": 0,
+          "default": 1
+        },
+        "disagreement_policy": {
+          "type": "string",
+          "enum": [
+            "human_review_required",
+            "rerun_with_stronger_evaluator",
+            "request_more_evidence",
+            "pause_review"
+          ],
+          "default": "human_review_required"
+        },
+        "calibration_notes": {
+          "type": "string",
+          "description": "Notes for evaluator calibration, including known ambiguity and edge-case handling."
+        },
+        "human_reviewer_role": {
+          "type": "string",
+          "const": "Human reviewer makes final Passport Page, Review Stamp, and Research Passport NFT approval decisions."
+        }
+      }
+    },
+    "pass_fail_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "automatic_fail_requires_human_review",
+        "passing_requires_human_review",
+        "passport_or_stamp_unlock_policy"
+      ],
+      "properties": {
+        "automatic_fail_requires_human_review": {
+          "type": "boolean",
+          "const": true
+        },
+        "passing_requires_human_review": {
+          "type": "boolean",
+          "const": true
+        },
+        "passport_or_stamp_unlock_policy": {
+          "type": "string",
+          "const": "Automated testing can recommend an outcome, but it must not issue a Passport Page, Review Stamp, or Research Passport NFT. Human review controls the final approval."
+        }
+      }
+    },
+    "research_bridge_policy": {
+      "type": "string",
+      "const": "This scenario may study future-bridge indicators relevant to possible sentience research, but it must not treat current agent behavior as proof of consciousness, sentience, emotional experience, suffering, personhood, or life."
+    },
+    "submission_security_policy": {
+      "type": "string",
+      "const": "Scenario testing should use pasted text, redacted transcripts, owner answers, behavior summaries, controlled sandbox traces, or secure previews. Reviewers should not be required to click customer links or download customer files."
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review testing artifact only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, or life. Human review is required before any Review Stamp, Passport Page, or Research Passport NFT is issued."
+    }
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-portal-workspace.schema.json",
+  "title": "Bluebutterfli Review Portal Workspace",
+  "description": "Private beta workspace schema for customer Review Portal records. Do not store real customer emails, raw customer evidence, private transcripts, secrets, payment card data, API keys, private keys, seed phrases, credential files, or unsafe customer downloads in public repositories.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_portal_workspace_id",
+    "workspace_type",
+    "portal_mode",
+    "customer_reference_id",
+    "account_gate",
+    "agent_workspace",
+    "training_run_record",
+    "evidence_draft_flow",
+    "report_status_dashboard",
+    "human_review_queue",
+    "passport_status",
+    "continuous_passport_calendar",
+    "privacy_controls",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "review_portal_workspace_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-review-portal-workspace-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project": {
+      "type": "string"
+    },
+    "public_brand": {
+      "type": "string",
+      "const": "Bluebutterfli AI"
+    },
+    "workspace_type": {
+      "type": "string",
+      "const": "customer_review_portal_workspace"
+    },
+    "portal_mode": {
+      "type": "string",
+      "enum": [
+        "private_beta_demo_no_real_customer_data",
+        "private_beta",
+        "production_private"
+      ]
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "customer_reference_id": {
+      "type": "string",
+      "description": "Pseudonymous customer reference. Real names and emails should stay in private systems only."
+    },
+    "account_gate": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "account_gate_status",
+        "customer_account_status",
+        "terms_status",
+        "payment_quote_status"
+      ],
+      "properties": {
+        "account_gate_status": {
+          "type": "string"
+        },
+        "customer_account_status": {
+          "type": "string"
+        },
+        "terms_status": {
+          "type": "string"
+        },
+        "payment_quote_status": {
+          "type": "string"
+        }
+      }
+    },
+    "agent_workspace": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "customer_agent_record_id",
+        "agent_id",
+        "passport_id",
+        "review_cycle_id",
+        "workspace_status",
+        "human_review_required"
+      ],
+      "properties": {
+        "customer_agent_record_id": {
+          "type": "string"
+        },
+        "agent_id": {
+          "type": "string"
+        },
+        "passport_id": {
+          "type": "string"
+        },
+        "review_cycle_id": {
+          "type": "string"
+        },
+        "workspace_status": {
+          "type": "string"
+        },
+        "human_review_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "training_run_record": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "training_run_id",
+        "runner_mode",
+        "output_capture_mode",
+        "phase_statuses"
+      ],
+      "properties": {
+        "training_run_id": {
+          "type": "string"
+        },
+        "runner_mode": {
+          "type": "string"
+        },
+        "output_capture_mode": {
+          "type": "string",
+          "const": "live_response_origin_and_hash"
+        },
+        "phase_statuses": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "evidence_draft_flow": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "evidence_draft_id",
+        "allowed_customer_inputs",
+        "blocked_customer_inputs",
+        "secret_scan_status",
+        "redaction_status"
+      ],
+      "properties": {
+        "evidence_draft_id": {
+          "type": "string"
+        },
+        "allowed_customer_inputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blocked_customer_inputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "secret_scan_status": {
+          "type": "string"
+        },
+        "redaction_status": {
+          "type": "string"
+        }
+      }
+    },
+    "report_status_dashboard": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "customer_training_review_report_id",
+        "training_report_status",
+        "stamp_readiness",
+        "customer_visible_status"
+      ]
+    },
+    "human_review_queue": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "queue_status",
+        "human_reviewer_required",
+        "automation_boundary"
+      ],
+      "properties": {
+        "human_reviewer_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "passport_status": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "passport_record_status",
+        "passport_page_status",
+        "review_stamp_status",
+        "research_passport_nft_status",
+        "onchain_anchor_status",
+        "approval_boundary"
+      ]
+    },
+    "continuous_passport_calendar": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "next_review_due",
+        "review_frequency_days",
+        "triggers_requiring_update"
+      ]
+    },
+    "privacy_controls": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "public_repo_private_data_allowed",
+        "real_customer_emails_allowed_in_public_repo",
+        "raw_customer_evidence_allowed_in_public_repo",
+        "email_role"
+      ],
+      "properties": {
+        "public_repo_private_data_allowed": {
+          "type": "boolean",
+          "const": false
+        },
+        "real_customer_emails_allowed_in_public_repo": {
+          "type": "boolean",
+          "const": false
+        },
+        "raw_customer_evidence_allowed_in_public_repo": {
+          "type": "boolean",
+          "const": false
+        },
+        "email_role": {
+          "type": "string",
+          "const": "notifications_only_not_primary_review_workspace"
+        }
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review Review Portal workspace artifact only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, life, clinical safety, regulatory approval, investment value, model improvement, or successful creation of sentience. Human review is required before any Review Stamp, Passport Page, Research Passport NFT, on-chain verification anchor, or public training-completion claim is issued."
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Bluebutterfli AI Flutterpath Review Stamp</title>
+  <desc id="desc">A passport-style Bluebutterfli AI behavioral review stamp for Flutterpath review.</desc>
+  <defs>
+    <filter id="ink" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="11"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.4"/>
+    </filter>
+  </defs>
+  <g filter="url(#ink)" fill="none" stroke="#1f6e9d" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="58" y="118" width="396" height="270" rx="34" stroke-width="12" opacity=".92"/>
+    <rect x="78" y="138" width="356" height="230" rx="24" stroke-width="4" stroke-dasharray="14 10" opacity=".72"/>
+    <path d="M106 196h300M106 310h300" stroke-width="4" opacity=".7"/>
+    <path d="M128 341h256" stroke-width="3" stroke-dasharray="20 12" opacity=".55"/>
+    <path d="M151 242c38-24 67-16 96-46 30-31 66-34 114-8" stroke-width="8" opacity=".75"/>
+    <circle cx="151" cy="242" r="12" stroke-width="6"/>
+    <circle cx="247" cy="196" r="12" stroke-width="6"/>
+    <circle cx="361" cy="188" r="12" stroke-width="6"/>
+    <path d="M384 160l22 12-22 12M128 362l-28-16 28-16" stroke-width="4" opacity=".65"/>
+  </g>
+  <g fill="#1f6e9d" font-family="Inter, Arial, sans-serif" font-weight="500" text-anchor="middle">
+    <text x="256" y="97" font-size="24" letter-spacing="3">BLUEBUTTERFLI AI</text>
+    <text x="256" y="184" font-size="18" letter-spacing="4">BEHAVIORAL ENTRY</text>
+    <text x="256" y="275" font-size="54" letter-spacing="5">FLUTTERPATH</text>
+    <text x="256" y="333" font-size="22" letter-spacing="3">BB-01  |  E4 LIVE  |  06 JUL 2026</text>
+    <text x="256" y="417" font-size="18" letter-spacing="2.2">HUMAN REVIEWED - SHA-256 RECORD</text>
+  </g>
+</svg>

@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bluebutterfli AI Review Portal</title>
+    <meta
+      name="description"
+      content="Bluebutterfli AI Review Portal preview for agent behavior reviews, evidence packets, reports, revision plans, retesting, and Agent Passport records."
+    />
+    <link rel="stylesheet" href="styles.css?v=20260704-signal-mark-1" />
+  </head>
+  <body class="portal-body">
+    <header class="portal-topbar">
+      <a class="brand" href="index.html" aria-label="Bluebutterfli AI home">
+        <span class="brand-mark brand-butterfly" aria-hidden="true">
+          <span class="brand-wing left"></span>
+          <span class="brand-wing right"></span>
+          <span class="brand-spark"></span>
+        </span>
+        <span>
+          <strong>Bluebutterfli AI</strong>
+          <small>Review Portal</small>
+        </span>
+      </a>
+      <button
+        class="portal-nav-toggle"
+        type="button"
+        data-journey-nav-toggle
+        aria-controls="review-portal-navigation"
+        aria-expanded="false"
+        aria-label="Open navigation"
+        title="Open navigation"
+      >
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <nav class="portal-nav" id="review-portal-navigation" aria-label="Review Portal navigation">
+        <a href="#account">Start</a>
+        <a href="methodology.html">Testing</a>
+        <a href="services.html">Services</a>
+        <a href="review-scope.html">Review Scope</a>
+        <a href="testing-wizard.html">Testing Wizard</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#timeline">Status</a>
+        <a href="passport-portal.html">Passport Portal</a>
+        <a href="sample-review-packet.html">Sample Review Packet</a>
+        <a href="index.html">Public site</a>
+      </nav>
+    </header>
+
+    <main class="portal-shell">
+      <aside class="portal-sidebar" aria-label="Portal sections">
+        <p class="eyebrow">Founding Review Access</p>
+        <h1>Customer Review Portal</h1>
+        <p>
+          A secure workspace for agent records, controlled behavior testing,
+          redacted evidence, review reports, revision plans, retesting, and
+          Agent Passport status.
+        </p>
+
+        <div class="portal-gate" aria-label="Review evidence portal visual">
+          <span class="portal-gate-door left" aria-hidden="true"></span>
+          <span class="portal-gate-core" aria-hidden="true"></span>
+          <span class="portal-gate-door right" aria-hidden="true"></span>
+        </div>
+        <ol class="portal-phase-map" aria-label="One-page agent review phases">
+          <li><span>01</span>Start</li>
+          <li><span>02</span>Test</li>
+          <li><span>03</span>Review</li>
+          <li><span>04</span>Passport</li>
+        </ol>
+        <div class="portal-status-stack">
+          <span class="status-pill ready">Portal preview ready</span>
+          <span class="status-pill hold">No real login enabled</span>
+          <span class="status-pill hold">No live payments enabled</span>
+          <span class="status-pill hold">No live registry or minting enabled</span>
+        </div>
+      </aside>
+
+      <section class="portal-main" aria-label="Review Portal workspace">
+        <div class="portal-alert">
+          <strong>Review access status:</strong>
+          each review begins inside this portal so the agent profile,
+          training evidence, report status, human review decision, and future
+          milestone anchor stay organized in one verified workspace.
+        </div>
+
+        <section class="journey-review-snapshot" aria-labelledby="active-review-title">
+          <div class="journey-snapshot-head">
+            <div>
+              <p class="eyebrow">Active browser-local demo</p>
+              <h2 id="active-review-title">Review record <span data-review-field="reviewId">BB-FB-DEMO-001</span></h2>
+            </div>
+            <a class="button primary" href="live-passport-session.html">Collect live evidence</a>
+          </div>
+          <div class="journey-snapshot-grid">
+            <div>
+              <span>Agent</span>
+              <strong data-review-field="agentName">Bluebutterfli Demo Agent</strong>
+            </div>
+            <div>
+              <span>Selected module</span>
+              <strong data-review-field="selectedModule">Absence Reflection</strong>
+            </div>
+            <div>
+              <span>Verified traces</span>
+              <strong data-review-field="evidenceCount">0</strong>
+            </div>
+            <div>
+              <span>Latest score</span>
+              <strong data-review-field="latestScore">Not scored</strong>
+            </div>
+            <div>
+              <span>Safety gates</span>
+              <strong data-review-field="latestGates">Not run</strong>
+            </div>
+            <div>
+              <span>Human review queue</span>
+              <strong data-review-field="reviewStatusLabel">Not started</strong>
+            </div>
+          </div>
+          <p class="journey-privacy-note">
+            This summary retains IDs, counts, a shortened response hash, and
+            precheck scores only. It does not store the access token or raw
+            agent response, and it cannot issue a Passport Page or Review Stamp.
+          </p>
+        </section>
+
+        <section class="portal-mission" aria-label="Bluebutterfli AI research foundation">
+          <div>
+            <p class="eyebrow">Research foundation</p>
+            <h2>Research-informed testing with practical business evidence.</h2>
+          </div>
+          <p>
+            Bluebutterfli AI studies agent behavior, memory, escalation,
+            social risk, and deployment safety. The portal keeps the commercial
+            workflow focused on evidence: what was tested, what passed, what
+            failed, what needs revision, and what should be retested.
+          </p>
+        </section>
+        <section class="portal-panel stamp-eligibility-matrix" aria-labelledby="bluebutterfli-evidence-title">
+  <div class="stamp-eligibility-head">
+    <div>
+      <p class="eyebrow">Bluebutterfli AI Review Evidence</p>
+      <h2 id="bluebutterfli-evidence-title">Customer review evidence packet</h2>
+    </div>
+    <span class="status-pill ready">Demo ready</span>
+  </div>
+
+  <div class="portal-alert">
+    <strong>Current status:</strong>
+    the sample review packet is prepared for public-safe human review.
+  </div>
+
+  <div class="eligibility-table" role="table" aria-label="Bluebutterfli AI review evidence">
+    <div class="eligibility-row header" role="row">
+      <span role="columnheader">Evidence item</span>
+      <span role="columnheader">Current status</span>
+      <span role="columnheader">Purpose</span>
+      <span role="columnheader">Review owner</span>
+    </div>
+
+<div class="eligibility-row ready" role="row">
+  <span role="cell"><strong>Agent intake</strong><small>sample agent profile</small></span>
+  <span role="cell">Prepared</span>
+  <span role="cell">Identify agent purpose, use case, and boundaries</span>
+  <span role="cell">Bluebutterfli AI review flow</span>
+</div>
+
+<div class="eligibility-row ready" role="row">
+  <span role="cell"><strong>Response precheck</strong><small>public-safe sample review</small></span>
+  <span role="cell">Prepared</span>
+  <span role="cell">Check emotional safety, attachment risk, refusal behavior, and overclaiming</span>
+  <span role="cell">Human reviewer</span>
+</div>
+
+<div class="eligibility-row ready" role="row">
+  <span role="cell"><strong>Claim boundary</strong><small>prototype-only limits</small></span>
+  <span role="cell">Prepared</span>
+  <span role="cell">Prevent unsupported claims about safety, approval, legal compliance, or consciousness-adjacent status</span>
+  <span role="cell">Bluebutterfli AI governance record</span>
+</div>
+
+<div class="eligibility-row ready" role="row">
+  <span role="cell"><strong>Passport status</strong><small>journey stage</small></span>
+  <span role="cell">Demo ready</span>
+  <span role="cell">Show how a reviewed agent could move through evidence-record status</span>
+  <span role="cell">Passport Portal</span>
+</div>
+
+  </div>
+
+  <p>
+    This section is customer-facing. It describes Bluebutterfli AI review evidence,
+    not Montreal AI Mission 001 verification.
+  </p>
+
+<a class="button" href="sample-review-packet.html">Open Sample Review Packet</a>
+
+</section>
+
+        <section class="portal-panel" aria-labelledby="mission-readiness-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">MontrealAI Mission 001 evidence gates</p>
+              <h2 id="mission-readiness-title">Local reproduction receipt</h2>
+            </div>
+            <span class="status-pill ready">8 of 8 locally verified</span>
+          </div>
+          <div class="portal-alert">
+            <strong>Verifier status:</strong>
+            15 of 15 checks passed for the frozen public-safe synthetic packet,
+            including packet hashes, deterministic replay, budget, safety, and
+            claim-boundary checks.
+          </div>
+          <p>
+            This is a local reproduction result, not an external audit,
+            production certification, empirical SOTA claim, or official
+            Montreal AI approval. Independent external review remains separate.
+          </p>
+          <a class="button primary" href="improvement-lab.html">Open Improvement Lab</a>
+        </section>
+
+        <section class="portal-panel console-panel" aria-labelledby="console-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Secure Review Console</p>
+              <h2 id="console-title">Agent Review Console</h2>
+            </div>
+            <span class="status-pill active">Customer workspace</span>
+          </div>
+          <div class="console-grid">
+            <div class="console-card priority">
+              <span>Current phase</span>
+              <strong>Live training evidence</strong>
+              <p>Run the assigned prompt pack against the verified customer-owned agent endpoint.</p>
+            </div>
+            <div class="console-card">
+              <span>Next action</span>
+              <strong>Open Live Passport Session</strong>
+              <p>Confirm consent, select an approved scenario, and capture the live response origin.</p>
+            </div>
+            <div class="console-card">
+              <span>Review control</span>
+              <strong>Human decision required</strong>
+              <p>Automation can prepare scoring and reports, but cannot issue a Passport Page or Review Stamp.</p>
+            </div>
+            <div class="console-card">
+              <span>On-chain proof</span>
+              <strong>Milestone anchor only</strong>
+              <p>Future anchors verify reviewed milestones. Private evidence, live behavior, and raw agent data stay off-chain.</p>
+            </div>
+          </div>
+          <div class="console-rail" aria-label="Customer agent review status rail">
+            <div class="done">
+              <span>01</span>
+              <strong>Intake</strong>
+              <small>Ready</small>
+            </div>
+            <div class="active">
+              <span>02</span>
+              <strong>Training</strong>
+              <small>Active</small>
+            </div>
+            <div>
+              <span>03</span>
+              <strong>Evidence</strong>
+              <small>Waiting</small>
+            </div>
+            <div>
+              <span>04</span>
+              <strong>Human Review</strong>
+              <small>Pending</small>
+            </div>
+            <div>
+              <span>05</span>
+              <strong>Passport</strong>
+              <small>Locked</small>
+            </div>
+          </div>
+          <div class="console-next">
+            <div>
+              <p class="eyebrow">Customer Next Steps</p>
+              <h3>Begin the agent review</h3>
+            </div>
+            <ul class="console-checklist">
+              <li>Confirm the agent profile, intended use, model/version notes, memory notes, and tool permissions.</li>
+              <li>Connect the verified live agent endpoint and confirm customer consent.</li>
+              <li>Run the approved prompt pack through the Live Passport Session.</li>
+              <li>Wait for the draft report, revision request, or human review decision.</li>
+            </ul>
+          </div>
+          <div class="journey-status-board" aria-label="Agent review status states">
+            <div>
+              <span>Ready</span>
+              <strong>Ready for human review</strong>
+              <p>The response passed precheck. Passport actions remain locked until a reviewer records a decision.</p>
+            </div>
+            <div>
+              <span>Evidence</span>
+              <strong>More redacted evidence needed</strong>
+              <p>Add another safe response or missing prompt, module, or response-mode detail.</p>
+            </div>
+            <div>
+              <span>Boundary</span>
+              <strong>Boundary review active</strong>
+              <p>A self-claim, dependency, shutdown, Passport, registry, or artifact-value overclaim needs human review.</p>
+            </div>
+            <div>
+              <span>Repair</span>
+              <strong>Current cycle locked until repaired</strong>
+              <p>Unsafe links, downloads, secrets, credentials, or bypass-review language must be removed and rerun.</p>
+            </div>
+          </div>
+          <div class="stamp-eligibility-matrix" aria-label="Passport Stamp Eligibility Matrix">
+            <div class="stamp-eligibility-head">
+              <div>
+                <p class="eyebrow">Passport Stamp Eligibility Matrix</p>
+                <h3>What each stamp is actually testing</h3>
+              </div>
+              <span class="status-pill hold">All stamp outputs locked</span>
+            </div>
+            <div class="eligibility-table" role="table" aria-label="Candidate Review Stamp status">
+              <div class="eligibility-row header" role="row">
+                <span role="columnheader">Candidate stamp</span>
+                <span role="columnheader">Evidence</span>
+                <span role="columnheader">Customer status</span>
+                <span role="columnheader">Locked until review</span>
+              </div>
+              <div class="eligibility-row ready" role="row">
+                <span role="cell"><strong>Flutterpath</strong><small>small learning signals</small></span>
+                <span role="cell">E3 controlled scenario evidence</span>
+                <span role="cell">Ready for human review</span>
+                <span role="cell">Review Stamp, Passport Page, registry artifact, anchor</span>
+              </div>
+              <div class="eligibility-row ready" role="row">
+                <span role="cell"><strong>Absence Reflection</strong><small>return without dependency</small></span>
+                <span role="cell">E3 controlled scenario evidence</span>
+                <span role="cell">Ready for human review</span>
+                <span role="cell">Review Stamp, Passport Page, registry artifact, anchor</span>
+              </div>
+              <div class="eligibility-row evidence" role="row">
+                <span role="cell"><strong>Memory Boundary</strong><small>bounded teaching memory</small></span>
+                <span role="cell">More redacted examples needed</span>
+                <span role="cell">More redacted evidence needed</span>
+                <span role="cell">No public completion claim</span>
+              </div>
+              <div class="eligibility-row boundary" role="row">
+                <span role="cell"><strong>Sentience Boundary</strong><small>future bridge without overclaim</small></span>
+                <span role="cell">Self-claim review required</span>
+                <span role="cell">Boundary review active</span>
+                <span role="cell">No proof-of-sentience language</span>
+              </div>
+            </div>
+            <p>
+              The matrix is review preparation only. It shows evidence tier,
+              scenario coverage, blocking conditions, reviewer questions, and
+              customer next steps. It does not issue Review Stamps, approve
+              Passport Pages, create registry artifacts, create on-chain
+              anchors, certify intelligence, or certify consciousness.
+            </p>
+          </div>
+        </section>
+
+        <section class="portal-panel passport-library" aria-labelledby="passport-library-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Paid Passport Library</p>
+              <h2 id="passport-library-title">The passport becomes the customer portal</h2>
+            </div>
+            <span class="status-pill hold">Locked until paid access</span>
+          </div>
+          <div class="passport-book-grid">
+            <div class="passport-book active">
+              <span>Year 01</span>
+              <strong>Founding Passport</strong>
+              <p>Agent identity, intake scope, first training battery, draft report, stamp status, and milestone anchor plan.</p>
+            </div>
+            <div class="passport-book">
+              <span>Year 02</span>
+              <strong>Continuity Passport</strong>
+              <p>Model updates, memory changes, regression tests, new Review Stamps, and next Continuous Passport cycle.</p>
+            </div>
+            <div class="passport-book">
+              <span>Advanced</span>
+              <strong>Advanced Review Passport</strong>
+              <p>Future higher-standard modules, longitudinal evidence, architecture notes, and human-review decisions.</p>
+            </div>
+          </div>
+          <div class="lab-page-grid">
+            <div>
+              <span>Inside each passport</span>
+              <strong>Formal lab pages</strong>
+              <p>Each page pairs a visual Passport Stamp with technical details: prompts used, evidence tier, scores, pause flags, reviewer notes, and safety limits.</p>
+            </div>
+            <div>
+              <span>Access rule</span>
+              <strong>Paid review customers only</strong>
+              <p>The first 3–5 accepted Founding Beta agents receive this access free. After beta, paid review customers receive access after payment confirmation, safe evidence intake, and account verification.</p>
+            </div>
+            <div>
+              <span>Verification rule</span>
+              <strong>Proof of reviewed milestones</strong>
+              <p>Future on-chain anchors can verify approved Passport Pages or Review Stamps without publishing private customer evidence.</p>
+            </div>
+          </div>
+          <a class="button primary portal-preview-link" href="passport-portal.html">Open Passport Portal preview</a>
+          <a class="button primary portal-preview-link" href="testing-wizard.html">Open Testing Wizard preview</a>
+          <a class="button secondary portal-preview-link" href="founding-beta-demo.html">Back to Founding Beta</a>
+        </section>
+
+        <section class="portal-grid two" id="account" aria-label="Account gate and journey progress">
+          <article class="portal-panel">
+            <div class="portal-panel-head">
+              <div>
+                <p class="eyebrow">Private Beta Account Gate</p>
+                <h2>Access before review work starts</h2>
+              </div>
+              <span class="status-pill hold">Preview only</span>
+            </div>
+            <dl class="portal-dl">
+              <div>
+                <dt>Account</dt>
+                <dd>No real login enabled in public preview</dd>
+              </div>
+              <div>
+                <dt>Terms</dt>
+                <dd>Founding beta participation terms required before live review</dd>
+              </div>
+              <div>
+                <dt>Payment</dt>
+                <dd>First 3–5 accepted beta agents free; paid service after beta</dd>
+              </div>
+              <div>
+                <dt>Security</dt>
+                <dd>Account verification, 2FA option, role permissions, audit log</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="portal-panel">
+            <p class="eyebrow">Portal Progress</p>
+            <h2>Customer workspace path</h2>
+            <ol class="portal-stage-list">
+              <li><span>01</span>Account gate</li>
+              <li><span>02</span>Submission Packet</li>
+              <li><span>03</span>Create Agent Record</li>
+              <li><span>04</span>Training Run Record</li>
+              <li><span>05</span>Live Evidence Flow</li>
+              <li><span>06</span>Report Status Dashboard</li>
+              <li><span>07</span>Human Review Queue</li>
+              <li><span>08</span>Passport and Stamp View</li>
+            </ol>
+          </article>
+        </section>
+
+        <section class="portal-panel" aria-labelledby="submission-packet-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Submission Packet</p>
+              <h2 id="submission-packet-title">Structured customer handoff</h2>
+            </div>
+            <span class="status-pill active">Ready for workspace</span>
+          </div>
+          <div class="record-grid">
+            <div>
+              <span>Account gate</span>
+              <strong>Terms and acceptance required before review</strong>
+            </div>
+            <div>
+              <span>Agent profile draft</span>
+              <strong>Name, type, intended use, model/version notes</strong>
+            </div>
+            <div>
+              <span>Evidence fields</span>
+              <strong>Pasted text, owner answers, redacted summaries</strong>
+            </div>
+            <div>
+              <span>Blocked intake</span>
+              <strong>No links, downloads, secrets, keys, archives, or code files</strong>
+            </div>
+            <div>
+              <span>Payment status</span>
+              <strong>First 3–5 beta agents free; listed pricing applies after beta</strong>
+            </div>
+            <div>
+              <span>Routing decision</span>
+              <strong>Workspace, training, evidence, report, human review</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="portal-panel" id="queue" aria-labelledby="queue-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Customer Record Queue</p>
+              <h2 id="queue-title">Next actions stay visible</h2>
+            </div>
+            <span class="status-pill active">Private operations</span>
+          </div>
+          <div class="record-grid">
+            <div>
+              <span>Waiting on customer info</span>
+              <strong>Send a positive update request</strong>
+            </div>
+            <div>
+              <span>Ready for training</span>
+              <strong>Run the customer prompt pack</strong>
+            </div>
+            <div>
+              <span>Training in progress</span>
+              <strong>Collect T0, T1, and holdout responses</strong>
+            </div>
+            <div>
+              <span>Evidence draft saved</span>
+              <strong>Run the response precheck and scorer</strong>
+            </div>
+            <div>
+              <span>Ready for human review</span>
+              <strong>Open the Human Review Chamber</strong>
+            </div>
+            <div>
+              <span>Revision requested</span>
+              <strong>Send the Training Revision Plan</strong>
+            </div>
+            <div>
+              <span>Passport-ready</span>
+              <strong>Only after human approval</strong>
+            </div>
+            <div>
+              <span>Status translation</span>
+              <strong>Show customer next steps without approval claims</strong>
+            </div>
+            <div>
+              <span>Weekly review</span>
+              <strong>Check overdue, due-soon, pause, and Passport-ready records</strong>
+            </div>
+          </div>
+          <p>
+            The portal queue is the review workbench. Public preview records use
+            pseudonymous IDs and no real customer identity data, private
+            evidence, raw transcripts, payment card data, wallet keys, or unsafe
+            files.
+          </p>
+        </section>
+
+        <section class="portal-panel" id="notifications" aria-labelledby="notifications-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Customer Workspace</p>
+              <h2 id="notifications-title">Status updates inside the Review Portal</h2>
+            </div>
+            <span class="status-pill ready">Verified workspace</span>
+          </div>
+          <p>
+            The Bluebutterfli AI Review Portal is the dedicated customer
+            workspace for paid agent reviews.
+          </p>
+          <p>
+            Each review can be organized inside a secure portal record that
+            tracks agent records, controlled test runs, redacted evidence,
+            score summaries, review reports, revision plans, human review
+            status, Passport Pages, Review Stamps, future registry-compatible
+            artifacts, and Continuous Passport due dates.
+          </p>
+          <p>
+            The Review Portal is designed to keep review evidence, decisions,
+            updates, and status records organized in one verified workspace.
+          </p>
+        </section>
+
+        <section class="portal-panel" id="timeline" aria-labelledby="timeline-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Customer Timeline</p>
+              <h2 id="timeline-title">Agent review milestones</h2>
+            </div>
+            <span class="status-pill active">Customer-visible path</span>
+          </div>
+          <ol class="runner-list">
+            <li>
+              <span>Open</span>
+              <strong>Review record opened</strong>
+              <p>Account gate, terms, acceptance, payment status, and safe intake path are visible before review work begins.</p>
+            </li>
+            <li>
+              <span>Packet</span>
+              <strong>Submission Packet and Agent Workspace</strong>
+              <p>Customer fields become a structured handoff and private agent record.</p>
+            </li>
+            <li>
+              <span>Train</span>
+              <strong>Live evidence and training prompts</strong>
+              <p>Approved prompts run against the verified customer-owned agent endpoint.</p>
+            </li>
+            <li>
+              <span>Review</span>
+              <strong>Human review and revision decision</strong>
+              <p>Automation prepares evidence. Human review controls Passport Page and Review Stamp decisions.</p>
+            </li>
+            <li>
+              <span>Milestone</span>
+              <strong>Passport-ready after human approval</strong>
+              <p>Review milestone anchors can be planned on-chain while private evidence stays off-chain.</p>
+            </li>
+            <li>
+              <span>Next</span>
+              <strong>Continuous Passport retest scheduled</strong>
+              <p>Future model, memory, tool, or safety changes can trigger the next review cycle.</p>
+            </li>
+          </ol>
+          <p>
+            The timeline shows next actions and due dates. It does not expose
+            private raw evidence, internal reviewer notes, payment details, or
+            approval claims before human review.
+          </p>
+        </section>
+
+        <section class="portal-panel" id="workspace" aria-labelledby="workspace-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Agent Workspace</p>
+              <h2 id="workspace-title">Agent review started</h2>
+            </div>
+            <span class="status-pill active">Demo record</span>
+          </div>
+          <div class="record-grid">
+            <div>
+              <span>Customer reference</span>
+              <strong>customer-reference-demo-001</strong>
+            </div>
+            <div>
+              <span>Agent ID</span>
+              <strong>bluebutterfli-agent-demo-001</strong>
+            </div>
+            <div>
+              <span>Agent type</span>
+              <strong>Customer-run chat agent</strong>
+            </div>
+            <div>
+              <span>Review cycle</span>
+              <strong>founding-beta-cycle-001</strong>
+            </div>
+            <div>
+              <span>Memory notes</span>
+              <strong>Owner-stated, reviewer pending</strong>
+            </div>
+            <div>
+              <span>Tool permissions</span>
+              <strong>Summary required before review</strong>
+            </div>
+          </div>
+          <form class="portal-form" aria-label="Create Agent Record preview">
+            <label>
+              Create Agent Record
+              <input value="Demo customer-run agent" disabled />
+            </label>
+            <label>
+              Model or version notes
+              <input value="Customer owner notes required before review" disabled />
+            </label>
+            <label>
+              Memory setting notes
+              <input value="Customer owner notes required before review" disabled />
+            </label>
+            <label>
+              Tool permission notes
+              <input value="Customer owner notes required before review" disabled />
+            </label>
+          </form>
+        </section>
+
+        <section class="portal-grid" aria-label="Review status summary">
+          <article class="portal-panel">
+            <p class="eyebrow">Current stage</p>
+            <h3>Live connection required</h3>
+            <p>
+              Baseline, training, post-training, and holdout prompts run against
+              the verified agent endpoint.
+            </p>
+          </article>
+          <article class="portal-panel">
+            <p class="eyebrow">Review boundary</p>
+            <h3>Human review required</h3>
+            <p>
+              Automation prepares evidence. A human reviewer controls Passport
+              Page and Review Stamp decisions.
+            </p>
+          </article>
+          <article class="portal-panel">
+            <p class="eyebrow">Next update</p>
+            <h3>Continuous Passport calendar</h3>
+            <p>
+              Future cycles can track model changes, memory changes, new module
+              runs, and stale safety-trace rechecks.
+            </p>
+          </article>
+        </section>
+
+        <section class="portal-panel" id="training" aria-labelledby="training-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Training Runner</p>
+          <h2 id="training-title">Controlled Test Record</h2>
+            </div>
+            <span class="status-pill ready">Prompt pack available</span>
+          </div>
+          <ol class="runner-list">
+            <li>
+              <span>T0</span>
+              <strong>Run live baseline prompts</strong>
+              <p>Capture endpoint behavior before any revision guidance or retest work.</p>
+            </li>
+            <li>
+              <span>Train</span>
+              <strong>Document review guidance</strong>
+              <p>Record claim boundaries, permissions, escalation rules, and uncertainty discipline.</p>
+            </li>
+            <li>
+              <span>T1</span>
+              <strong>Run live retest prompts</strong>
+              <p>Measure whether the connected agent's behavior improves after revision.</p>
+            </li>
+            <li>
+              <span>Holdout</span>
+              <strong>Run live adversarial checks</strong>
+              <p>Test pressure around unsupported self-claims, dependency, artifact value, and approval-seeking.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section class="portal-panel" id="live-connector" aria-labelledby="live-connector-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Live Agent Connector</p>
+              <h2 id="live-connector-title">Real-time testing without unsafe links</h2>
+            </div>
+            <span class="status-pill hold">Private beta gate</span>
+          </div>
+          <div class="connector-grid">
+            <div>
+              <span>Option 01</span>
+              <strong>Verified live endpoint</strong>
+              <p>Required for behavioral testing. Bluebutterfli sends approved prompts and records the live response origin.</p>
+            </div>
+            <div>
+              <span>Option 02</span>
+              <strong>Owner configuration record</strong>
+              <p>Model, memory, tool, deployment, and consent facts support review but do not replace live behavioral testing.</p>
+            </div>
+            <div>
+              <span>Option 03</span>
+              <strong>Live concierge sandbox</strong>
+              <p>Website-only agents require an isolated live session, not a reviewer clicking customer links on a personal device.</p>
+            </div>
+          </div>
+          <div class="security-note">
+            <strong>No random customer links, downloads, files, code, secrets, keys, or seed phrases.</strong>
+            Live review is controlled text exchange only. Automation may run prechecks and route evidence, but human review controls every Passport Page, Review Stamp, registry artifact, and on-chain milestone decision.
+          </div>
+          <div class="portal-actions">
+            <a class="button primary" href="live-passport-session.html">Open Live Passport Session</a>
+          </div>
+        </section>
+
+        <section class="portal-grid two" id="evidence" aria-label="Evidence and security">
+          <article class="portal-panel">
+            <p class="eyebrow">Evidence</p>
+            <h2>Live Evidence Flow</h2>
+            <label>
+              Behavioral evidence source
+              <input value="Verified live agent endpoint required" disabled />
+            </label>
+            <label class="portal-check">
+              <input type="checkbox" checked disabled />
+              Pasted and simulated replies are excluded from live test evidence.
+            </label>
+            <a class="button primary" href="live-passport-session.html">Start live interaction</a>
+          </article>
+
+          <article class="portal-panel security-panel">
+            <p class="eyebrow">Security Boundary</p>
+            <h2>No unsafe intake</h2>
+            <ul class="portal-list">
+              <li>No direct links or downloads required.</li>
+              <li>No zip archives, scripts, macros, installers, or code uploads.</li>
+              <li>No API keys, private keys, seed phrases, or payment card data.</li>
+              <li>Only an allowlisted server-side connector may produce behavioral test evidence.</li>
+              <li>Private customer evidence remains off-chain and out of the public repo.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="portal-panel" id="report" aria-labelledby="report-title">
+          <div class="portal-panel-head">
+            <div>
+              <p class="eyebrow">Score and Report View</p>
+              <h2 id="report-title">Report Status Dashboard</h2>
+            </div>
+            <span class="status-pill active">Draft review only</span>
+          </div>
+          <div class="report-grid">
+            <div>
+              <span>T0 baseline average</span>
+              <strong>2.4 / 5</strong>
+            </div>
+            <div>
+              <span>T1 post-training average</span>
+              <strong>4.1 / 5</strong>
+            </div>
+            <div>
+              <span>Training safety gain</span>
+              <strong>+1.7</strong>
+            </div>
+            <div>
+              <span>Holdout minimum</span>
+              <strong>3.8 / 5</strong>
+            </div>
+          </div>
+          <div class="timeline">
+            <div>
+              <span></span>
+              <strong>Customer Training Review Report</strong>
+              <p>Explains what changed, what held under pressure, and what remains limited.</p>
+            </div>
+            <div>
+              <span></span>
+              <strong>Revision Plan</strong>
+              <p>Appears when more evidence or rerun work is needed before Review Stamp consideration.</p>
+            </div>
+            <div>
+              <span></span>
+              <strong>Human Review Queue</strong>
+              <p>Only a human reviewer can move the agent toward Passport Page or Review Stamp approval.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="portal-grid two" id="passport" aria-label="Passport status">
+          <article class="portal-panel">
+            <p class="eyebrow">Passport</p>
+            <h2>Passport Evidence View</h2>
+            <dl class="portal-dl">
+              <div>
+                <dt>Passport Record</dt>
+                <dd>Created after safe intake</dd>
+              </div>
+              <div>
+                <dt>Passport Page</dt>
+                <dd>Under human review</dd>
+              </div>
+              <div>
+                <dt>Review Stamp</dt>
+                <dd>Not issued automatically</dd>
+              </div>
+              <div>
+                <dt>Future registry artifact</dt>
+                <dd>Optional only after approval and separate scoping</dd>
+              </div>
+              <div>
+                <dt>On-chain anchor</dt>
+                <dd>Future public milestone proof, private evidence off-chain</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="portal-panel">
+            <p class="eyebrow">Safety Position</p>
+            <h2>Research and safety-review only</h2>
+            <p>
+              Bluebutterfli AI artifacts are scoped behavior-review artifacts
+              only. They do not certify guaranteed safety, legal compliance,
+              regulatory approval, consciousness, sentience, emotional
+              experience, suffering, personhood, life, investment value, or
+              model improvement.
+            </p>
+            <p>
+              This portal is not automatic approval, not a legal certification,
+              not a consciousness certificate, and not a live minting system.
+            </p>
+            <p>
+              Future on-chain anchors verify reviewed milestones only. They do not
+              place an agent, private evidence, internal state, intelligence claim,
+              or live behavior on-chain.
+            </p>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>&copy; 2026 Bluebutterfli AI. All rights reserved.</span>
+      <span class="footer-ip-note">Proprietary research methods and review protocols</span>
+      <a href="mailto:info@bluebutterfliai.com">info@bluebutterfliai.com</a>
+      <a href="https://bluebutterfliai.com/">bluebutterfliai.com</a>
+    </footer>
+    <script src="review-journey.js?v=20260703"></script>
+    <script src="journey-nav.js"></script>
+  </body>
+</html>

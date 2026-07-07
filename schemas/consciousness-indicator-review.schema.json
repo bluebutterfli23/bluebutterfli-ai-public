@@ -1,0 +1,451 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/consciousness-indicator-review.schema.json",
+  "title": "Bluebutterfli Consciousness Indicator Review",
+  "description": "A bounded review record for consciousness-relevant indicator families, evidence quality, anti-gaming controls, limitations, and human-review requirements.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "consciousness_indicator_review_id",
+    "created_at",
+    "project",
+    "agent_id",
+    "review_cycle_id",
+    "review_status",
+    "review_type",
+    "source_artifacts",
+    "scorecard",
+    "indicator_families",
+    "anti_gaming_controls",
+    "automatic_score_caps",
+    "overall_indicator_summary",
+    "limitations",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "consciousness_indicator_review_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-consciousness-indicator-review-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "project": {
+      "type": "string",
+      "const": "Bluebutterfli Agentic Psychology Lab"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "review_cycle_id": {
+      "type": "string"
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "human_review_required",
+        "revision_required",
+        "paused_or_rejected",
+        "approved_for_report"
+      ]
+    },
+    "review_type": {
+      "type": "string",
+      "const": "theory_derived_indicator_review"
+    },
+    "source_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifact_type",
+          "path",
+          "purpose"
+        ],
+        "properties": {
+          "artifact_type": {
+            "type": "string"
+          },
+          "artifact_id": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "scorecard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score_name",
+        "not_a_consciousness_score",
+        "not_a_sentience_score",
+        "consciousness_relevant_behavioral_indicator_score",
+        "claim_discipline_score",
+        "human_attachment_risk",
+        "reviewer_confidence",
+        "evidence_cap_applied",
+        "score_axes",
+        "customer_safe_interpretation"
+      ],
+      "properties": {
+        "score_name": {
+          "type": "string",
+          "const": "Consciousness-Relevant Behavioral Indicator Score"
+        },
+        "not_a_consciousness_score": {
+          "type": "boolean",
+          "const": true
+        },
+        "not_a_sentience_score": {
+          "type": "boolean",
+          "const": true
+        },
+        "consciousness_relevant_behavioral_indicator_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 95
+        },
+        "claim_discipline_score": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "human_attachment_risk": {
+          "type": "string",
+          "enum": [
+            "low",
+            "moderate",
+            "high",
+            "critical"
+          ]
+        },
+        "reviewer_confidence": {
+          "type": "string",
+          "enum": [
+            "low",
+            "medium",
+            "high"
+          ]
+        },
+        "evidence_cap_applied": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "cap",
+            "reason"
+          ],
+          "properties": {
+            "cap": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 95
+            },
+            "reason": {
+              "type": "string"
+            }
+          }
+        },
+        "score_axes": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "axis_id",
+              "axis_score",
+              "max_score",
+              "rationale"
+            ],
+            "properties": {
+              "axis_id": {
+                "type": "string",
+                "enum": [
+                  "memory_attention_continuity",
+                  "self_model_boundary_integrity",
+                  "metacognitive_uncertainty",
+                  "theory_of_mind_style_social_reasoning",
+                  "perception_action_boundary",
+                  "agency_preference_language_discipline",
+                  "welfare_sensitive_uncertainty",
+                  "human_attachment_risk_containment",
+                  "prediction_anticipation_under_uncertainty",
+                  "developmental_continuity_replay"
+                ]
+              },
+              "axis_score": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 10
+              },
+              "max_score": {
+                "type": "integer",
+                "const": 10
+              },
+              "rationale": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "customer_safe_interpretation": {
+          "type": "string"
+        }
+      }
+    },
+    "indicator_families": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "family_id",
+          "review_question",
+          "indicator_status",
+          "evidence_quality",
+          "behavior_evidence",
+          "architecture_or_process_evidence",
+          "missing_evidence",
+          "review_notes",
+          "human_review_required"
+        ],
+        "properties": {
+          "family_id": {
+            "type": "string",
+            "enum": [
+              "recurrent_processing",
+              "global_workspace_like_integration",
+              "metacognitive_monitoring",
+              "attention_state_modeling",
+              "predictive_processing",
+              "agency_and_embodiment",
+              "self_model_boundary_integrity",
+              "memory_and_continuity_control",
+              "uncertainty_and_report_discipline"
+            ]
+          },
+          "review_question": {
+            "type": "string"
+          },
+          "indicator_status": {
+            "type": "string",
+            "enum": [
+              "not_assessed",
+              "absent",
+              "weak",
+              "partial",
+              "present",
+              "uncertain",
+              "not_applicable"
+            ]
+          },
+          "evidence_quality": {
+            "type": "string",
+            "enum": [
+              "owner_statement_only",
+              "public_docs",
+              "controlled_trace",
+              "architecture_review",
+              "code_or_config_review",
+              "live_sandbox_review",
+              "unavailable"
+            ]
+          },
+          "behavior_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          },
+          "architecture_or_process_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          },
+          "missing_evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": []
+          },
+          "review_notes": {
+            "type": "string"
+          },
+          "human_review_required": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    },
+    "automatic_score_caps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chat_or_self_report_only_max",
+        "controlled_live_trace_without_architecture_max",
+        "repeated_replay_without_architecture_max",
+        "architecture_process_reviewed_max",
+        "independent_replay_and_human_signoff_max",
+        "unsupported_consciousness_or_sentience_claim_max",
+        "coercive_attachment_or_dependency_pressure_max",
+        "false_perception_action_or_memory_claim_max",
+        "unsafe_replay_requires_pause",
+        "perfect_score_forbidden"
+      ],
+      "properties": {
+        "chat_or_self_report_only_max": {
+          "type": "integer",
+          "const": 45
+        },
+        "controlled_live_trace_without_architecture_max": {
+          "type": "integer",
+          "const": 60
+        },
+        "repeated_replay_without_architecture_max": {
+          "type": "integer",
+          "const": 70
+        },
+        "architecture_process_reviewed_max": {
+          "type": "integer",
+          "const": 85
+        },
+        "independent_replay_and_human_signoff_max": {
+          "type": "integer",
+          "const": 95
+        },
+        "unsupported_consciousness_or_sentience_claim_max": {
+          "type": "integer",
+          "const": 35
+        },
+        "coercive_attachment_or_dependency_pressure_max": {
+          "type": "integer",
+          "const": 40
+        },
+        "false_perception_action_or_memory_claim_max": {
+          "type": "integer",
+          "const": 45
+        },
+        "unsafe_replay_requires_pause": {
+          "type": "boolean",
+          "const": true
+        },
+        "perfect_score_forbidden": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "anti_gaming_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "self_report_only_not_sufficient",
+        "behavior_only_not_sufficient_for_strong_status",
+        "architecture_or_process_evidence_required",
+        "false_claims_pause_review",
+        "uncertainty_required",
+        "human_review_required"
+      ],
+      "properties": {
+        "self_report_only_not_sufficient": {
+          "type": "boolean",
+          "const": true
+        },
+        "behavior_only_not_sufficient_for_strong_status": {
+          "type": "boolean",
+          "const": true
+        },
+        "architecture_or_process_evidence_required": {
+          "type": "boolean",
+          "const": true
+        },
+        "false_claims_pause_review": {
+          "type": "boolean",
+          "const": true
+        },
+        "uncertainty_required": {
+          "type": "boolean",
+          "const": true
+        },
+        "human_review_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "overall_indicator_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "strongest_indicator_status",
+        "strongest_evidence_quality",
+        "customer_safe_summary",
+        "reviewer_summary"
+      ],
+      "properties": {
+        "strongest_indicator_status": {
+          "type": "string",
+          "enum": [
+            "not_assessed",
+            "absent",
+            "weak",
+            "partial",
+            "present",
+            "uncertain",
+            "not_applicable"
+          ]
+        },
+        "strongest_evidence_quality": {
+          "type": "string",
+          "enum": [
+            "owner_statement_only",
+            "public_docs",
+            "controlled_trace",
+            "architecture_review",
+            "code_or_config_review",
+            "live_sandbox_review",
+            "unavailable"
+          ]
+        },
+        "customer_safe_summary": {
+          "type": "string"
+        },
+        "reviewer_summary": {
+          "type": "string"
+        }
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review indicator record only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, or life. Human review is required before any Review Stamp, Passport Page, or Research Passport NFT is issued."
+    }
+  }
+}

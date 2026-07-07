@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.env.*
+outputs/
+memory/
+artifacts/
+evidence/private-helix-live-trials/

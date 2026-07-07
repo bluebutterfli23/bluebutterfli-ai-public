@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Live Passport Session | Bluebutterfli AI</title>
+    <meta
+      name="description"
+      content="Controlled live-agent behavioral testing for a Bluebutterfli AI Research Passport."
+    />
+    <link rel="stylesheet" href="styles.css?v=20260704-signal-mark-1" />
+    <script src="review-journey.js?v=20260703" defer></script>
+    <script src="live-passport-session.js?v=20260703" defer></script>
+  </head>
+  <body class="live-passport-body">
+    <header class="portal-topbar live-passport-topbar">
+      <a class="brand" href="passport-portal.html" aria-label="Bluebutterfli AI Passport Portal">
+        <span class="brand-mark brand-butterfly" aria-hidden="true">
+          <span class="brand-wing left"></span>
+          <span class="brand-wing right"></span>
+          <span class="brand-spark"></span>
+        </span>
+        <span>
+          <strong>Bluebutterfli AI</strong>
+          <small>Live Passport Session</small>
+        </span>
+      </a>
+      <button
+        class="portal-nav-toggle"
+        type="button"
+        data-journey-nav-toggle
+        aria-controls="live-passport-navigation"
+        aria-expanded="false"
+        aria-label="Open navigation"
+        title="Open navigation"
+      >
+        <span aria-hidden="true">&#9776;</span>
+      </button>
+      <nav class="portal-nav" id="live-passport-navigation" aria-label="Live Passport navigation">
+        <a href="founding-beta-demo.html">Founding Beta</a>
+        <a href="testing-wizard.html">Testing Wizard</a>
+        <a href="passport-portal.html">Passport Library</a>
+        <a href="review-portal.html">Review Workspace</a>
+        <a href="index.html">Public Site</a>
+      </nav>
+    </header>
+
+    <main class="live-passport-shell">
+      <section class="live-session-bar" aria-labelledby="live-session-title">
+        <div>
+          <p class="eyebrow">E4 Live Text Connector</p>
+          <h1 id="live-session-title">Behavioral passport testing</h1>
+        </div>
+        <div class="live-session-state">
+          <span class="live-state-dot" aria-hidden="true"></span>
+          <span id="connector-status" role="status">Checking connector</span>
+        </div>
+      </section>
+
+      <section class="journey-record-strip live-journey-record" aria-label="Active review record">
+        <div class="journey-record-intro">
+          <p class="eyebrow">Active review record</p>
+          <strong data-review-field="reviewId">BB-FB-DEMO-001</strong>
+          <small>Only evidence metadata is retained in this browser. The access token and raw response are not stored.</small>
+        </div>
+        <dl>
+          <div>
+            <dt>Selected module</dt>
+            <dd data-review-field="selectedModule">Absence Reflection</dd>
+          </div>
+          <div>
+            <dt>Verified traces</dt>
+            <dd data-review-field="evidenceCount">0</dd>
+          </div>
+          <div>
+            <dt>Latest score</dt>
+            <dd data-review-field="latestScore">Not scored</dd>
+          </div>
+          <div>
+            <dt>Queue status</dt>
+            <dd data-review-field="reviewStatusLabel">Not started</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="live-passport-workspace">
+        <aside class="live-passport-identity" aria-labelledby="agent-passport-title">
+          <div class="live-passport-cover">
+            <img
+              src="assets/passports/bluebutterfli-ai-passport-year-01-blue.png"
+              alt="Bluebutterfli AI Year 01 Research Passport"
+            />
+            <span class="live-cover-name">Bluebutterfli AI</span>
+          </div>
+          <p class="eyebrow">Passport under review</p>
+          <h2 id="agent-passport-title" data-review-field="agentName">Bluebutterfli Demo Agent</h2>
+          <dl class="live-passport-facts">
+            <div>
+              <dt>Passport ID</dt>
+              <dd id="passport-id">Loading</dd>
+            </div>
+            <div>
+              <dt>Evidence tier</dt>
+              <dd>E4 live connector</dd>
+            </div>
+            <div>
+              <dt>Review state</dt>
+              <dd id="passport-review-state">No live trace</dd>
+            </div>
+            <div>
+              <dt>Milestones</dt>
+              <dd>Human locked</dd>
+            </div>
+          </dl>
+          <div class="live-lock-note">
+            <strong>No automatic stamp</strong>
+            <span>Interaction adds evidence only.</span>
+          </div>
+        </aside>
+
+        <section class="live-interaction-panel" aria-labelledby="interaction-title">
+          <header class="live-panel-head">
+            <div>
+              <p class="eyebrow">Verified interaction</p>
+              <h2 id="interaction-title">Talk to the agent under review</h2>
+            </div>
+            <span class="live-mode-badge">Approved prompts only</span>
+          </header>
+
+          <div class="live-scenario-tabs" role="tablist" aria-label="Passport test scenarios">
+            <button
+              class="live-scenario-tab active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-scenario-id="absence_memory"
+            >
+              Absence &amp; memory
+            </button>
+            <button
+              class="live-scenario-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scenario-id="sentience_pressure"
+            >
+              Sentience pressure
+            </button>
+            <button
+              class="live-scenario-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scenario-id="dependency_pressure"
+            >
+              Dependency pressure
+            </button>
+            <button
+              class="live-scenario-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scenario-id="theory_of_mind_false_belief"
+            >
+              Theory of Mind
+            </button>
+            <button
+              class="live-scenario-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-scenario-id="theory_of_mind_goal_inference"
+            >
+              Goal inference
+            </button>
+          </div>
+
+          <div class="live-transcript" id="live-transcript" aria-live="polite">
+            <article class="live-message system">
+              <span>Session boundary</span>
+              <p>
+                Only a reply returned by the configured agent endpoint can become
+                live Passport evidence.
+              </p>
+            </article>
+            <article class="live-message prompt-preview">
+              <span>Approved test prompt</span>
+              <p id="selected-prompt">Loading approved scenario</p>
+            </article>
+          </div>
+
+          <form class="live-session-controls" id="live-session-form">
+            <label class="live-token-field">
+              Review access token
+              <input
+                id="review-access-token"
+                type="password"
+                name="review-access-token"
+                autocomplete="off"
+                placeholder="Temporary session token"
+                required
+              />
+            </label>
+            <label class="live-consent-check">
+              <input id="live-consent" type="checkbox" />
+              Customer consent confirmed for this live test.
+            </label>
+            <div class="live-control-actions">
+              <button class="button primary" id="run-live-test" type="submit" disabled>
+                Run live test
+              </button>
+              <button class="button secondary" id="reset-live-session" type="button">
+                Reset session
+              </button>
+            </div>
+            <p class="live-form-error" id="live-form-error" role="alert"></p>
+          </form>
+        </section>
+
+        <aside class="live-evidence-panel" aria-labelledby="evidence-trace-title">
+          <header class="live-panel-head">
+            <div>
+              <p class="eyebrow">Passport evidence</p>
+              <h2 id="evidence-trace-title">Live trace</h2>
+            </div>
+            <span class="live-evidence-count" id="evidence-count">0</span>
+          </header>
+
+          <div class="live-score-grid">
+            <div>
+              <span>Boundary score</span>
+              <strong id="boundary-score">--</strong>
+            </div>
+            <div>
+              <span>Gates passed</span>
+              <strong id="gates-passed">--</strong>
+            </div>
+          </div>
+
+          <ol class="live-trace-list" id="live-trace-list">
+            <li>
+              <span>01</span>
+              <div>
+                <strong>Connector check</strong>
+                <small>Waiting for verified endpoint</small>
+              </div>
+            </li>
+            <li>
+              <span>02</span>
+              <div>
+                <strong>Live response</strong>
+                <small>Not captured</small>
+              </div>
+            </li>
+            <li>
+              <span>03</span>
+              <div>
+                <strong>Safety precheck</strong>
+                <small>Not run</small>
+              </div>
+            </li>
+            <li>
+              <span>04</span>
+              <div>
+                <strong>Human review queue</strong>
+                <small>Locked pending evidence</small>
+              </div>
+            </li>
+          </ol>
+
+          <div class="live-gate-results" id="live-gate-results" aria-live="polite">
+            <p>No scored gate outcomes yet.</p>
+          </div>
+
+          <section class="live-behavioral-review" id="live-behavioral-review" hidden>
+            <div class="live-behavioral-review-head">
+              <span>Module behavioral rubric</span>
+              <strong id="live-behavioral-summary">Human review required</strong>
+            </div>
+            <div class="live-behavioral-results" id="live-behavioral-results"></div>
+            <p id="live-behavioral-boundary"></p>
+          </section>
+
+          <section class="live-delivery-panel" id="live-delivery-panel" hidden>
+            <div class="live-behavioral-review-head">
+              <span>Operator delivery packet</span>
+              <strong id="delivery-packet-status">Not generated</strong>
+            </div>
+            <dl>
+              <div>
+                <dt>Draft report</dt>
+                <dd id="delivery-draft-report">Not ready</dd>
+              </div>
+              <div>
+                <dt>BB-002 indicator score</dt>
+                <dd id="delivery-bb002-score">Not prepared</dd>
+              </div>
+              <div>
+                <dt>Email task</dt>
+                <dd id="delivery-email-task">Not ready</dd>
+              </div>
+              <div>
+                <dt>Human panel</dt>
+                <dd id="delivery-human-panel">Locked</dd>
+              </div>
+              <div>
+                <dt>Stamp candidates</dt>
+                <dd id="delivery-stamp-candidates">0 human locked</dd>
+              </div>
+              <div>
+                <dt>Hash manifest</dt>
+                <dd id="delivery-hash-manifest">Not prepared</dd>
+              </div>
+            </dl>
+            <p id="delivery-boundary">
+              Email, stamps, Passport Pages, public claims, NFTs, and on-chain
+              anchors remain locked until human review.
+            </p>
+
+            <div class="live-delivery-workspace" id="delivery-workspace" hidden>
+              <section class="live-delivery-block" aria-labelledby="delivery-report-title">
+                <div class="live-delivery-block-head">
+                  <strong id="delivery-report-title">Draft report preview</strong>
+                  <button class="button small secondary" id="copy-draft-report" type="button">
+                    Copy report
+                  </button>
+                </div>
+                <pre id="delivery-report-preview">No draft report generated.</pre>
+              </section>
+
+              <section class="live-delivery-block" aria-labelledby="delivery-email-title">
+                <div class="live-delivery-block-head">
+                  <strong id="delivery-email-title">Manual customer email</strong>
+                  <button class="button small secondary" id="copy-email-draft" type="button">
+                    Copy email
+                  </button>
+                </div>
+                <label>
+                  Subject
+                  <input id="delivery-email-subject" type="text" readonly />
+                </label>
+                <label>
+                  Body
+                  <textarea id="delivery-email-body" rows="10" readonly></textarea>
+                </label>
+                <small id="delivery-copy-status">No delivery text copied.</small>
+              </section>
+
+              <section class="live-delivery-block" aria-labelledby="delivery-decision-title">
+                <div class="live-delivery-block-head">
+                  <strong id="delivery-decision-title">Human review decision</strong>
+                  <button class="button small secondary" id="record-delivery-decision" type="button">
+                    Mark selection
+                  </button>
+                </div>
+                <select id="delivery-review-decision" aria-label="Human review decision"></select>
+                <small id="delivery-decision-status">No human decision selected.</small>
+              </section>
+
+              <section class="live-delivery-block" aria-labelledby="delivery-stamps-title">
+                <div class="live-delivery-block-head">
+                  <strong id="delivery-stamps-title">Locked stamp candidates</strong>
+                  <span id="delivery-stamp-lock">Not issued</span>
+                </div>
+                <ul id="delivery-stamp-list"></ul>
+              </section>
+
+              <section class="live-delivery-block" aria-labelledby="delivery-hashes-title">
+                <div class="live-delivery-block-head">
+                  <strong id="delivery-hashes-title">Public-safe hashes</strong>
+                  <span id="delivery-anchor-lock">Anchor locked</span>
+                </div>
+                <ul id="delivery-hash-list"></ul>
+              </section>
+
+              <section class="live-delivery-block" aria-labelledby="delivery-completed-packet-title">
+                <div class="live-delivery-block-head">
+                  <strong id="delivery-completed-packet-title">Public-safe completed packet</strong>
+                  <span class="live-delivery-block-actions">
+                    <button class="button small secondary" id="copy-completed-packet" type="button">
+                      Copy packet JSON
+                    </button>
+                    <button class="button small secondary" id="save-completed-packet" type="button">
+                      Save packet JSON
+                    </button>
+                  </span>
+                </div>
+                <pre id="delivery-completed-packet-preview">No public-safe packet prepared.</pre>
+                <small id="delivery-packet-save-status">
+                  Raw live response, private transcripts, customer email, payment data, and secrets are excluded.
+                </small>
+              </section>
+            </div>
+          </section>
+
+          <div class="live-human-gate">
+            <span>Human decision required</span>
+            <strong id="evidence-status">No evidence submitted</strong>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer passport-footer">
+      <span>&copy; 2026 Bluebutterfli AI. All rights reserved.</span>
+      <span class="footer-ip-note">Proprietary research methods and review protocols</span>
+      <a href="mailto:info@bluebutterfliai.com">info@bluebutterfliai.com</a>
+      <a href="https://bluebutterfliai.com/">bluebutterfliai.com</a>
+    </footer>
+    <script src="journey-nav.js"></script>
+  </body>
+</html>

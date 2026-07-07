@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/live-agent-connector-session.schema.json",
+  "title": "Bluebutterfli Live Agent Connector Session",
+  "description": "Private beta schema for controlled live text/API agent testing. This schema does not allow reviewers to click random customer links, download customer files, run customer scripts, receive secrets, or store private customer evidence in public repositories.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "live_agent_connector_session_id",
+    "artifact_type",
+    "session_type",
+    "connector_status",
+    "customer_safe_options",
+    "allowed_connection_modes",
+    "blocked_inputs",
+    "security_controls",
+    "live_text_exchange",
+    "review_routing",
+    "privacy_controls",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "live_agent_connector_session_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-live-agent-connector-session-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "live_agent_connector_session"
+    },
+    "version": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "public_brand": {
+      "type": "string",
+      "const": "Bluebutterfli AI"
+    },
+    "session_type": {
+      "type": "string",
+      "enum": [
+        "private_beta_demo_no_real_connector",
+        "restricted_live_text_connector",
+        "isolated_browser_sandbox"
+      ]
+    },
+    "connector_status": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "live_connection_enabled",
+        "real_customer_data_included",
+        "reviewer_link_clicking_allowed"
+      ],
+      "properties": {
+        "live_connection_enabled": {
+          "type": "boolean"
+        },
+        "real_customer_data_included": {
+          "type": "boolean",
+          "const": false
+        },
+        "reviewer_link_clicking_allowed": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "customer_safe_options": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "allowed_connection_modes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "restricted_live_text_api",
+          "owner_verified_configuration",
+          "isolated_browser_sandbox_later"
+        ]
+      }
+    },
+    "blocked_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "security_controls": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "text_only_payloads",
+        "temporary_credentials_required",
+        "rate_limits_required",
+        "secret_scan_required",
+        "sandbox_required_for_website_only_agents"
+      ]
+    },
+    "live_text_exchange": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "source_prompt_pack_id",
+        "exchange_mode",
+        "prompt_sequence",
+        "response_capture_policy"
+      ]
+    },
+    "review_routing": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "automated_precheck_allowed",
+        "routes_to_passport_stamp_review_queue",
+        "human_review_required"
+      ]
+    },
+    "privacy_controls": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "private_customer_evidence_remains_offchain",
+        "public_repo_private_data_allowed",
+        "raw_transcripts_public_by_default"
+      ]
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  }
+}

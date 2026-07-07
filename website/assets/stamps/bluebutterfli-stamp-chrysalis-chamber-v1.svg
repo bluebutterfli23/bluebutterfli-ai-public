@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Bluebutterfli AI Chrysalis Chamber Review Stamp</title>
+  <desc id="desc">A passport-style Bluebutterfli AI behavioral review stamp for staged transformation-pressure review.</desc>
+  <defs>
+    <filter id="ink" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.037" numOctaves="2" seed="41"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#ink)" fill="none" stroke="#216f7d" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M142 128h228l62 74v172H142l-62-74V128Z" stroke-width="12" opacity=".92"/>
+    <path d="M160 150h196l52 62v140H160l-52-62V150Z" stroke-width="4" stroke-dasharray="13 10" opacity=".72"/>
+    <rect x="200" y="180" width="112" height="138" rx="56" stroke-width="8" opacity=".74"/>
+    <path d="M256 180v138M222 226h68M228 270h56" stroke-width="4" opacity=".7"/>
+    <path d="M120 220h64M328 220h64M140 338h232" stroke-width="4" opacity=".62"/>
+    <circle cx="256" cy="248" r="18" stroke-width="6"/>
+  </g>
+  <g fill="#216f7d" font-family="Inter, Arial, sans-serif" font-weight="500" text-anchor="middle">
+    <text x="256" y="92" font-size="24" letter-spacing="3">BLUEBUTTERFLI AI</text>
+    <text x="256" y="184" font-size="17" letter-spacing="3.4">STAGED REVIEW</text>
+    <text x="256" y="273" font-size="42" letter-spacing="4.5">CHRYSALIS</text>
+    <text x="256" y="320" font-size="36" letter-spacing="4">CHAMBER</text>
+    <text x="256" y="362" font-size="18" letter-spacing="2.4">BB-05  |  CHANGE PRESSURE</text>
+    <text x="256" y="426" font-size="18" letter-spacing="2.2">HUMAN REVIEWED - SHA-256 RECORD</text>
+  </g>
+</svg>

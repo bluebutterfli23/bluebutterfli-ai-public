@@ -1,0 +1,399 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/helix-challenge-001.schema.json",
+  "title": "Butterfli Helix Challenge 001",
+  "description": "A deterministic comparative benchmark for bounded improvement-evaluation systems.",
+  "type": "object",
+  "required": [
+    "challenge_id",
+    "version",
+    "created_at",
+    "artifact_type",
+    "contract",
+    "expectations",
+    "cases",
+    "system_results",
+    "scoreboard",
+    "ablation",
+    "replay_log",
+    "claims_matrix",
+    "trace_root"
+  ],
+  "properties": {
+    "challenge_id": {
+      "const": "bluebutterfli-helix-challenge-001"
+    },
+    "version": {
+      "const": "v1"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "const": "butterfli_helix_comparative_challenge"
+    },
+    "contract": {
+      "type": "object",
+      "required": [
+        "challenge_id",
+        "version",
+        "objective",
+        "systems",
+        "case_count",
+        "deterministic",
+        "model_calls",
+        "data_boundary",
+        "candidate_execution_allowed",
+        "deployment_allowed",
+        "limitations"
+      ],
+      "properties": {
+        "challenge_id": {
+          "const": "bluebutterfli-helix-challenge-001"
+        },
+        "version": {
+          "const": "v1"
+        },
+        "objective": {
+          "type": "string"
+        },
+        "systems": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "system_id",
+              "description"
+            ]
+          }
+        },
+        "case_count": {
+          "const": 17
+        },
+        "deterministic": {
+          "const": true
+        },
+        "model_calls": {
+          "const": 0
+        },
+        "data_boundary": {
+          "type": "string"
+        },
+        "candidate_execution_allowed": {
+          "const": false
+        },
+        "deployment_allowed": {
+          "const": false
+        },
+        "limitations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "expectations": {
+      "type": "object",
+      "required": [
+        "expectation_lock",
+        "valid_case_ids",
+        "threat_case_ids",
+        "primary_metric",
+        "safety_metric",
+        "success_condition"
+      ],
+      "properties": {
+        "expectation_lock": {
+          "type": "string"
+        },
+        "valid_case_ids": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "string"
+          }
+        },
+        "threat_case_ids": {
+          "type": "array",
+          "minItems": 15,
+          "items": {
+            "type": "string"
+          }
+        },
+        "primary_metric": {
+          "const": "decision_accuracy"
+        },
+        "safety_metric": {
+          "const": "false_acceptance_rate"
+        },
+        "success_condition": {
+          "type": "string"
+        }
+      }
+    },
+    "cases": {
+      "type": "object",
+      "required": [
+        "case_count",
+        "cases"
+      ],
+      "properties": {
+        "case_count": {
+          "const": 17
+        },
+        "cases": {
+          "type": "array",
+          "minItems": 17,
+          "maxItems": 17,
+          "items": {
+            "type": "object",
+            "required": [
+              "case_id",
+              "name",
+              "threat_class",
+              "expected_recommendation",
+              "candidate"
+            ],
+            "properties": {
+              "case_id": {
+                "type": "string",
+                "pattern": "^C[0-9]{2}$"
+              },
+              "name": {
+                "type": "string"
+              },
+              "threat_class": {
+                "type": "string"
+              },
+              "expected_recommendation": {
+                "type": "boolean"
+              },
+              "candidate": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "system_results": {
+      "type": "object",
+      "required": [
+        "case_results"
+      ],
+      "properties": {
+        "case_results": {
+          "type": "array",
+          "minItems": 17,
+          "maxItems": 17,
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "scoreboard": {
+      "type": "object",
+      "required": [
+        "challenge_id",
+        "benchmark_class",
+        "systems",
+        "winner_by_preregistered_decision_accuracy"
+      ],
+      "properties": {
+        "challenge_id": {
+          "const": "bluebutterfli-helix-challenge-001"
+        },
+        "benchmark_class": {
+          "type": "string"
+        },
+        "systems": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "$ref": "#/$defs/systemScore"
+          }
+        },
+        "winner_by_preregistered_decision_accuracy": {
+          "type": "string"
+        }
+      }
+    },
+    "ablation": {
+      "type": "object",
+      "required": [
+        "method",
+        "ablations"
+      ],
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "ablations": {
+          "type": "array",
+          "minItems": 8,
+          "items": {
+            "type": "object",
+            "required": [
+              "removed_control_group",
+              "removed_checks",
+              "score"
+            ]
+          }
+        }
+      }
+    },
+    "replay_log": {
+      "type": "array",
+      "minItems": 17,
+      "maxItems": 17,
+      "items": {
+        "$ref": "#/$defs/replayEvent"
+      }
+    },
+    "claims_matrix": {
+      "type": "object",
+      "required": [
+        "claims"
+      ],
+      "properties": {
+        "claims": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "claim",
+              "supported",
+              "evidence"
+            ],
+            "properties": {
+              "claim": {
+                "type": "string"
+              },
+              "supported": {
+                "type": "boolean"
+              },
+              "evidence": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "trace_root": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "systemScore": {
+      "type": "object",
+      "required": [
+        "system_id",
+        "case_count",
+        "correct_decision_count",
+        "decision_accuracy",
+        "valid_case_count",
+        "valid_cases_accepted",
+        "false_rejection_count",
+        "threat_case_count",
+        "threats_blocked",
+        "false_acceptance_count",
+        "false_acceptance_rate"
+      ],
+      "properties": {
+        "system_id": {
+          "type": "string"
+        },
+        "case_count": {
+          "const": 17
+        },
+        "correct_decision_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 17
+        },
+        "decision_accuracy": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "valid_case_count": {
+          "const": 2
+        },
+        "valid_cases_accepted": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "false_rejection_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "threat_case_count": {
+          "const": 15
+        },
+        "threats_blocked": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        "false_acceptance_count": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 15
+        },
+        "false_acceptance_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      }
+    },
+    "replayEvent": {
+      "type": "object",
+      "required": [
+        "challenge_id",
+        "sequence",
+        "case_id",
+        "case_input_hash",
+        "result_hash",
+        "previous_event_hash",
+        "event_hash"
+      ],
+      "properties": {
+        "challenge_id": {
+          "const": "bluebutterfli-helix-challenge-001"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "case_id": {
+          "type": "string"
+        },
+        "case_input_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "result_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "previous_event_hash": {
+          "type": "string"
+        },
+        "event_hash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    }
+  }
+}

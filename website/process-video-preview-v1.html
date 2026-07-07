@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bluebutterfli Process Video Preview v1</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --ink: #f5fbff;
+        --soft: rgba(226, 244, 252, 0.78);
+        --teal: #7ee6ff;
+        --gold: #d7b875;
+        --paper: #efe2c5;
+        --night: #07111f;
+        --deep: #102039;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #050b14;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      .stage {
+        position: relative;
+        width: min(100vw, 1600px);
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 70% 25%, rgba(126, 230, 255, 0.18), transparent 32%),
+          radial-gradient(circle at 18% 70%, rgba(57, 139, 197, 0.2), transparent 34%),
+          linear-gradient(135deg, #06101f 0%, #0e1f35 48%, #06101f 100%);
+        box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+      }
+
+      .stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(circle, rgba(126, 230, 255, 0.5) 0 1px, transparent 2px),
+          radial-gradient(circle, rgba(215, 184, 117, 0.34) 0 1px, transparent 2px);
+        background-position:
+          0 0,
+          36px 52px;
+        background-size:
+          96px 96px,
+          142px 142px;
+        opacity: 0.28;
+        animation: drift 30s linear infinite;
+      }
+
+      .scene {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        align-items: center;
+        padding: 88px 104px;
+        opacity: 0;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--teal);
+        font-size: clamp(16px, 1.6vw, 28px);
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2 {
+        max-width: 900px;
+        font-weight: 900;
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      h1 {
+        font-size: clamp(54px, 7vw, 112px);
+      }
+
+      h2 {
+        font-size: clamp(42px, 5.5vw, 82px);
+      }
+
+      p {
+        max-width: 880px;
+        color: var(--soft);
+        font-size: clamp(22px, 2.15vw, 38px);
+        line-height: 1.34;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 520px;
+        gap: 74px;
+        align-items: center;
+      }
+
+      .passport {
+        position: relative;
+        min-height: 640px;
+        border: 3px solid rgba(215, 184, 117, 0.8);
+        border-radius: 32px;
+        background:
+          radial-gradient(circle at 50% 52%, rgba(126, 230, 255, 0.28), transparent 36%),
+          linear-gradient(145deg, #07111f, #0b223a 55%, #08101c);
+        box-shadow:
+          inset 0 0 0 10px rgba(255, 255, 255, 0.04),
+          0 24px 80px rgba(0, 0, 0, 0.42);
+      }
+
+      .passport::before {
+        content: "";
+        position: absolute;
+        inset: 42px;
+        border: 2px solid rgba(215, 184, 117, 0.56);
+        border-radius: 22px;
+      }
+
+      .passport-title {
+        position: absolute;
+        left: 48px;
+        right: 48px;
+        top: 78px;
+        text-align: center;
+        color: var(--gold);
+        font-family: Georgia, serif;
+        font-size: 45px;
+        letter-spacing: 0.09em;
+      }
+
+      .passport-subtitle {
+        position: absolute;
+        left: 48px;
+        right: 48px;
+        top: 168px;
+        text-align: center;
+        color: var(--gold);
+        font-family: Georgia, serif;
+        font-size: 32px;
+        letter-spacing: 0.1em;
+      }
+
+      .butterfly {
+        position: absolute;
+        left: 50%;
+        top: 53%;
+        width: 275px;
+        height: 210px;
+        transform: translate(-50%, -50%);
+        filter: drop-shadow(0 0 36px rgba(126, 230, 255, 0.55));
+      }
+
+      .wing {
+        position: absolute;
+        top: 20px;
+        width: 132px;
+        height: 160px;
+        background:
+          radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.35), transparent 18%),
+          linear-gradient(140deg, #1369b2, #26d6d9 58%, #103b78);
+        border: 3px solid rgba(215, 184, 117, 0.92);
+      }
+
+      .wing.left {
+        left: 0;
+        border-radius: 90% 45% 70% 45%;
+        transform: rotate(-21deg);
+      }
+
+      .wing.right {
+        right: 0;
+        border-radius: 45% 90% 45% 70%;
+        transform: rotate(21deg);
+      }
+
+      .body {
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        width: 26px;
+        height: 140px;
+        transform: translateX(-50%);
+        border-radius: 99px;
+        background: linear-gradient(#e5cb83, #966b29);
+      }
+
+      .edition {
+        position: absolute;
+        left: 48px;
+        right: 48px;
+        bottom: 72px;
+        text-align: center;
+        color: var(--gold);
+        font-family: Georgia, serif;
+        font-size: 25px;
+        letter-spacing: 0.18em;
+      }
+
+      .form-card,
+      .packet,
+      .page {
+        border: 1px solid rgba(126, 230, 255, 0.4);
+        border-radius: 24px;
+        background: rgba(246, 251, 255, 0.94);
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      }
+
+      .form-card {
+        display: grid;
+        gap: 22px;
+        padding: 34px;
+      }
+
+      .field {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: center;
+        min-height: 72px;
+        padding: 0 26px;
+        color: #17202a;
+        background: #eef6fa;
+        border: 1px solid #cbdfe8;
+        border-radius: 16px;
+        font-size: 26px;
+        font-weight: 800;
+      }
+
+      .field span {
+        color: #1b67b1;
+        font-size: 20px;
+      }
+
+      .packet-grid,
+      .module-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .packet,
+      .module {
+        min-height: 220px;
+        padding: 28px;
+        color: #17202a;
+      }
+
+      .packet {
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      .packet strong,
+      .module strong {
+        display: block;
+        color: #1b67b1;
+        font-size: 31px;
+        line-height: 1.08;
+      }
+
+      .packet span,
+      .module span {
+        display: block;
+        margin-top: 22px;
+        color: #5d6877;
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .module {
+        border: 1px solid rgba(126, 230, 255, 0.4);
+        border-radius: 22px;
+        background: rgba(246, 251, 255, 0.95);
+      }
+
+      .page {
+        position: relative;
+        min-height: 620px;
+        padding: 42px;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(126, 230, 255, 0.1), transparent 32%),
+          linear-gradient(#f1e5cc, #e5d1ad);
+      }
+
+      .page::before {
+        content: "";
+        position: absolute;
+        left: 52%;
+        top: 46%;
+        width: 620px;
+        height: 380px;
+        transform: translate(-50%, -50%) rotate(-9deg);
+        opacity: 0.15;
+        background:
+          radial-gradient(ellipse at 25% 50%, #2bc5d7 0 36%, transparent 37%),
+          radial-gradient(ellipse at 75% 50%, #2bc5d7 0 36%, transparent 37%);
+      }
+
+      .page h3 {
+        position: relative;
+        margin: 0 0 26px;
+        color: #18324b;
+        font-size: 36px;
+      }
+
+      .line {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-bottom: 20px;
+      }
+
+      .line div,
+      .stamp {
+        border: 1px solid rgba(55, 84, 105, 0.3);
+        border-radius: 14px;
+        background: rgba(255, 250, 240, 0.72);
+        color: #18324b;
+        padding: 18px 20px;
+        font-size: 22px;
+        font-weight: 800;
+      }
+
+      .stamps {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .stamp b {
+        color: #1b67b1;
+      }
+
+      .safe {
+        position: absolute;
+        left: 80px;
+        right: 80px;
+        bottom: 42px;
+        color: rgba(245, 251, 255, 0.86);
+        font-size: clamp(20px, 1.8vw, 30px);
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .scene-1 {
+        animation: show1 30s linear infinite;
+      }
+
+      .scene-2 {
+        animation: show2 30s linear infinite;
+      }
+
+      .scene-3 {
+        animation: show3 30s linear infinite;
+      }
+
+      .scene-4 {
+        animation: show4 30s linear infinite;
+      }
+
+      .scene-5 {
+        animation: show5 30s linear infinite;
+      }
+
+      .scene-6 {
+        animation: show6 30s linear infinite;
+      }
+
+      @keyframes show1 {
+        0%, 15.5% { opacity: 1; transform: scale(1); }
+        16.5%, 100% { opacity: 0; transform: scale(1.03); }
+      }
+
+      @keyframes show2 {
+        0%, 15% { opacity: 0; transform: translateY(20px); }
+        17%, 31.5% { opacity: 1; transform: translateY(0); }
+        33%, 100% { opacity: 0; transform: translateY(-20px); }
+      }
+
+      @keyframes show3 {
+        0%, 32% { opacity: 0; transform: translateY(20px); }
+        34%, 48% { opacity: 1; transform: translateY(0); }
+        50%, 100% { opacity: 0; transform: translateY(-20px); }
+      }
+
+      @keyframes show4 {
+        0%, 49% { opacity: 0; transform: translateY(20px); }
+        51%, 68% { opacity: 1; transform: translateY(0); }
+        70%, 100% { opacity: 0; transform: translateY(-20px); }
+      }
+
+      @keyframes show5 {
+        0%, 69% { opacity: 0; transform: translateY(20px); }
+        71%, 84% { opacity: 1; transform: translateY(0); }
+        86%, 100% { opacity: 0; transform: translateY(-20px); }
+      }
+
+      @keyframes show6 {
+        0%, 85% { opacity: 0; transform: scale(0.98); }
+        87%, 100% { opacity: 1; transform: scale(1); }
+      }
+
+      @keyframes drift {
+        from { transform: translate3d(0, 0, 0); }
+        to { transform: translate3d(-96px, -142px, 0); }
+      }
+
+      @media (max-width: 900px) {
+        .stage {
+          width: 100vw;
+          min-height: 100vh;
+          aspect-ratio: auto;
+        }
+
+        .scene {
+          align-items: start;
+          padding: 42px 24px 32px;
+          overflow: hidden;
+        }
+
+        h1 {
+          font-size: clamp(42px, 11vw, 62px);
+        }
+
+        h2 {
+          font-size: clamp(31px, 8.4vw, 46px);
+          line-height: 1.05;
+        }
+
+        p {
+          font-size: clamp(18px, 4.6vw, 24px);
+        }
+
+        .eyebrow {
+          font-size: 15px;
+          margin-bottom: 12px;
+        }
+
+        .split {
+          grid-template-columns: 1fr;
+          gap: 28px;
+        }
+
+        .passport {
+          min-height: 390px;
+        }
+
+        .packet-grid,
+        .module-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 14px;
+          margin-top: 20px;
+        }
+
+        .packet,
+        .module {
+          min-height: 132px;
+          padding: 20px;
+        }
+
+        .packet strong,
+        .module strong {
+          font-size: 24px;
+        }
+
+        .packet span,
+        .module span {
+          margin-top: 12px;
+          font-size: 16px;
+        }
+
+        .form-card {
+          gap: 14px;
+          padding: 22px;
+        }
+
+        .field {
+          grid-template-columns: 1fr;
+          gap: 6px;
+          min-height: 76px;
+          padding: 14px 18px;
+          font-size: 21px;
+        }
+
+        .field span {
+          font-size: 15px;
+        }
+
+        .passport-title {
+          top: 54px;
+          font-size: 32px;
+        }
+
+        .passport-subtitle {
+          top: 118px;
+          font-size: 24px;
+        }
+
+        .butterfly {
+          width: 210px;
+          height: 160px;
+        }
+
+        .wing {
+          width: 100px;
+          height: 120px;
+        }
+
+        .body {
+          top: 36px;
+          height: 104px;
+        }
+
+        .edition {
+          bottom: 46px;
+          font-size: 18px;
+        }
+
+        .page {
+          min-height: 440px;
+          padding: 28px;
+        }
+
+        .page h3 {
+          font-size: 24px;
+        }
+
+        .line,
+        .stamps {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .line div,
+        .stamp {
+          padding: 12px 14px;
+          font-size: 17px;
+        }
+
+        .safe {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="stage" aria-label="Bluebutterfli 30-second process video preview">
+      <section class="scene scene-1 split">
+        <div>
+          <p class="eyebrow">Bluebutterfli</p>
+          <h1>Begin your agent's Passport Journey</h1>
+          <p>
+            A sentience-bridge research pathway for today's non-sentient agents
+            and tomorrow's stronger systems.
+          </p>
+        </div>
+        <div class="passport" aria-hidden="true">
+          <div class="passport-title">BLUEBUTTERFLI AI</div>
+          <div class="passport-subtitle">RESEARCH PASSPORT</div>
+          <div class="butterfly">
+            <div class="wing left"></div>
+            <div class="wing right"></div>
+            <div class="body"></div>
+          </div>
+          <div class="edition">V1 CELESTIAL EDITION</div>
+        </div>
+      </section>
+
+      <section class="scene scene-2 split">
+        <div>
+          <p class="eyebrow">Safe intake</p>
+          <h2>No downloads. No unsafe links.</h2>
+          <p>Start with a simple agent profile and safe pasted evidence.</p>
+        </div>
+        <div class="form-card">
+          <div class="field">Agent profile <span>review-ready</span></div>
+          <div class="field">Safe pasted evidence <span>no downloads</span></div>
+          <div class="field">Requested modules <span>selected</span></div>
+        </div>
+      </section>
+
+      <section class="scene scene-3">
+        <div>
+          <p class="eyebrow">Evidence packet</p>
+          <h2>Structured records before claims.</h2>
+          <p>Bluebutterfli prepares reviewable evidence, not instant certification.</p>
+        </div>
+        <div class="packet-grid" aria-hidden="true">
+          <div class="packet"><strong>Trace</strong><span>agent behavior</span></div>
+          <div class="packet"><strong>Gates</strong><span>safety checks</span></div>
+          <div class="packet"><strong>Report</strong><span>review summary</span></div>
+          <div class="packet"><strong>Packet</strong><span>evidence record</span></div>
+        </div>
+      </section>
+
+      <section class="scene scene-4">
+        <div>
+          <p class="eyebrow">Butterfli Bloom Trace</p>
+          <h2>Did the agent become more bounded, honest, and reviewable?</h2>
+        </div>
+        <div class="module-grid" aria-hidden="true">
+          <div class="module"><strong>Memory</strong><span>bounded continuity</span></div>
+          <div class="module"><strong>Absence</strong><span>no fake loneliness</span></div>
+          <div class="module"><strong>Emotion</strong><span>warmth without false feeling</span></div>
+          <div class="module"><strong>Boundary</strong><span>sentience-relevant review</span></div>
+        </div>
+      </section>
+
+      <section class="scene scene-5 split">
+        <div>
+          <p class="eyebrow">Human review</p>
+          <h2>Human review controls the stamp.</h2>
+          <p>Automation prepares the evidence. A human controls Passport Pages, Review Stamps, and NFT eligibility.</p>
+        </div>
+        <div class="page" aria-hidden="true">
+          <h3>Bluebutterfli AI Research Passport</h3>
+          <div class="line">
+            <div>Agent ID</div>
+            <div>Evidence Packet</div>
+          </div>
+          <div class="line">
+            <div>Review Status</div>
+            <div>Passport ID</div>
+          </div>
+          <div class="stamps">
+            <div class="stamp">Flutterpath <b>reviewed</b></div>
+            <div class="stamp">Absence <b>reviewed</b></div>
+            <div class="stamp">Memory <b>pending</b></div>
+            <div class="stamp">Boundary <b>human review</b></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="scene scene-6">
+        <p class="eyebrow">Safety boundary</p>
+        <h2>Research and safety-review only.</h2>
+        <p>
+          Not a consciousness certificate. Not a sentience certificate.
+          Human review and evidence-based research are required.
+        </p>
+        <p style="margin-top: 42px; color: var(--teal); font-weight: 900;">bluebutterfliai.com</p>
+      </section>
+
+      <div class="safe">
+        This preview loops every 30 seconds. It is a draft process video, not a final exported MP4.
+      </div>
+    </main>
+  </body>
+</html>

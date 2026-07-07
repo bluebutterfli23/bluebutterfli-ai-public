@@ -1,0 +1,120 @@
+:root {
+  color-scheme: light;
+
+  --bb-c-teal: #168f8b;
+  --bb-c-teal-hover: #117773;
+  --bb-c-purple: #6f58c9;
+  --bb-c-coral: #d87567;
+  --bb-c-amber: #c98a27;
+  --bb-c-gray: #6b7280;
+
+  --bb-status-training: var(--bb-c-teal);
+  --bb-status-passed: #3f8f5f;
+  --bb-status-boundary: var(--bb-c-amber);
+  --bb-status-failed: #c94848;
+  --bb-status-info: #2f73b7;
+  --bb-status-paused: var(--bb-c-gray);
+
+  --bb-surface-0: #f6f9fb;
+  --bb-surface-1: #eef5f7;
+  --bb-surface-2: #ffffff;
+  --bb-surface-deep: #07111f;
+  --bb-text-primary: #102033;
+  --bb-text-secondary: #596779;
+  --bb-text-muted: #7a8795;
+  --bb-border: #d6e3eb;
+  --bb-border-strong: #9bb2c3;
+  --bb-border-danger: #c94848;
+  --bb-on-accent: #ffffff;
+  --bb-focus: #2f73b7;
+
+  --bb-font-sans: "Anthropic Sans", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --bb-font-serif: "Anthropic Voice", Georgia, "Times New Roman", serif;
+  --bb-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+
+  --bb-weight-regular: 400;
+  --bb-weight-medium: 500;
+
+  --bb-text-h1: 22px;
+  --bb-text-h2: 18px;
+  --bb-text-h3: 16px;
+  --bb-text-body: 16px;
+  --bb-text-ui: 14px;
+  --bb-text-meta: 13px;
+  --bb-leading-body: 1.7;
+
+  --bb-space-1: 4px;
+  --bb-space-2: 8px;
+  --bb-space-3: 12px;
+  --bb-space-4: 16px;
+  --bb-space-5: 20px;
+  --bb-space-6: 24px;
+  --bb-space-8: 32px;
+
+  --bb-radius: 12px;
+  --bb-radius-pill: 999px;
+  --bb-topbar-height: 56px;
+  --bb-sidebar-width: 240px;
+  --bb-motion-fast: 120ms;
+  --bb-motion-medium: 200ms;
+  --bb-motion-panel: 240ms;
+  --bb-ease-standard: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.bb-theme {
+  color: var(--bb-text-primary);
+  background: var(--bb-surface-0);
+  font-family: var(--bb-font-sans);
+  font-size: var(--bb-text-body);
+  font-weight: var(--bb-weight-regular);
+  line-height: var(--bb-leading-body);
+}
+
+.bb-theme *,
+.bb-theme *::before,
+.bb-theme *::after {
+  box-sizing: border-box;
+}
+
+.bb-theme h1,
+.bb-theme h2,
+.bb-theme h3,
+.bb-theme p {
+  margin-top: 0;
+}
+
+.bb-theme h1,
+.bb-h1 {
+  font-size: var(--bb-text-h1);
+  font-weight: var(--bb-weight-medium);
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.bb-theme h2,
+.bb-h2 {
+  font-size: var(--bb-text-h2);
+  font-weight: var(--bb-weight-medium);
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.bb-theme h3,
+.bb-h3 {
+  font-size: var(--bb-text-h3);
+  font-weight: var(--bb-weight-medium);
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.bb-meta {
+  color: var(--bb-text-secondary);
+  font-size: var(--bb-text-meta);
+  font-weight: var(--bb-weight-regular);
+}
+
+.bb-code {
+  font-family: var(--bb-font-mono);
+  font-size: var(--bb-text-meta);
+}
+

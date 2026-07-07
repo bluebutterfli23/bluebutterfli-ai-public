@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/passport-journey-status.schema.json",
+  "title": "Bluebutterfli Passport Journey Status",
+  "description": "Schema for translating response precheck routes into customer-visible Passport Journey status cards and reviewer console rows.",
+  "type": "object",
+  "required": [
+    "passport_journey_status_id",
+    "artifact_type",
+    "status_mode",
+    "source_customer_response_precheck_id",
+    "status_cards",
+    "reviewer_console_rows",
+    "status_summary",
+    "locked_milestone_policy",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "passport_journey_status_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-passport-journey-status-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "passport_journey_status"
+    },
+    "version": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "source_schema": {
+      "type": "string"
+    },
+    "source_design": {
+      "type": "string"
+    },
+    "source_customer_response_precheck_id": {
+      "type": "string"
+    },
+    "source_customer_testing_wizard_id": {
+      "type": "string"
+    },
+    "status_mode": {
+      "type": "string"
+    },
+    "status_cards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "status_card_id",
+          "source_submission_id",
+          "route_status",
+          "passport_journey_phase",
+          "customer_visible_label",
+          "next_customer_action",
+          "human_review_required"
+        ],
+        "properties": {
+          "status_card_id": { "type": "string" },
+          "source_submission_id": { "type": "string" },
+          "route_status": { "type": "string" },
+          "passport_journey_phase": { "type": "string" },
+          "customer_visible_label": { "type": "string" },
+          "customer_visible_explanation": { "type": "string" },
+          "next_customer_action": { "type": "string" },
+          "next_internal_action": { "type": "string" },
+          "reviewer_workbench_state": { "type": "string" },
+          "locked_milestones": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "public_summary_allowed": { "type": "boolean" },
+          "human_review_required": { "type": "boolean" }
+        }
+      }
+    },
+    "reviewer_console_rows": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "status_summary": {
+      "type": "object"
+    },
+    "locked_milestone_policy": {
+      "type": "object"
+    },
+    "privacy_boundary": {
+      "type": "string"
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

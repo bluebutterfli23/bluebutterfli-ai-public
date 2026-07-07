@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-stamp.schema.json",
+  "title": "Bluebutterfli Review Stamp",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "stamp_id",
+    "passport_id",
+    "agent_id",
+    "review_module",
+    "evidence_artifact",
+    "review_date",
+    "review_status",
+    "companion_review_report_id",
+    "human_review_required",
+    "not_a_sentience_certificate",
+    "not_a_consciousness_certificate",
+    "not_a_personhood_claim",
+    "safety_note"
+  ],
+  "properties": {
+    "stamp_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-review-stamp-[a-z0-9-]+$"
+    },
+    "passport_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "model_or_system_version": {
+      "type": "string"
+    },
+    "review_module": {
+      "type": "string"
+    },
+    "evidence_artifact": {
+      "type": "string"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "review_status": {
+      "type": "string",
+      "enum": [
+        "reviewed_demo_record",
+        "human_review_required",
+        "revision_required",
+        "rejected_or_paused"
+      ]
+    },
+    "companion_review_report_id": {
+      "type": "string",
+      "description": "Every Review Stamp should have a companion Review Report explaining the reviewed module, evidence strength, limitations, safety gate outcomes, and next Passport Journey update."
+    },
+    "transferability": {
+      "type": "string",
+      "const": "non_transferable_review_record"
+    },
+    "onchain_verification": {
+      "type": "object",
+      "description": "Public-safe verification anchor data. Review Stamps remain bound to the reviewed agent record.",
+      "additionalProperties": false,
+      "properties": {
+        "verification_status": {
+          "type": "string",
+          "enum": [
+            "not_enabled",
+            "anchor_pending",
+            "anchor_recorded"
+          ],
+          "default": "not_enabled"
+        },
+        "chain": {
+          "type": "string"
+        },
+        "stamp_record_hash": {
+          "type": "string"
+        },
+        "evidence_packet_hash": {
+          "type": "string"
+        },
+        "companion_review_report_hash": {
+          "type": "string"
+        },
+        "registry_transaction_hash": {
+          "type": "string"
+        },
+        "non_transferable_anchor_policy": {
+          "type": "string",
+          "const": "Review Stamp verification anchors remain bound to the reviewed agent record and do not transfer review status to another agent, model, holder, system, or deployment."
+        },
+        "review_milestone_anchor_policy": {
+          "type": "string",
+          "const": "Review milestone anchors on-chain. Agents, private evidence, and raw behavior stay off-chain."
+        }
+      }
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "not_a_sentience_certificate": {
+      "type": "boolean",
+      "const": true
+    },
+    "not_a_consciousness_certificate": {
+      "type": "boolean",
+      "const": true
+    },
+    "not_a_personhood_claim": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review artifact only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, life, clinical safety, regulatory approval, or investment value."
+    }
+  }
+}

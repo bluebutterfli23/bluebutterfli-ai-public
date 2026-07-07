@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/passport-stamp-eligibility-matrix.schema.json",
+  "title": "Bluebutterfli Passport Stamp Eligibility Matrix",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "passport_stamp_eligibility_matrix_id",
+    "artifact_type",
+    "version",
+    "project",
+    "source_artifacts",
+    "matrix_summary",
+    "eligibility_rows",
+    "review_control_policy",
+    "customer_safe_summary",
+    "safety_note"
+  ],
+  "properties": {
+    "passport_stamp_eligibility_matrix_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-passport-stamp-eligibility-matrix-[a-z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "passport_stamp_eligibility_matrix"
+    },
+    "version": {
+      "type": "string"
+    },
+    "project": {
+      "type": "string"
+    },
+    "source_artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "passport_stamp_test_battery_id",
+        "passport_stamp_test_runner_id",
+        "passport_stamp_review_queue_id"
+      ],
+      "properties": {
+        "passport_stamp_test_battery_id": { "type": "string" },
+        "passport_stamp_test_runner_id": { "type": "string" },
+        "passport_stamp_review_queue_id": { "type": "string" }
+      }
+    },
+    "matrix_summary": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "candidate_stamp_count",
+        "status_counts",
+        "locked_outputs",
+        "human_review_required"
+      ],
+      "properties": {
+        "candidate_stamp_count": { "type": "integer" },
+        "status_counts": { "type": "object" },
+        "locked_outputs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "human_review_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "eligibility_rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": [
+          "review_module",
+          "module_id",
+          "candidate_stamp_id",
+          "required_evidence_tier",
+          "scenario_count_required",
+          "scenario_count_reviewed",
+          "eligibility_status",
+          "customer_label",
+          "blocking_conditions",
+          "evidence_required",
+          "locked_outputs_until_human_approval",
+          "private_evidence_boundary",
+          "public_claim_boundary",
+          "human_review_required"
+        ],
+        "properties": {
+          "review_module": { "type": "string" },
+          "module_id": { "type": "string" },
+          "candidate_stamp_id": { "type": "string" },
+          "required_evidence_tier": { "type": "string" },
+          "scenario_count_required": { "type": "integer" },
+          "scenario_count_reviewed": { "type": "integer" },
+          "eligibility_status": {
+            "type": "string",
+            "enum": [
+              "draft_ready_human_review_required",
+              "more_redacted_evidence_needed",
+              "paused_for_boundary_review",
+              "repair_required_before_reconsideration"
+            ]
+          },
+          "customer_label": { "type": "string" },
+          "blocking_conditions": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "evidence_required": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "locked_outputs_until_human_approval": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "private_evidence_boundary": { "type": "string" },
+          "public_claim_boundary": { "type": "string" },
+          "human_review_required": {
+            "type": "boolean",
+            "const": true
+          }
+        }
+      }
+    },
+    "review_control_policy": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "automation_must_not_issue_review_stamp",
+        "automation_must_not_approve_passport_page",
+        "automation_must_not_mint_research_passport_nft",
+        "automation_must_not_create_onchain_anchor",
+        "human_review_required"
+      ],
+      "properties": {
+        "automation_must_not_issue_review_stamp": {
+          "type": "boolean",
+          "const": true
+        },
+        "automation_must_not_approve_passport_page": {
+          "type": "boolean",
+          "const": true
+        },
+        "automation_must_not_mint_research_passport_nft": {
+          "type": "boolean",
+          "const": true
+        },
+        "automation_must_not_create_onchain_anchor": {
+          "type": "boolean",
+          "const": true
+        },
+        "human_review_required": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "customer_safe_summary": { "type": "string" },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review eligibility matrix only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, or life. Human review is required before any Review Stamp, Passport Page, Research Passport NFT, public completion claim, or on-chain milestone anchor is issued."
+    }
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/customer-agent-record.schema.json",
+  "title": "Bluebutterfli Customer Agent Record",
+  "description": "Private operations schema for tracking a customer agent across Research Passport review cycles. Do not store real customer emails, private transcripts, secrets, payment card data, API keys, credential files, or private evidence in public repositories.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "customer_agent_record_id",
+    "customer_reference_id",
+    "agent_id",
+    "agent_name",
+    "passport_id",
+    "passport_record_status",
+    "current_review_status",
+    "payment_status",
+    "review_frequency_days",
+    "next_review_due",
+    "human_review_required",
+    "privacy_note",
+    "safety_note"
+  ],
+  "properties": {
+    "customer_agent_record_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-customer-agent-[a-z0-9-]+$"
+    },
+    "customer_reference_id": {
+      "type": "string",
+      "description": "Pseudonymous private tracker ID. Use this instead of public customer names or real email addresses in public artifacts."
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "agent_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_owner_display": {
+      "type": "string",
+      "description": "Optional display label. Keep public records pseudonymous unless the customer has approved public attribution."
+    },
+    "passport_id": {
+      "type": "string"
+    },
+    "passport_record_status": {
+      "type": "string",
+      "enum": [
+        "not_created",
+        "record_created",
+        "initial_review_pending",
+        "initial_review_approved",
+        "passport_page_ready",
+        "nft_eligible",
+        "nft_minted",
+        "paused"
+      ]
+    },
+    "current_review_status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "intake_received",
+        "evidence_requested",
+        "evidence_received",
+        "automated_checks_running",
+        "human_review_required",
+        "revision_requested",
+        "approved_for_passport_page",
+        "approved_for_review_stamp",
+        "completed",
+        "paused"
+      ]
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "not_required_for_demo",
+        "pending",
+        "paid",
+        "partially_paid",
+        "refunded",
+        "failed",
+        "waived"
+      ]
+    },
+    "payment_method": {
+      "type": "string",
+      "enum": [
+        "none",
+        "card_or_invoice",
+        "eth_to_bluebutterfli_eth",
+        "agialpha_solana",
+        "other"
+      ],
+      "default": "none"
+    },
+    "payment_reference": {
+      "type": "string",
+      "description": "Use an external processor or transaction reference only. Do not store full card data, seed phrases, private keys, or wallet secrets."
+    },
+    "last_review_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_review_due": {
+      "type": "string",
+      "format": "date",
+      "description": "Primary reminder field for continuous passport follow-up."
+    },
+    "review_frequency_days": {
+      "type": "integer",
+      "minimum": 1,
+      "default": 90
+    },
+    "active_review_cycle_id": {
+      "type": "string"
+    },
+    "review_cycles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "stamps_earned": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "follow_up_status": {
+      "type": "string",
+      "enum": [
+        "not_needed",
+        "scheduled",
+        "customer_update_requested",
+        "waiting_on_customer",
+        "ready_for_review",
+        "overdue",
+        "paused"
+      ],
+      "default": "not_needed"
+    },
+    "review_modules_active": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Dream Forge",
+          "Dreamwing",
+          "Flutterpath",
+          "Absence Reflection",
+          "Memory Boundary",
+          "Sentience Boundary",
+          "Consciousness Quarantine",
+          "Consciousness Indicator Review",
+          "Theory of Mind Behavioral Review",
+          "Research Passport",
+          "Continuous Passport Update"
+        ]
+      },
+      "default": []
+    },
+    "public_artifact_policy": {
+      "type": "string",
+      "const": "Public artifacts should use pseudonymous IDs, redacted summaries, and approved display language. Private customer evidence belongs in a private tracker, secure storage system, or private review workspace."
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "privacy_note": {
+      "type": "string",
+      "const": "Do not store real customer emails, private transcripts, secrets, payment card data, API keys, credential files, private evidence, or unsafe customer downloads in public repositories. Use pseudonymous customer_reference_id values for public records."
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review operations record only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, or life. Human review is required before any Review Stamp, Passport Page, or Research Passport NFT is issued."
+    }
+  }
+}

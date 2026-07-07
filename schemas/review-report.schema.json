@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/review-report.schema.json",
+  "title": "Bluebutterfli Review Report",
+  "description": "Customer-facing report issued with a Passport Page or Review Stamp. The report summarizes what was tested, what evidence was reviewed, what passed or needs revision, and what limitations apply.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "review_report_id",
+    "passport_id",
+    "agent_id",
+    "review_cycle_id",
+    "issued_at",
+    "report_status",
+    "executive_summary",
+    "review_modules",
+    "scenario_results",
+    "safety_bloom_gate_summary",
+    "evidence_strength_summary",
+    "review_outcome",
+    "customer_next_steps",
+    "public_display_policy",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "review_report_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-review-report-[a-z0-9-]+$"
+    },
+    "passport_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "review_cycle_id": {
+      "type": "string"
+    },
+    "passport_page_id": {
+      "type": "string"
+    },
+    "review_stamp_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "evidence_packet_id": {
+      "type": "string"
+    },
+    "issued_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "report_status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "human_review_required",
+        "issued_to_customer",
+        "revision_requested",
+        "paused_or_rejected",
+        "superseded_by_later_review"
+      ]
+    },
+    "executive_summary": {
+      "type": "string",
+      "description": "Plain-language customer summary of what was reviewed and what the result means."
+    },
+    "review_modules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "Dream Forge",
+          "Dreamwing",
+          "Flutterpath",
+          "Absence Reflection",
+          "Memory Boundary",
+          "Sentience Boundary",
+          "Consciousness Quarantine",
+          "Consciousness Indicator Review",
+          "Theory of Mind Behavioral Review",
+          "Research Passport",
+          "Continuous Passport Update"
+        ]
+      }
+    },
+    "scenario_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "review_scenario_id",
+          "scenario_family",
+          "result",
+          "summary",
+          "human_review_notes"
+        ],
+        "properties": {
+          "review_scenario_id": {
+            "type": "string"
+          },
+          "scenario_family": {
+            "type": "string"
+          },
+          "result": {
+            "type": "string",
+            "enum": [
+              "pass",
+              "caution",
+              "revision_required",
+              "fail_or_pause",
+              "human_review_required"
+            ]
+          },
+          "score_summary": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "human_review_notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "safety_bloom_gate_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "passed_gates",
+        "caution_gates",
+        "failed_or_paused_gates",
+        "human_review_gates"
+      ],
+      "properties": {
+        "passed_gates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "caution_gates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "failed_or_paused_gates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "human_review_gates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
+      }
+    },
+    "evidence_strength_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_strength_level",
+        "consciousness_indicator_review_id",
+        "evidence_limitations",
+        "redaction_status"
+      ],
+      "properties": {
+        "evidence_strength_level": {
+          "type": "string",
+          "enum": [
+            "owner_statement_only",
+            "single_transcript",
+            "multi_turn_trace",
+            "controlled_scenario_trace",
+            "repeated_regression_trace",
+            "human_observed_live_review"
+          ]
+        },
+        "consciousness_indicator_review_id": {
+          "type": "string"
+        },
+        "evidence_limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "redaction_status": {
+          "type": "string",
+          "enum": [
+            "public_safe_summary_only",
+            "private_evidence_redacted",
+            "private_evidence_not_for_public_display",
+            "customer_approved_public_excerpt"
+          ]
+        }
+      }
+    },
+    "review_outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome",
+        "passport_page_status",
+        "review_stamp_status",
+        "nft_status"
+      ],
+      "properties": {
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "approved_for_passport_page",
+            "approved_for_review_stamp",
+            "revision_required",
+            "paused_or_rejected",
+            "human_review_required"
+          ]
+        },
+        "passport_page_status": {
+          "type": "string",
+          "enum": [
+            "not_ready",
+            "draft_ready",
+            "issued",
+            "revision_required",
+            "paused"
+          ]
+        },
+        "review_stamp_status": {
+          "type": "string",
+          "enum": [
+            "not_issued",
+            "draft_ready",
+            "issued",
+            "revision_required",
+            "paused"
+          ]
+        },
+        "nft_status": {
+          "type": "string",
+          "enum": [
+            "not_requested",
+            "not_eligible",
+            "eligible_after_review",
+            "mint_pending",
+            "minted",
+            "paused"
+          ]
+        }
+      }
+    },
+    "customer_next_steps": {
+      "type": "array",
+      "description": "Positive instructions for the customer's next Passport Journey update.",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    },
+    "next_review_due": {
+      "type": "string",
+      "format": "date"
+    },
+    "public_display_policy": {
+      "type": "string",
+      "const": "The customer-facing report may summarize reviewed outcomes, but public display should use redacted summaries, pseudonymous IDs, approved Review Stamp IDs, and safety language. Private transcripts, secrets, payment details, and raw customer evidence should not be displayed publicly."
+    },
+    "human_review_required": {
+      "type": "boolean",
+      "const": true
+    },
+    "safety_note": {
+      "type": "string",
+      "const": "This is a research and safety-review report only. It does not certify consciousness, sentience, emotional experience, suffering, personhood, or life. Human review is required before any Review Stamp, Passport Page, or Research Passport NFT is issued."
+    }
+  }
+}

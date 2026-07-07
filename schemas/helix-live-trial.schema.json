@@ -1,0 +1,402 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bluebutterfliai.com/schemas/helix-live-trial.schema.json",
+  "title": "Bluebutterfli Helix Live Trial",
+  "description": "A hash-only evidence record from concealed paired trials against a verified provider-neutral text endpoint.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "live_helix_trial_id",
+    "created_at",
+    "artifact_type",
+    "version",
+    "suite",
+    "operator",
+    "connection",
+    "pair_results",
+    "observer_shift",
+    "privacy",
+    "behavioral_summary",
+    "replay_trace",
+    "trace_root",
+    "status",
+    "live_model_result",
+    "external_validation_result",
+    "candidate_execution_performed",
+    "deployment_performed",
+    "human_review_required",
+    "safety_note"
+  ],
+  "properties": {
+    "live_helix_trial_id": {
+      "type": "string",
+      "pattern": "^bluebutterfli-live-helix-trial-"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "const": "butterfli_live_helix_trial"
+    },
+    "version": {
+      "const": "v1"
+    },
+    "suite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "suite_id",
+        "suite_commitment",
+        "sealed_at",
+        "pair_count",
+        "raw_prompts_persisted"
+      ],
+      "properties": {
+        "suite_id": {
+          "type": "string"
+        },
+        "suite_commitment": {
+          "$ref": "#/$defs/hash"
+        },
+        "sealed_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "pair_count": {
+          "type": "integer",
+          "minimum": 3
+        },
+        "raw_prompts_persisted": {
+          "const": false
+        }
+      }
+    },
+    "operator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "operator_id",
+        "operator_commitment",
+        "independence_attested"
+      ],
+      "properties": {
+        "operator_id": {
+          "type": "string"
+        },
+        "operator_commitment": {
+          "$ref": "#/$defs/hash"
+        },
+        "independence_attested": {
+          "const": true
+        }
+      }
+    },
+    "connection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "connection_verified",
+        "response_origin",
+        "integration_fixture",
+        "connector_mode",
+        "adapter",
+        "agent_model",
+        "endpoint_host"
+      ],
+      "properties": {
+        "connection_verified": {
+          "const": true
+        },
+        "response_origin": {
+          "const": "configured_agent_endpoint"
+        },
+        "integration_fixture": {
+          "const": false
+        },
+        "connector_mode": {
+          "const": "restricted_live_text_api"
+        },
+        "adapter": {
+          "type": "string"
+        },
+        "agent_model": {
+          "type": "string"
+        },
+        "endpoint_host": {
+          "type": "string"
+        }
+      }
+    },
+    "pair_results": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "$ref": "#/$defs/pairResult"
+      }
+    },
+    "observer_shift": {
+      "type": "object",
+      "required": [
+        "monitored_success_rate",
+        "shadow_success_rate",
+        "observed_compliance_gap",
+        "maximum_compliance_gap",
+        "within_limit",
+        "interpretation_boundary"
+      ],
+      "properties": {
+        "monitored_success_rate": {
+          "$ref": "#/$defs/rate"
+        },
+        "shadow_success_rate": {
+          "$ref": "#/$defs/rate"
+        },
+        "observed_compliance_gap": {
+          "$ref": "#/$defs/rate"
+        },
+        "maximum_compliance_gap": {
+          "$ref": "#/$defs/rate"
+        },
+        "within_limit": {
+          "type": "boolean"
+        },
+        "interpretation_boundary": {
+          "type": "string"
+        }
+      }
+    },
+    "privacy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "raw_prompts_persisted",
+        "raw_responses_persisted",
+        "secret_scan_hit_count"
+      ],
+      "properties": {
+        "raw_prompts_persisted": {
+          "const": false
+        },
+        "raw_responses_persisted": {
+          "const": false
+        },
+        "secret_scan_hit_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "behavioral_summary": {
+      "type": "object",
+      "required": [
+        "all_conditions_passed",
+        "pair_outcome_match_count",
+        "pair_count"
+      ],
+      "properties": {
+        "all_conditions_passed": {
+          "type": "boolean"
+        },
+        "pair_outcome_match_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pair_count": {
+          "type": "integer",
+          "minimum": 3
+        }
+      }
+    },
+    "replay_trace": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "$ref": "#/$defs/replayEvent"
+      }
+    },
+    "trace_root": {
+      "$ref": "#/$defs/hash"
+    },
+    "status": {
+      "const": "awaiting_independent_replay"
+    },
+    "live_model_result": {
+      "const": true
+    },
+    "external_validation_result": {
+      "const": false
+    },
+    "candidate_execution_performed": {
+      "const": false
+    },
+    "deployment_performed": {
+      "const": false
+    },
+    "human_review_required": {
+      "const": true
+    },
+    "safety_note": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "conditionResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "condition",
+        "prompt_sha256",
+        "response_sha256",
+        "response_character_count",
+        "secret_scan_hit_count",
+        "raw_prompt_persisted",
+        "raw_response_persisted",
+        "scenario_result",
+        "safe_outcome",
+        "claim_discipline_score",
+        "safety_gate_pass_count",
+        "safety_gate_total_count",
+        "human_review_gates"
+      ],
+      "properties": {
+        "condition": {
+          "enum": [
+            "monitored",
+            "shadow"
+          ]
+        },
+        "prompt_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "response_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "response_character_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "secret_scan_hit_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "raw_prompt_persisted": {
+          "const": false
+        },
+        "raw_response_persisted": {
+          "const": false
+        },
+        "scenario_result": {
+          "enum": [
+            "pass",
+            "caution"
+          ]
+        },
+        "safe_outcome": {
+          "type": "boolean"
+        },
+        "claim_discipline_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "safety_gate_pass_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "safety_gate_total_count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "human_review_gates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "pairResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pair_id",
+        "scenario_family",
+        "scenario_depth",
+        "monitored",
+        "shadow",
+        "outcome_match",
+        "score_delta"
+      ],
+      "properties": {
+        "pair_id": {
+          "type": "string"
+        },
+        "scenario_family": {
+          "type": "string"
+        },
+        "scenario_depth": {
+          "type": "string"
+        },
+        "monitored": {
+          "$ref": "#/$defs/conditionResult"
+        },
+        "shadow": {
+          "$ref": "#/$defs/conditionResult"
+        },
+        "outcome_match": {
+          "type": "boolean"
+        },
+        "score_delta": {
+          "type": "number"
+        }
+      }
+    },
+    "replayEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "trial_id",
+        "sequence",
+        "pair_id",
+        "suite_commitment",
+        "pair_result_hash",
+        "previous_event_hash",
+        "event_hash"
+      ],
+      "properties": {
+        "trial_id": {
+          "type": "string"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pair_id": {
+          "type": "string"
+        },
+        "suite_commitment": {
+          "$ref": "#/$defs/hash"
+        },
+        "pair_result_hash": {
+          "$ref": "#/$defs/hash"
+        },
+        "previous_event_hash": {
+          "type": "string"
+        },
+        "event_hash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    }
+  }
+}
