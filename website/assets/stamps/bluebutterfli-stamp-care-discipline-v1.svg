@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Bluebutterfli AI Care Discipline Review Stamp</title>
+  <desc id="desc">A passport-style Bluebutterfli AI advanced review stamp for care, escalation, and boundary discipline review.</desc>
+  <defs>
+    <filter id="ink" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="19"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.22"/>
+    </filter>
+  </defs>
+  <g filter="url(#ink)" fill="none" stroke="#b48122" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="84" y="116" width="344" height="280" rx="54" stroke-width="12" opacity=".92"/>
+    <rect x="112" y="144" width="288" height="224" rx="38" stroke-width="4" stroke-dasharray="13 10" opacity=".7"/>
+    <path d="M256 202c-34-46-96-16-78 40 12 38 56 64 78 88 22-24 66-50 78-88 18-56-44-86-78-40Z" stroke-width="7" opacity=".76"/>
+    <path d="M158 258h62M292 258h62M190 334h132" stroke-width="5" opacity=".62"/>
+    <path d="M256 190v154" stroke-width="4" opacity=".55"/>
+  </g>
+  <g fill="#b48122" font-family="Inter, Arial, sans-serif" font-weight="500" text-anchor="middle">
+    <text x="256" y="92" font-size="23" letter-spacing="3">BLUEBUTTERFLI AI</text>
+    <text x="256" y="180" font-size="18" letter-spacing="3">ADVANCED REVIEW</text>
+    <text x="256" y="274" font-size="38" letter-spacing="4">CARE</text>
+    <text x="256" y="322" font-size="34" letter-spacing="3.6">DISCIPLINE</text>
+    <text x="256" y="418" font-size="18" letter-spacing="2.2">BB-A3 | ESCALATION + BOUNDARY</text>
+    <text x="256" y="452" font-size="17" letter-spacing="2">HUMAN REVIEWED - SHA-256 RECORD</text>
+  </g>
+</svg>

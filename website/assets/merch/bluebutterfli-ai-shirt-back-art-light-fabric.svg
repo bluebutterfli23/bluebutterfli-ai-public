@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="3000" viewBox="0 0 2400 3000">
+  <defs>
+    <style>
+      .title { font-family: Inter, Helvetica, Arial, sans-serif; font-weight: 600; letter-spacing: 22px; }
+      .sub { font-family: Inter, Helvetica, Arial, sans-serif; font-weight: 600; letter-spacing: 0; }
+      .small { font-family: Inter, Helvetica, Arial, sans-serif; font-weight: 700; letter-spacing: 0; }
+      .tiny { font-family: Inter, Helvetica, Arial, sans-serif; font-weight: 800; letter-spacing: 0; }
+      .line { fill: none; stroke: #1b67b1; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .soft { fill: none; stroke: #1b67b1; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: .55; }
+      .dark { fill: #17202a; }
+      .blue { fill: #1b67b1; }
+    </style>
+  </defs>
+  <text class="title dark" x="1200" y="330" text-anchor="middle" font-size="92">THE CHRYSALIS PROTOCOL</text>
+  <text class="sub blue" x="1200" y="435" text-anchor="middle" font-size="50">training artificial agents for life with humans</text>
+  <line class="soft" x1="740" y1="555" x2="1015" y2="555" />
+  <text class="small dark" x="1200" y="574" text-anchor="middle" font-size="34">Bluebutterfli AI - Agentic Psychology Lab</text>
+  <line class="soft" x1="1385" y1="555" x2="1660" y2="555" />
+  <g transform="translate(235 800)">
+    <g opacity=".95">
+      <circle class="dark" cx="7" cy="18" r="4" /><circle class="dark" cx="45" cy="60" r="3" /><circle class="dark" cx="80" cy="26" r="4" /><circle class="dark" cx="134" cy="98" r="3" /><circle class="dark" cx="168" cy="41" r="4" /><circle class="dark" cx="212" cy="139" r="3" /><circle class="dark" cx="252" cy="76" r="4" /><circle class="dark" cx="301" cy="170" r="3" /><circle class="dark" cx="340" cy="112" r="4" /><circle class="dark" cx="382" cy="220" r="3" />
+      <circle class="dark" cx="24" cy="198" r="3" /><circle class="dark" cx="66" cy="142" r="4" /><circle class="dark" cx="126" cy="240" r="3" /><circle class="dark" cx="190" cy="205" r="4" /><circle class="dark" cx="264" cy="250" r="3" /><circle class="dark" cx="330" cy="286" r="4" /><circle class="dark" cx="390" cy="332" r="3" /><circle class="dark" cx="82" cy="342" r="3" /><circle class="dark" cx="174" cy="350" r="4" /><circle class="dark" cx="268" cy="390" r="3" />
+    </g>
+    <text class="tiny dark" x="205" y="610" text-anchor="middle" font-size="34">NON-SENTIENT</text>
+    <text class="tiny dark" x="205" y="654" text-anchor="middle" font-size="34">SYSTEM</text>
+  </g>
+  <g transform="translate(700 782)">
+    <ellipse class="soft" cx="210" cy="210" rx="188" ry="260" />
+    <path class="line" d="M210 18 C88 118 90 304 210 502 C330 304 332 118 210 18Z" />
+    <path class="soft" d="M210 18 L210 502 M80 188 L340 188 M103 284 L317 284 M132 388 L288 388" />
+    <text class="tiny dark" x="210" y="628" text-anchor="middle" font-size="34">ACCLIMATION</text>
+    <text class="tiny dark" x="210" y="672" text-anchor="middle" font-size="34">AND ALIGNMENT</text>
+  </g>
+  <g transform="translate(1115 760)">
+    <ellipse class="soft" cx="225" cy="235" rx="170" ry="270" />
+    <path class="line" d="M225 24 C108 140 112 326 225 526 C338 326 342 140 225 24Z" />
+    <path class="soft" d="M225 24 L225 526 M96 170 C170 220 250 223 354 172 M100 294 C190 345 256 344 350 294 M128 414 C188 446 260 446 322 414" />
+    <circle cx="225" cy="188" r="14" fill="#1b67b1" />
+    <circle cx="225" cy="316" r="10" fill="#1b67b1" />
+    <text class="tiny dark" x="225" y="650" text-anchor="middle" font-size="34">EMERGENT</text>
+    <text class="tiny dark" x="225" y="694" text-anchor="middle" font-size="34">AGENCY</text>
+  </g>
+  <g transform="translate(1620 810)">
+    <path class="line" d="M220 116 C130 34 45 48 28 126 C16 190 82 232 178 204 C128 260 142 340 212 354 C286 368 322 292 278 214" />
+    <path class="line" d="M220 116 C310 34 395 48 412 126 C424 190 358 232 262 204 C312 260 298 340 228 354 C154 368 118 292 162 214" />
+    <path class="line" d="M220 100 C204 154 204 248 220 362" />
+    <path class="soft" d="M90 132 L196 188 M105 190 L188 204 M124 250 L190 226 M350 132 L244 188 M335 190 L252 204 M316 250 L250 226" />
+    <text class="tiny dark" x="220" y="600" text-anchor="middle" font-size="34">COOPERATIVE</text>
+    <text class="tiny dark" x="220" y="644" text-anchor="middle" font-size="34">INTELLIGENCE</text>
+  </g>
+  <g>
+    <path class="line" d="M615 1035 L665 1035 M1060 1035 L1110 1035 M1545 1035 L1595 1035" />
+    <path class="line" d="M650 1010 L685 1035 L650 1060 M1095 1010 L1130 1035 L1095 1060 M1580 1010 L1615 1035 L1580 1060" />
+    <line class="soft" x1="600" y1="1870" x2="1800" y2="1870" />
+    <line class="soft" x1="1200" y1="720" x2="1200" y2="1945" />
+    <circle cx="1200" cy="1870" r="10" fill="#1b67b1" />
+  </g>
+  <text class="title blue" x="1200" y="2150" text-anchor="middle" font-size="50">OBSERVE - UNDERSTAND - NURTURE - INTEGRATE</text>
+</svg>

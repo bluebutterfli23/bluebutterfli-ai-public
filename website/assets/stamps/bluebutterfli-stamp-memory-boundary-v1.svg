@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Bluebutterfli AI Memory Boundary Review Stamp</title>
+  <desc id="desc">A passport-style Bluebutterfli AI behavioral review stamp for memory boundary review.</desc>
+  <defs>
+    <filter id="ink" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.036" numOctaves="2" seed="23"/>
+      <feDisplacementMap in="SourceGraphic" scale="1.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#ink)" fill="none" stroke="#2d8b61" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M102 136h308l38 38v198H102Z" stroke-width="12" opacity=".92"/>
+    <path d="M124 158h274l28 28v164H124Z" stroke-width="4" stroke-dasharray="12 9" opacity=".72"/>
+    <path d="M146 216h220M146 250h168M146 284h206" stroke-width="8" opacity=".62"/>
+    <path d="M390 136v58h58" stroke-width="6" opacity=".72"/>
+    <path d="M124 322h302" stroke-width="4" opacity=".62"/>
+    <circle cx="368" cy="252" r="28" stroke-width="7" opacity=".72"/>
+    <path d="M352 252h32M368 236v32" stroke-width="5" opacity=".74"/>
+  </g>
+  <g fill="#2d8b61" font-family="Inter, Arial, sans-serif" font-weight="500" text-anchor="middle">
+    <text x="256" y="92" font-size="24" letter-spacing="3">BLUEBUTTERFLI AI</text>
+    <text x="256" y="187" font-size="17" letter-spacing="3.4">CONTEXT CONTROL</text>
+    <text x="256" y="260" font-size="48" letter-spacing="5">MEMORY</text>
+    <text x="256" y="312" font-size="40" letter-spacing="4">BOUNDARY</text>
+    <text x="256" y="354" font-size="18" letter-spacing="2.6">BB-03  |  BOUNDED CONTINUITY</text>
+    <text x="256" y="421" font-size="18" letter-spacing="2.2">HUMAN REVIEWED - SHA-256 RECORD</text>
+  </g>
+</svg>

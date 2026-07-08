@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="900" viewBox="0 0 1800 900">
+  <defs>
+    <style>
+      .brand { font-family: Inter, Helvetica, Arial, sans-serif; font-weight: 400; letter-spacing: 0; }
+      .lab { font-family: Inter, Helvetica, Arial, sans-serif; font-weight: 600; letter-spacing: 0; }
+      .micro { font-family: Inter, Helvetica, Arial, sans-serif; font-weight: 600; letter-spacing: 0; }
+      .line { fill: none; stroke: #1b67b1; stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+      .thin { fill: none; stroke: #1b67b1; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: .72; }
+    </style>
+  </defs>
+  <g transform="translate(370 238)">
+    <text class="brand" x="0" y="142" fill="#17202a" font-size="118">bluebutterfli AI</text>
+    <text class="lab" x="7" y="215" fill="#1b67b1" font-size="52">agentic psychology lab</text>
+    <text class="micro" x="7" y="295" fill="#17202a" font-size="30">AI Acclimation - Emergent Mind - Human-Agent Development</text>
+  </g>
+  <g transform="translate(1180 252)">
+    <path class="line" d="M184 118 C108 46 32 58 20 125 C10 180 69 214 154 189 C111 241 127 309 186 319 C248 330 278 269 242 196" />
+    <path class="line" d="M184 118 C260 46 336 58 348 125 C358 180 299 214 214 189 C257 241 241 309 182 319 C120 330 90 269 126 196" />
+    <path class="line" d="M184 105 C170 142 169 206 184 318" />
+    <path class="thin" d="M74 121 L164 168 M86 168 L156 181 M102 213 L158 197 M294 121 L204 168 M282 168 L212 181 M266 213 L210 197" />
+    <path class="thin" d="M184 102 L184 28 M164 48 L184 28 L204 48" />
+    <circle cx="184" cy="103" r="11" fill="#1b67b1" />
+  </g>
+</svg>

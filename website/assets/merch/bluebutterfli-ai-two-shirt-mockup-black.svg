@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1700" viewBox="0 0 2400 1700">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="28" stdDeviation="36" flood-color="#000000" flood-opacity=".22"/>
+    </filter>
+    <linearGradient id="shirtBlack" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#202326"/>
+      <stop offset=".52" stop-color="#0d0f12"/>
+      <stop offset="1" stop-color="#24272a"/>
+    </linearGradient>
+    <style>
+      .label { font-family: Inter, Helvetica, Arial, sans-serif; font-weight: 800; letter-spacing: 0; fill: #6a7480; }
+      .seam { fill: none; stroke: rgba(255,255,255,.12); stroke-width: 5; }
+    </style>
+  </defs>
+  <rect width="2400" height="1700" fill="#f7f8fa"/>
+  <text class="label" x="650" y="140" text-anchor="middle" font-size="34">FRONT</text>
+  <text class="label" x="1750" y="140" text-anchor="middle" font-size="34">BACK</text>
+  <g transform="translate(210 220)" filter="url(#shadow)">
+    <path fill="url(#shirtBlack)" d="M360 0 C420 58 510 86 650 86 C790 86 880 58 940 0 L1180 188 C1232 230 1250 308 1218 366 L1084 604 L1018 566 L1018 1250 C1018 1304 974 1348 920 1348 L380 1348 C326 1348 282 1304 282 1250 L282 566 L216 604 L82 366 C50 308 68 230 120 188Z"/>
+    <path class="seam" d="M478 34 C530 62 590 76 650 76 C710 76 770 62 822 34"/>
+    <path class="seam" d="M486 36 C512 128 586 174 650 174 C714 174 788 128 814 36"/>
+    <image href="bluebutterfli-ai-shirt-front-art-dark-fabric.svg" x="330" y="400" width="580" height="290" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+  <g transform="translate(1310 220)" filter="url(#shadow)">
+    <path fill="url(#shirtBlack)" d="M360 0 C420 58 510 86 650 86 C790 86 880 58 940 0 L1180 188 C1232 230 1250 308 1218 366 L1084 604 L1018 566 L1018 1250 C1018 1304 974 1348 920 1348 L380 1348 C326 1348 282 1304 282 1250 L282 566 L216 604 L82 366 C50 308 68 230 120 188Z"/>
+    <path class="seam" d="M478 34 C530 62 590 76 650 76 C710 76 770 62 822 34"/>
+    <path class="seam" d="M486 36 C512 128 586 174 650 174 C714 174 788 128 814 36"/>
+    <image href="bluebutterfli-ai-shirt-back-art-dark-fabric.svg" x="250" y="275" width="800" height="1000" preserveAspectRatio="xMidYMid meet"/>
+  </g>
+</svg>
