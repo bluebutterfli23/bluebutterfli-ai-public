@@ -735,6 +735,16 @@ button {
   gap: 18px;
 }
 
+.research-foundation .roadmap-visual,
+.research-foundation .research-links {
+  grid-column: 1 / -1;
+}
+
+.research-foundation .research-links {
+  width: min(100%, 920px);
+  margin: 0 auto;
+}
+
 .section-head {
   grid-column: 1 / -1;
   max-width: 760px;
@@ -755,6 +765,7 @@ button {
   display: grid;
   gap: 8px;
   text-decoration: none;
+  min-height: 0;
 }
 
 .resource-link:hover {
