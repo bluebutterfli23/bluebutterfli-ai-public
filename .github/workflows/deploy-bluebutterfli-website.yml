@@ -1,6 +1,12 @@
 name: Deploy Bluebutterfli Website
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - website/**
+      - .github/workflows/deploy-bluebutterfli-website.yml
   workflow_dispatch:
 
 permissions:
