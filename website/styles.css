@@ -4690,6 +4690,10 @@ input[type="radio"] {
   border-color: rgba(169, 223, 242, 0.28);
 }
 
+.metamorphosis-stage-list p {
+  color: #415166;
+}
+
 .methodology-hero {
   padding: 74px max(28px, calc((100vw - 1180px) / 2 + 28px));
   color: var(--white);
