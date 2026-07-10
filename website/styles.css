@@ -4015,27 +4015,42 @@ input[type="radio"] {
 }
 
 .brand-banner {
-  display: grid;
-  min-height: clamp(260px, 40vw, 560px);
-  place-items: center start;
-  padding: 40px clamp(36px, 5vw, 100px);
-  background:
-    linear-gradient(
-      90deg,
-      #06101f 0%,
-      #06101f 34%,
-      rgba(6, 16, 31, 0.98) 41%,
-      rgba(6, 16, 31, 0.32) 54%,
-      transparent 70%
-    ),
-    url("assets/bluebutterfli-founding-beta-hero.png") center / cover no-repeat;
+  display: block;
+  min-height: 0;
+  padding: 0;
+  background: #06101f;
+}
+
+.brand-banner::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    #06101f 0%,
+    #06101f 34%,
+    rgba(6, 16, 31, 0.98) 40%,
+    rgba(6, 16, 31, 0.28) 52%,
+    transparent 66%
+  );
+}
+
+.brand-banner-art {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .brand-banner-copy {
   display: grid;
   gap: 8px;
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: clamp(36px, 5vw, 100px);
+  transform: translateY(-50%);
   text-align: left;
 }
 
@@ -4061,14 +4076,27 @@ input[type="radio"] {
 @media (max-width: 720px) {
   .brand-banner {
     min-height: 300px;
-    place-items: end center;
-    padding: 36px 20px;
-    background:
-      linear-gradient(0deg, rgba(6, 16, 31, 0.98), rgba(6, 16, 31, 0.28) 72%),
-      url("assets/bluebutterfli-founding-beta-hero.png") 72% center / cover no-repeat;
+  }
+
+  .brand-banner::after {
+    background: linear-gradient(0deg, rgba(6, 16, 31, 0.98), rgba(6, 16, 31, 0.2) 76%);
+  }
+
+  .brand-banner-art {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 72% center;
   }
 
   .brand-banner-copy {
+    top: auto;
+    right: 20px;
+    bottom: 34px;
+    left: 20px;
+    transform: none;
     text-align: center;
   }
 }

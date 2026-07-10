@@ -147,15 +147,34 @@
       }
 
       .brand-strip {
+        position: relative;
+        overflow: hidden;
+        background: var(--deep);
+      }
+
+      .brand-strip::after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        inset: 0;
+        background: linear-gradient(90deg, #06101f 0%, #06101f 34%, rgba(6, 16, 31, 0.98) 41%, rgba(6, 16, 31, 0.24) 54%, transparent 68%);
+      }
+
+      .brand-strip-art {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .brand-strip-copy {
         display: grid;
-        min-height: clamp(170px, 28vw, 330px);
-        place-content: center start;
         gap: 8px;
-        padding: 34px clamp(36px, 5vw, 90px);
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        left: clamp(36px, 5vw, 90px);
+        transform: translateY(-50%);
         text-align: left;
-        background:
-          linear-gradient(90deg, #06101f 0%, #06101f 34%, rgba(6, 16, 31, 0.98) 42%, rgba(6, 16, 31, 0.25) 58%, transparent 72%),
-          url("assets/bluebutterfli-founding-beta-hero.png") center / cover no-repeat;
       }
 
       .brand-strip strong {
@@ -430,8 +449,11 @@
 
     <section class="agent-hero" aria-labelledby="agent-title">
       <div class="brand-strip" role="img" aria-label="Bluebutterfli AI Behavioral Review Lab">
-        <strong>Bluebutterfli <span>AI</span></strong>
-        <small>Behavioral Review Lab</small>
+        <img class="brand-strip-art" src="assets/bluebutterfli-founding-beta-hero.png" alt="" aria-hidden="true" />
+        <div class="brand-strip-copy">
+          <strong>Bluebutterfli <span>AI</span></strong>
+          <small>Behavioral Review Lab</small>
+        </div>
       </div>
       <div class="hero-copy">
         <p class="eyebrow">Founding Beta Demo Agent</p>
