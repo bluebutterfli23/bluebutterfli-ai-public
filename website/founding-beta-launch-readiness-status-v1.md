@@ -19,12 +19,9 @@ Bluebutterfli may publicly show:
 - the Bluebutterfli AI company-facing identity
 - the `bluebutterfliai.com` website handle
 - the Bluebutterfli research-review mission
-- the Agentic Psychology Lab framing
-- the future-bridge research thesis
-- the public OSF research record
+- the Bluebutterfli AI Behavioral Review Lab framing
 - the open-source GitHub repository
 - the platform architecture visual
-- the sentience bridge visual
 - the process video preview
 - public-safe research documents
 - public-safe templates

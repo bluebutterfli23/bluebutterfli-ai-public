@@ -13,7 +13,7 @@ customer evidence portal.
   `bluebutterfliai.com` or to a research-lab section.
 - Public company-facing name is Bluebutterfli AI.
 - Header, page title, and footer use Bluebutterfli consistently.
-- Public copy says Agentic Psychology Lab or research-review platform.
+- Public copy says Bluebutterfli AI Behavioral Review Lab or behavioral-review platform.
 - No public copy claims to certify consciousness, sentience, emotion,
   suffering, personhood, or life.
 
@@ -90,7 +90,7 @@ customer evidence portal.
 
 - Store remains future-only unless deliberately enabled.
 - Print-on-demand fulfillment is preferred over manual shipping.
-- Store copy uses Bluebutterfli AI Lab, Agentic Psychology Lab, The Chrysalis
+- Store copy uses Bluebutterfli AI Lab, Behavioral Review Lab, The Chrysalis
   Protocol, Passport Journey, or similar AI-agent research language.
 - Store copy avoids `Butterfli Research` because it can sound like literal
   butterfly biology research.

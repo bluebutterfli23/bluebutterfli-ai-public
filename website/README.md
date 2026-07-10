@@ -2,8 +2,8 @@
 
 This blueprint defines the first website structure for Bluebutterfli AI Platform.
 
-The website should present Bluebutterfli AI as an independent Agentic
-Psychology research-review platform that can issue Research Passport NFTs,
+The website should present Bluebutterfli AI as an independent AI behavioral
+review lab that can issue Research Passport NFTs,
 passport pages, review stamps, and evidence packets for AI-agent review
 pathways.
 
@@ -12,17 +12,12 @@ pathways.
 - explain Bluebutterfli AI clearly
 - provide immediate AI-company clarity through the Bluebutterfli AI name
 - invite users to register interest or request review
-- position Bluebutterfli AI as a new kind of agentic psychology testing layer
-  without making a first-ever market claim
-- frame Bluebutterfli AI as a careful bridge toward future research into the
-  possibility of AI sentience
-- state that Bluebutterfli AI aims to build a careful research bridge toward the
-  future possibility of AI sentience, without claiming that current agents are
-  sentient
+- position Bluebutterfli AI as an evidence-based behavioral testing and review
+  service without making a first-ever market claim
 - show how agent review pathways work
 - include a Customer Review Portal preview as the pre-launch customer workspace
 - include a Proof-Gated Improvement Lab for bounded candidate evaluation
-- link to the public OSF research record and open-source GitHub repository
+- link to the open-source GitHub repository
 - describe Research Passport NFTs and Review Stamps safely
 - explain future on-chain verification without exposing private evidence
 - define the Continuous Passport Program
@@ -44,7 +39,7 @@ Public-facing identity:
 - website handle: `bluebutterfliai.com`
 - ENS handle: `bluebutterfliai.eth`
 - suggested social handle: `@bluebutterfliai`
-- research lab/product line: `Bluebutterfli Agentic Psychology Lab`
+- research lab/product line: `Bluebutterfli AI Behavioral Review Lab`
 
 `bluebutterfli.com` may redirect to `bluebutterfliai.com` or to the research
 lab section.
@@ -55,11 +50,8 @@ Purpose: introduce Bluebutterfli AI Platform.
 
 Key content:
 
-- Agentic Psychology research-review platform
-- new kind of agentic psychology testing layer
-- careful bridge toward future research into the possibility of AI sentience
-- careful research bridge toward the future possibility of AI sentience,
-  without claiming that current agents are sentient
+- AI behavioral review platform
+- evidence-based AI-agent testing and human review
 - agent profiles
 - review pathways
 - evidence packets
@@ -91,13 +83,8 @@ research context and open-source implementation.
 
 Links:
 
-- OSF research record: `https://osf.io/zrgpn/overview`
 - GitHub repository:
-  `https://github.com/bluebutterfli23/bluebutterfli-agentic-psychology-lab`
-- Framework visual:
-  `website/assets/bluebutterfli-agentic-psychology-framework.png`
-- Sentience Bridge scientific manuscript draft:
-  `research/bluebutterfli-sentience-bridge-paper-v1.md`
+  `https://github.com/bluebutterfli23/bluebutterfli-ai-public`
 
 ### Customer Review Portal
 
@@ -373,7 +360,7 @@ Acceptable future items:
 
 Store posture:
 
-- use language like Bluebutterfli AI Lab, Agentic Psychology Lab, The Chrysalis
+- use language like Bluebutterfli AI, Behavioral Review Lab, The Chrysalis
   Protocol, and Passport Journey
 - avoid `Butterfli Research` because it can sound like literal butterfly
   biology research
