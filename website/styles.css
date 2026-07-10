@@ -4016,6 +4016,7 @@ input[type="radio"] {
 
 .brand-banner {
   display: block;
+  height: clamp(300px, 30vw, 430px);
   min-height: 0;
   padding: 0;
   background: #06101f;
@@ -4040,7 +4041,9 @@ input[type="radio"] {
 .brand-banner-art {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .brand-banner-copy {
@@ -4075,7 +4078,8 @@ input[type="radio"] {
 
 @media (max-width: 720px) {
   .brand-banner {
-    min-height: 300px;
+    height: 300px;
+    min-height: 0;
   }
 
   .brand-banner::after {
