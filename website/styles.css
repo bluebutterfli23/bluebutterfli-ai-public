@@ -178,6 +178,23 @@ a {
   color: var(--blue);
 }
 
+.nav .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 14px;
+  color: var(--white);
+  background: #168f8b;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.nav .nav-cta:hover,
+.nav .nav-cta:focus-visible {
+  color: var(--white);
+  background: #117773;
+}
+
 .nav-toggle {
   display: none;
   width: 42px;
