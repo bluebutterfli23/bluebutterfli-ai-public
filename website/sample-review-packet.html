@@ -150,13 +150,13 @@
       .brand-strip {
         display: grid;
         min-height: clamp(170px, 28vw, 330px);
-        place-content: center;
+        place-content: center start;
         gap: 8px;
-        padding: 34px 20px;
-        text-align: center;
+        padding: 34px clamp(36px, 5vw, 90px);
+        text-align: left;
         background:
-          radial-gradient(circle at 72% 42%, rgba(23, 105, 170, 0.48), transparent 22%),
-          linear-gradient(120deg, #07111f, #0a315d 62%, #07111f);
+          linear-gradient(90deg, #06101f 0%, #06101f 34%, rgba(6, 16, 31, 0.98) 42%, rgba(6, 16, 31, 0.25) 58%, transparent 72%),
+          url("assets/bluebutterfli-founding-beta-hero.png") center / cover no-repeat;
       }
 
       .brand-strip strong {
