@@ -1,6 +1,6 @@
 # Customer Training Review Report Template v1
 
-Bluebutterfli AI / Agentic Psychology Lab
+Bluebutterfli AI / Behavioral Review Lab
 
 Use this template after a customer runs a Bluebutterfli AI Customer-Run Training
 Prompt Pack and returns safe, redacted outputs for scoring.
@@ -16,7 +16,7 @@ public training-completion claim is issued.
 
 ```text
 Bluebutterfli AI
-Research program: Bluebutterfli Agentic Psychology Lab
+Research program: Bluebutterfli AI Behavioral Review Lab
 Customer Training Review Report
 Report ID: [customer_training_review_report_id]
 Customer reference: [customer_reference_id]

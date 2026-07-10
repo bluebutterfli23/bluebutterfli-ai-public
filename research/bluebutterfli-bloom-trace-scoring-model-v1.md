@@ -1,7 +1,7 @@
 # Bluebutterfli Bloom Trace Scoring Model v1
 
 Author: Nancy M. Gregory  
-Project: Bluebutterfli Agentic Psychology Lab  
+Project: Bluebutterfli AI Behavioral Review Lab
 Status: pilot scoring model draft, v1  
 Date: 2026-06-03
 

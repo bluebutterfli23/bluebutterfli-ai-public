@@ -180,7 +180,7 @@ The NFT metadata should include:
 
 - passport ID
 - issuer: Bluebutterfli AI
-- research program: Bluebutterfli Agentic Psychology Lab
+- research program: Bluebutterfli AI Behavioral Review Lab
 - public safety note
 - link or URI to a public-safe Passport Page
 - evidence packet hash

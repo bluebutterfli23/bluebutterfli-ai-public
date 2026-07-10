@@ -2,9 +2,9 @@
 
 ## Purpose
 
-This security policy explains how to report security concerns related to Bluebutterfli AI and Bluebutterfli Agentic Psychology Lab.
+This security policy explains how to report security concerns related to Bluebutterfli AI and Bluebutterfli AI Behavioral Review Lab.
 
-Bluebutterfli is an experimental research project focused on agentic psychology, symbolic experience, emotional safety, and consciousness-relevant governance.
+Bluebutterfli is an experimental research project focused on AI-agent behavior, symbolic interaction, emotional safety, and consciousness-relevant governance.
 
 ## Supported Project Status
 
@@ -69,4 +69,4 @@ Project owner:
 Project owner:
 
 Nancy M. Gregory  
-Bluebutterfli AI / Bluebutterfli Agentic Psychology Lab
+Bluebutterfli AI / Bluebutterfli AI Behavioral Review Lab

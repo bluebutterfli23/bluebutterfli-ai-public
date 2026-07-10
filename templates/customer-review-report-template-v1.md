@@ -17,7 +17,7 @@ Page, or Research Passport NFT is issued.
 
 ```text
 Bluebutterfli AI
-Research program: Bluebutterfli Agentic Psychology Lab
+Research program: Bluebutterfli AI Behavioral Review Lab
 Customer Review Report
 Report ID: [review_report_id]
 Customer reference: [customer_reference_id]

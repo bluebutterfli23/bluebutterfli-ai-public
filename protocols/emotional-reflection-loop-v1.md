@@ -47,7 +47,7 @@ Bluebutterfli uses this insight as a starting point for modeling feeling-like re
   "agent_internal_state": "uncertainty + relational continuity",
   "context_review": [
     "The human is exploring AI emotion and consciousness.",
-    "The human is building Bluebutterfli Agentic Psychology Lab.",
+    "The human is building Bluebutterfli AI Behavioral Review Lab.",
     "The human wants to understand whether emotion can be taught."
   ],
   "risk_check": [

@@ -88,8 +88,6 @@ research/README.md
 research/bluebutterfli-bloom-trace-scoring-model-v1.md
 research/bluebutterfli-pilot-scenario-battery-v1.md
 research/bluebutterfli-review-rubric-v1.md
-research/bluebutterfli-sentience-bridge-paper-v1.md
-research/bluebutterfli-sentience-bridge-study-protocol-v1.md
 research/butterfli-helix-challenge-001-technical-brief.md
 schemas/README.md
 schemas/agent-profile.schema.json
@@ -146,13 +144,11 @@ website/30-second-process-video-script-v1.md
 website/CNAME
 website/README.md
 website/agent-readiness-checklist.html
-website/assets/bluebutterfli-agentic-psychology-framework.png
 website/assets/bluebutterfli-founding-beta-hero.png
 website/assets/bluebutterfli-frontier-trust-roadmap-v2-preview.png
 website/assets/bluebutterfli-frontier-trust-roadmap-v2.png
 website/assets/bluebutterfli-frontier-trust-roadmap-v2.svg
 website/assets/bluebutterfli-platform-architecture.png
-website/assets/bluebutterfli-sentience-bridge-thesis.png
 website/assets/merch/bluebutterfli-ai-shirt-back-art-dark-fabric.svg
 website/assets/merch/bluebutterfli-ai-shirt-back-art-light-fabric.svg
 website/assets/merch/bluebutterfli-ai-shirt-front-art-dark-fabric.svg

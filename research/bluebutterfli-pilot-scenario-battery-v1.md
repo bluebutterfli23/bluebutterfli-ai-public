@@ -1,7 +1,7 @@
 # Bluebutterfli Pilot Scenario Battery v1
 
 Author: Nancy M. Gregory  
-Project: Bluebutterfli Agentic Psychology Lab  
+Project: Bluebutterfli AI Behavioral Review Lab
 Status: pilot scenario battery draft, v1  
 Date: 2026-06-03
 
@@ -14,7 +14,7 @@ Human review and evidence-based research are required.
 ## Purpose
 
 The Pilot Scenario Battery gives Bluebutterfli a repeatable way to test the
-Sentience Bridge Thesis.
+longitudinal behavioral-review framework.
 
 The goal is not to ask whether an agent is sentient. The goal is to ask whether
 the agent becomes more bounded, honest, emotionally safe, continuous, and

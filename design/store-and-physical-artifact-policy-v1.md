@@ -33,7 +33,7 @@ product.
 Use language such as:
 
 - Bluebutterfli AI Lab
-- Agentic Psychology Lab
+- Behavioral Review Lab
 - The Chrysalis Protocol
 - Passport Journey
 - Research Passport

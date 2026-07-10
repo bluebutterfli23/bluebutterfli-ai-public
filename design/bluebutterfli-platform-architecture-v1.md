@@ -23,7 +23,7 @@ The platform should let a user:
 ## Independence Principle
 
 Bluebutterfli AI should remain its own company-facing platform, with
-Bluebutterfli Agentic Psychology Lab as its research lab and review system.
+Bluebutterfli AI Behavioral Review Lab as its research lab and review system.
 
 It may optionally interoperate with external AI-agent ecosystems, token systems,
 wallets, or identity layers, but its safety language, review standards, brand

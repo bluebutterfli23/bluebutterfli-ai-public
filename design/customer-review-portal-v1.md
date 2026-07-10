@@ -1,6 +1,6 @@
 # Customer Review Portal v1
 
-Bluebutterfli AI / Agentic Psychology Lab
+Bluebutterfli AI / Behavioral Review Lab
 
 ## Purpose
 

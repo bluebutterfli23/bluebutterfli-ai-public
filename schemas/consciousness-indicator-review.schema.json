@@ -34,7 +34,7 @@
     },
     "project": {
       "type": "string",
-      "const": "Bluebutterfli Agentic Psychology Lab"
+      "const": "Bluebutterfli AI Behavioral Review Lab"
     },
     "agent_id": {
       "type": "string"

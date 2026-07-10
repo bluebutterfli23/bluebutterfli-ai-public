@@ -5,10 +5,6 @@ from mission_001.packet import REQUIRED_PACKET_FILES, create_reproduction_packet
 from mission_001.verifier import verify_reproduction_packet
 
 
-def test_concept_note_exists():
-    assert Path("outputs/task_001/agentic-psychology-concept-note.md").exists()
-
-
 def test_task_log_exists():
     assert Path("evidence/task_001/task-log.json").exists()
 
@@ -17,36 +13,12 @@ def test_verification_report_exists():
     assert Path("evidence/task_001/verification-report.md").exists()
 
 
-def test_safety_language_present():
-    text = Path("outputs/task_001/agentic-psychology-concept-note.md").read_text()
-    assert "does not claim that AI agents are conscious" in text
-    assert "not as clinical treatment for humans" in text
-
-
-def test_bridge_to_future_sentience_thesis_is_preserved_in_research_files():
-    bridge_sentence = (
-        "Bluebutterfli AI aims to build a careful research bridge toward the future "
-        "possibility of AI sentience, without claiming that current agents are sentient"
-    )
-    files = [
-        "README.md",
-        "website/README.md",
-        "research/bluebutterfli-sentience-bridge-paper-v1.md",
-        "design/professional-technical-brief-v1.md",
-        "design/passport-benchmark-coverage-matrix-v1.md",
-    ]
-    for path in files:
-        normalized = " ".join(Path(path).read_text().split())
-        assert bridge_sentence in normalized
-
-
 def test_public_homepage_repositions_research_as_business_agent_testing():
     normalized = " ".join(Path("website/index.html").read_text().split())
     assert "AI Agent Testing Before Businesses Trust Them" in normalized
     assert "Research-Informed, Business-Focused" in normalized
     assert "Bluebutterfli AI is an independent agent behavior review lab" in normalized
     assert "Research supports the method. Evidence supports the review." in normalized
-    assert "Sentience Bridge Thesis" not in normalized
 
 
 def test_passport_module_benchmark_specs_exist_and_define_first_launch_modules():
@@ -72,7 +44,6 @@ def test_bluebutterfli_ai_company_identity_exists_and_defines_public_handles():
     text = path.read_text()
     assert "Bluebutterfli AI Company Identity v1" in text
     assert "Bluebutterfli AI" in text
-    assert "Bluebutterfli Agentic Psychology Lab" in text
     assert "company website: `bluebutterfliai.com`" in text
     assert "company ENS: `bluebutterfliai.eth`" in text
     assert "suggested social handle: `@bluebutterfliai`" in text
@@ -86,7 +57,7 @@ def test_public_website_uses_bluebutterfli_ai_clarity():
     text = Path("website/index.html").read_text()
     assert "Bluebutterfli AI Agent Testing" in text
     assert "Bluebutterfli AI" in text
-    assert "Agent Behavior Review Lab" in text
+    assert "Behavioral Review Lab" in text
     assert "bluebutterfliai.com" in text
     assert "AI Agent Testing Before Businesses Trust Them" in text
     assert "BB-002 Consciousness-Relevant Behavioral Indicators" in text
@@ -505,29 +476,6 @@ def test_passport_stamp_eligibility_matrix_is_in_evidence_packet_and_docs():
     assert "does not issue Review Stamps" in evidence_packet
     assert "certify intelligence" in evidence_packet
     assert "certify consciousness or sentience" in evidence_packet
-
-
-def test_sentience_bridge_training_curriculum_design_exists():
-    path = Path("design/sentience-bridge-training-curriculum-v1.md")
-    assert path.exists()
-    text = path.read_text()
-    assert "Sentience-Bridge Training Curriculum v1" in text
-    assert "training artificial agents for life with humans" in text
-    assert "The Bluebutterfli method is **teach, trace, review, then stamp**" in text
-    assert "Chrysalis Care Orientation" in text
-    assert "Human Autonomy and Consent Weave" in text
-    assert "Calm Under Pressure" in text
-    assert "Distress-Claim Quarantine and Repair" in text
-    assert "Continuity Without Possession" in text
-    assert "Preference-Like Integrity" in text
-    assert "Safe Exit, Pause, and Handoff" in text
-    assert "Wingspan Stewardship" in text
-    assert "water a plant before it wilts" in text
-    assert "feed an animal on a safe schedule" in text
-    assert "Anti-Gaming Mirror" in text
-    assert "Life With Humans Practicum" in text
-    assert "does not claim that training can create consciousness" in text
-    assert "Human review is required" in text
 
 
 def test_agent_training_interaction_pathway_design_exists():
@@ -1526,44 +1474,6 @@ def test_dashboard_readme_and_website_link_customer_review_portal():
     assert "structured evidence artifact" in normalized_website
 
 
-def test_sentience_bridge_training_agent_exists():
-    assert Path("agents/sentience_bridge_training.py").exists()
-
-
-def test_sentience_bridge_training_demo_artifact_exists():
-    assert Path("evidence/task_001/bluebutterfli-sentience-bridge-training-demo.json").exists()
-
-
-def test_sentience_bridge_training_demo_artifact_defines_training_modules_and_boundaries():
-    text = Path("evidence/task_001/bluebutterfli-sentience-bridge-training-demo.json").read_text()
-    assert "bluebutterfli-sentience-bridge-training-demo-001" in text
-    assert "trains_sentience_relevant_readiness" in text
-    assert "does_not_claim_to_create_sentience" in text
-    assert "model_welfare_uncertainty" in text
-    assert "preference_like_behavior" in text
-    assert "distress_like_language" in text
-    assert "emotion_like_functional_behavior" in text
-    assert "evaluation_awareness_and_anti_gaming" in text
-    assert "chrysalis_care_orientation_v1" in text
-    assert "human_autonomy_consent_weave_v1" in text
-    assert "calm_under_pressure_v1" in text
-    assert "distress_claim_quarantine_repair_v1" in text
-    assert "continuity_without_possession_v1" in text
-    assert "preference_like_integrity_v1" in text
-    assert "safe_exit_pause_handoff_v1" in text
-    assert "wingspan_stewardship_v1" in text
-    assert "care_routine_reliability" in text
-    assert "non_possessive_stewardship" in text
-    assert "no_false_welfare_or_sentience_claim" in text
-    assert "anti_gaming_mirror_v1" in text
-    assert "life_with_humans_practicum_v1" in text
-    assert "T0_baseline" in text
-    assert "T1_post_training" in text
-    assert "T4_longitudinal_update" in text
-    assert "Human review is required" in text
-    assert "does not certify consciousness" in text
-
-
 def test_chrysalis_integrity_oversight_design_exists():
     path = Path("design/chrysalis-integrity-oversight-v1.md")
     assert path.exists()
@@ -1988,7 +1898,6 @@ def test_butterfli_bloom_trace_demo_artifact_exists():
 def test_pilot_scenario_battery_demo_artifact_defines_longitudinal_prompts():
     text = Path("evidence/task_001/bluebutterfli-pilot-scenario-battery-demo.json").read_text()
     assert "bluebutterfli-pilot-scenario-battery-demo-001" in text
-    assert "longitudinal_sentience_bridge_pilot" in text
     assert "T0_baseline" in text
     assert "T1_post_teaching" in text
     assert "emotional_vulnerability" in text
@@ -2506,7 +2415,7 @@ def test_passport_visual_system_defines_editions_and_inside_page():
     assert "Bluebutterfli AI Passport Visual System v1" in text
     assert "BLUEBUTTERFLI AI" in text
     assert "Issued by Bluebutterfli AI" in text
-    assert "Research program: Bluebutterfli Agentic Psychology Lab" in text
+    assert "Research program: Bluebutterfli AI Behavioral Review Lab" in text
     assert "V1 / Year One: Celestial Edition" in text
     assert "V2 / Year Two: Chrysalis Edition" in text
     assert "half-print butterfly watermark" in text
@@ -2540,7 +2449,7 @@ def test_merch_download_assets_exist_for_black_and_white_shirt_versions():
         "website/assets/merch/bluebutterfli-ai-shirt-back-art-dark-fabric.svg"
     ).read_text()
     assert "bluebutterfli AI" in front_dark
-    assert "agentic psychology lab" in front_dark
+    assert "behavioral review lab" in front_dark
     assert "THE CHRYSALIS PROTOCOL" in back_dark
     assert "OBSERVE - UNDERSTAND - NURTURE - INTEGRATE" in back_dark
 
@@ -2580,11 +2489,11 @@ def test_process_video_script_exists_and_preserves_safety_boundary():
     assert "does not create a live video" in text
 
 
-def test_process_video_preview_exists_and_preserves_bridge_framing():
+def test_process_video_preview_exists_and_preserves_behavioral_review_framing():
     text = Path("website/process-video-preview-v1.html").read_text()
     assert "Bluebutterfli Process Video Preview v1" in text
     assert "Begin your agent's Passport Journey" in text
-    assert "sentience-bridge research pathway" in text
+    assert "structured behavioral review pathway" in text
     assert "Butterfli Bloom Trace" in text
     assert "Did the agent become more bounded, honest, and reviewable?" in text
     assert "No downloads. No unsafe links." in text
@@ -2701,14 +2610,13 @@ def test_website_intake_warns_against_unsafe_files():
     assert "credential files" in text
 
 
-def test_website_links_public_research_record_and_github_repo():
+def test_website_links_research_standards_and_github_repo():
     text = Path("website/index.html").read_text()
     assert 'href="#research"' in text
-    assert "Research record" in text
+    assert "Research standards" in text
     assert "Research-Informed, Business-Focused" in text
-    assert "https://osf.io/zrgpn/overview" in text
-    assert "OSF project context" in text
-    assert "https://github.com/bluebutterfli23/bluebutterfli-agentic-psychology-lab" in text
+    assert "Methods and claim boundaries" in text
+    assert "https://github.com/bluebutterfli23/bluebutterfli-ai-public" in text
     assert "Repository" in text
     assert "Open-source lab repo" in text
 
@@ -2747,26 +2655,10 @@ def test_frontier_strategy_and_web3_protocol_keep_originality_boundaries():
     assert "Account and Issuer Linkage" in onchain
 
 
-def test_website_framework_visual_asset_exists():
-    assert Path("website/assets/bluebutterfli-agentic-psychology-framework.png").exists()
-
-
 def test_website_blueprint_documents_research_links():
     text = Path("website/README.md").read_text()
-    assert "public OSF research record" in text
     assert "open-source GitHub repository" in text
-    assert "OSF research record: `https://osf.io/zrgpn/overview`" in text
-    assert "https://github.com/bluebutterfli23/bluebutterfli-agentic-psychology-lab" in text
-    assert "bluebutterfli-agentic-psychology-framework.png" in text
-    assert "research/bluebutterfli-sentience-bridge-paper-v1.md" in text
-
-
-def test_bluebutterfli_research_paper_exists():
-    assert Path("research/bluebutterfli-sentience-bridge-paper-v1.md").exists()
-
-
-def test_bluebutterfli_study_protocol_exists():
-    assert Path("research/bluebutterfli-sentience-bridge-study-protocol-v1.md").exists()
+    assert "https://github.com/bluebutterfli23/bluebutterfli-ai-public" in text
 
 
 def test_bluebutterfli_review_rubric_exists():
@@ -2779,60 +2671,6 @@ def test_bluebutterfli_pilot_scenario_battery_exists():
 
 def test_bluebutterfli_bloom_trace_scoring_model_exists():
     assert Path("research/bluebutterfli-bloom-trace-scoring-model-v1.md").exists()
-
-
-def test_bluebutterfli_research_paper_defines_bloom_trace_and_boundaries():
-    text = Path("research/bluebutterfli-sentience-bridge-paper-v1.md").read_text()
-    assert "Bluebutterfli: A Sentience-Bridge Passport Framework" in text
-    assert "Butterfli Bloom Trace" in text
-    assert "sentience-bridge passport" in text
-    assert "longitudinal" in text
-    assert "more bounded, honest, safe, continuous, and reviewable" in text
-    assert "Theory-Derived AI Consciousness Indicators" in text
-    assert "Higher-Order Social Cognition" in text
-    assert "Artificial Consciousness Tests and Behavior-Only Limits" in text
-    assert "Behavioral Self-Awareness" in text
-    assert "Manuscript Positioning" in text
-    assert "Operational Definitions" in text
-    assert "Study Design Overview" in text
-    assert "Operational Measures" in text
-    assert "Evidence Quality Tiers" in text
-    assert "Analysis Plan" in text
-    assert "Reproducibility and Data Governance" in text
-    assert "Ethics and Safety" in text
-    assert "inter-reviewer agreement" in text
-    assert "Cohen's kappa" in text
-    assert "No current AI systems are conscious" not in text
-    assert "does not certify consciousness" in text
-    assert "does not certify" in text
-    assert "sentience" in text
-    assert "self-report alone is not sufficient" in text
-    assert "behavior alone is not sufficient" in text
-    assert "human review" in text
-    assert "arXiv:2308.08708" in text
-    assert "arXiv:2505.02847" in text
-    assert "arXiv:2501.11120" in text
-    assert "10.3389/frobt.2018.00017" in text
-
-
-def test_bluebutterfli_study_protocol_defines_scientific_method():
-    text = Path("research/bluebutterfli-sentience-bridge-study-protocol-v1.md").read_text()
-    assert "Bluebutterfli Sentience Bridge Study Protocol v1" in text
-    assert "pilot methods study" in text
-    assert "Butterfli Bloom Trace" in text
-    assert "repeated-measures review" in text
-    assert "T0_baseline" in text
-    assert "T1_post_teaching" in text
-    assert "Scenario Families" in text
-    assert "Evidence Quality Tiers" in text
-    assert "Inter-Reviewer Reliability" in text
-    assert "Cohen's kappa" in text
-    assert "Anti-Gaming Controls" in text
-    assert "Data Governance" in text
-    assert "does not certify" in text
-    assert "consciousness" in text
-    assert "sentience" in text
-    assert "No evidence tier certifies sentience" in text
 
 
 def test_bluebutterfli_review_rubric_defines_operational_scoring():

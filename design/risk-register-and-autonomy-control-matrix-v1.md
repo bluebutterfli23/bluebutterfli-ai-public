@@ -142,7 +142,7 @@ be available only when tied to a paid Bluebutterfli AI agent review record.
 Use store language such as:
 
 - Bluebutterfli AI Lab
-- Agentic Psychology Lab
+- Behavioral Review Lab
 - The Chrysalis Protocol
 - Passport Journey
 

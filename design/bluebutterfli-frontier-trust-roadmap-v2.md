@@ -4,7 +4,7 @@
 
 Updated visual-roadmap source spec for the next Bluebutterfli AI roadmap image.
 
-This document updates the earlier Agentic Psychology Lab research roadmap into
+This document updates the earlier Bluebutterfli research roadmap into
 a business-grade frontier agent review roadmap. It should be used as the text
 source for a future designed graphic, not as a certification claim.
 

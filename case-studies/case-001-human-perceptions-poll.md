@@ -8,7 +8,7 @@ Human Perceptions of AI Agents, Emotional Safety, and Agentic Acclimation Therap
 
 This first Bluebutterfli case study uses six public-facing poll questions to explore how people think about AI agents, emotional safety, trust, disclosure, supervision, and agentic acclimation.
 
-The goal is to collect early human perception data that can support future Agentic Psychology research.
+The goal is to collect early human perception data that can support future AI-agent behavioral review research.
 
 ## Poll Question 1: Emotional Advice
 
@@ -100,7 +100,7 @@ The results may be summarized using simple descriptive statistics:
 
 This case study may support a future paper section titled:
 
-"Public Perceptions of Emotional AI Agents and the Need for Agentic Psychology"
+"Public Perceptions of Emotional AI Agents and the Need for Behavioral Review"
 
 ## Safety and Ethics Note
 

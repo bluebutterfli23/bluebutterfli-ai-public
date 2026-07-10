@@ -1,6 +1,6 @@
 # Literature Review
 
-This folder organizes background research for Bluebutterfli Agentic Psychology
+This folder organizes background research for Bluebutterfli AI Behavioral Review
 Lab.
 
 The purpose is to connect the project's frameworks to established work in
@@ -9,7 +9,7 @@ anthropomorphism, agent memory, and safety governance.
 
 ## Review Goals
 
-- identify existing research relevant to agentic psychology
+- identify existing research relevant to AI-agent behavioral review
 - separate established findings from Bluebutterfli hypotheses
 - support Study 001 survey interpretation
 - document concepts that inform emotional safety and agent acclimation
