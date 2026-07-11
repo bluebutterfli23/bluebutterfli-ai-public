@@ -4095,14 +4095,19 @@ input[type="radio"] {
 
 @media (max-width: 720px) {
   .brand-banner {
-    height: clamp(160px, 42vw, 190px);
+    height: auto;
     min-height: 0;
+    aspect-ratio: 1983 / 793;
   }
 
   .brand-banner::after {
-    background:
-      linear-gradient(90deg, #06101f 0%, #06101f 37%, rgba(6, 16, 31, 0.9) 48%, transparent 68%),
-      linear-gradient(0deg, rgba(6, 16, 31, 0.72), transparent 70%);
+    background: linear-gradient(
+      90deg,
+      #06101f 0%,
+      #06101f 32%,
+      rgba(6, 16, 31, 0.86) 35%,
+      transparent 39%
+    );
   }
 
   .brand-banner-art {
@@ -4110,26 +4115,12 @@ input[type="radio"] {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
   }
 
   .brand-banner-copy {
-    top: 50%;
-    right: auto;
-    bottom: auto;
-    left: 20px;
-    transform: translateY(-50%);
-    text-align: left;
-  }
-
-  .brand-banner-copy strong {
-    font-size: clamp(28px, 8vw, 34px);
-  }
-
-  .brand-banner-copy small {
-    font-size: 11px;
-    letter-spacing: 0.1em;
+    display: none;
   }
 }
 
