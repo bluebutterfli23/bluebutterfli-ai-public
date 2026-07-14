@@ -4120,7 +4120,21 @@ input[type="radio"] {
   }
 
   .brand-banner-copy {
-    display: none;
+    display: grid;
+    left: clamp(14px, 4vw, 22px);
+    gap: 4px;
+    width: 46%;
+  }
+
+  .brand-banner-copy strong {
+    font-size: clamp(20px, 5.6vw, 30px);
+    white-space: nowrap;
+  }
+
+  .brand-banner-copy small {
+    font-size: clamp(7px, 1.8vw, 10px);
+    letter-spacing: 0.12em;
+    white-space: nowrap;
   }
 }
 
