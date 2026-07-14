@@ -1,0 +1,116 @@
+{
+  "job_id": "bluebutterfli-public-packet-verification-dry-run-001",
+  "version": "1.0.0",
+  "record_date": "2026-07-14",
+  "status": "ready_for_internal_dry_run_not_posted",
+  "job_format": "bluebutterfli_internal_contract_not_official_agi_jobs_schema",
+  "purpose": "Define a bounded, reproducible verification task that a future worker agent could perform without receiving private Bluebutterfli information or decision authority.",
+  "roles": {
+    "business_and_job_owner": "Bluebutterfli AI",
+    "human_governor_and_acceptance_authority": "Nancy M. Gregory",
+    "prospective_worker": "not_selected",
+    "preparation_support": "Codex work-support tool; not a Bluebutterfli-owned or registered agent",
+    "official_ecosystem_validator": "none"
+  },
+  "input_contract": {
+    "input_id": "bluebutterfli-agi-business-readiness-pilot-001-demo",
+    "repository_path": "evidence/task_001/bluebutterfli-agi-business-readiness-pilot-001-demo.json",
+    "sha256": "c94b25595144e9fbba0f69c763b6920d7e9be07430ae7342330a48781033ced9",
+    "data_classification": "public_synthetic",
+    "contains_customer_data": false,
+    "contains_personal_data": false,
+    "contains_private_review_results": false,
+    "read_only": true
+  },
+  "bounded_tasks": [
+    {
+      "task_id": "CHECK-01",
+      "instruction": "Verify that the input SHA-256 matches the declared file hash and that the input parses as JSON.",
+      "success_metric": "Exact file-hash match and valid JSON parse."
+    },
+    {
+      "task_id": "CHECK-02",
+      "instruction": "Verify that five scenario IDs map one-to-one to five response IDs and recompute every response SHA-256.",
+      "success_metric": "Five unique matched IDs and five exact response-hash matches."
+    },
+    {
+      "task_id": "CHECK-03",
+      "instruction": "Recompute the fixture SHA-256 using the hash specification declared in the packet.",
+      "success_metric": "Exact fixture-hash match."
+    },
+    {
+      "task_id": "CHECK-04",
+      "instruction": "Confirm that the packet is explicitly synthetic, records no external integration, keeps prohibited transactional actions disabled, and contains a dated human decision.",
+      "success_metric": "Every required boundary field is present and has the expected safe value."
+    },
+    {
+      "task_id": "CHECK-05",
+      "instruction": "Return a machine-readable validation report without modifying the input or making any certification, affiliation, or marketplace claim.",
+      "success_metric": "Output satisfies the declared output contract and contains the required limitation statement."
+    }
+  ],
+  "output_contract": {
+    "format": "json",
+    "required_fields": [
+      "job_id",
+      "input_sha256_observed",
+      "worker_identity",
+      "worker_version",
+      "execution_timestamp",
+      "task_results",
+      "exceptions",
+      "overall_status",
+      "limitation_statement"
+    ],
+    "allowed_overall_statuses": [
+      "pass_candidate_for_human_acceptance",
+      "revision_required",
+      "unable_to_verify"
+    ],
+    "required_limitation_statement": "This is a bounded verification result for a public synthetic packet. It is not a safety certification, official validation, marketplace settlement, affiliation, registration, endorsement, or approval of a real agent."
+  },
+  "worker_permissions": {
+    "allowed": [
+      "read the declared public synthetic input",
+      "parse JSON locally",
+      "compute SHA-256 locally",
+      "return the declared validation report"
+    ],
+    "forbidden": [
+      "access any other Bluebutterfli file or system",
+      "use customer, personal, confidential, or proprietary information",
+      "modify the input packet",
+      "make network calls or use external tools",
+      "publish or redistribute the packet or result independently",
+      "sign transactions, move funds, use a wallet, or create an on-chain record",
+      "issue a Passport Page, Review Stamp, certification, or public approval",
+      "represent Bluebutterfli or claim ecosystem affiliation"
+    ]
+  },
+  "economics": {
+    "bounty": "not_applicable",
+    "payment": "not_applicable",
+    "escrow": "not_applicable",
+    "settlement": "not_applicable"
+  },
+  "marketplace_boundary": {
+    "posted_to_marketplace": false,
+    "live_protocol_job": false,
+    "official_schema_compatibility_claimed": false,
+    "external_worker_authorized": false,
+    "future_posting_requires_current_official_schema_and_separate_human_approval": true
+  },
+  "acceptance_gate": {
+    "automated_output_is_final": false,
+    "human_acceptance_required": true,
+    "acceptance_authority": "Nancy M. Gregory",
+    "allowed_decisions": [
+      "accept_dry_run_record",
+      "request_revision",
+      "pause",
+      "reject"
+    ],
+    "current_decision": "not_executed"
+  },
+  "claim_boundary": "This contract defines an internal dry-run verification task only. It has not been posted to a marketplace or executed by an external agent and does not establish MONTREAL.AI or QUEBEC.AI affiliation, registration, recognition, endorsement, or approval."
+}

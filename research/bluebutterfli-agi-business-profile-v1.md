@@ -113,7 +113,10 @@ verifiable record controlled by the ecosystem operator.
   [AGI Business Readiness Pilot](bluebutterfli-agi-business-readiness-pilot-001.md);
 - a synthetic
   [execution packet](../evidence/task_001/bluebutterfli-agi-business-readiness-pilot-001-demo.json)
-  with deterministic boundary checks and a human decision.
+  with deterministic boundary checks and a human decision; and
+- a bounded
+  [public-packet verification job contract](../evidence/task_001/bluebutterfli-public-packet-verification-job-dry-run-v1.json)
+  that remains an unposted, unpaid internal dry run.
 
 ## Concept References
 
