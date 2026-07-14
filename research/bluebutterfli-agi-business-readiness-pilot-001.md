@@ -1,6 +1,6 @@
 # Bluebutterfli AGI Business Readiness Pilot 001
 
-Status: `draft_ready_for_founder_review`
+Status: `approved_internal_record`
 
 ## Purpose
 
@@ -58,7 +58,7 @@ applies.
 agent as safe, issue a Passport or Review Stamp, create ecosystem membership,
 or complete marketplace settlement.
 
-## Planned Proof Record
+## Proof Record
 
 - mission and scope record;
 - versioned scenario and response manifests;
@@ -89,6 +89,13 @@ The pilot is complete only after all five work packages are recorded, mandatory
 checks pass or exceptions are expressly accepted, and Nancy records a dated
 decision. Until then, its state remains `human_review_required`.
 
+The public-safe synthetic
+[execution packet](../evidence/task_001/bluebutterfli-agi-business-readiness-pilot-001-demo.json)
+completed all five internal work packages and passed its deterministic boundary
+checks. Nancy recorded `approve_internal_record` on July 14, 2026. This accepts
+only the internal readiness record and does not approve or certify a real
+agent.
+
 ## Concept References
 
 This readiness pilot refers to public concepts described by
@@ -96,6 +103,8 @@ This readiness pilot refers to public concepts described by
 [MONTREAL.AI](https://montrealai.github.io/), and the public
 [AGI Business demonstration](https://github.com/MontrealAI/AGI-Alpha-Agent-v0/tree/main/alpha_factory_v1/demos/alpha_agi_business_v1),
 accessed July 14, 2026. The demonstration is a conceptual prototype, not a
-published business-registration process or governing specification. A source
-version will be frozen before pilot execution. These references do not imply
-affiliation, endorsement, registration, or approval.
+published business-registration process or governing specification. No
+external code, schema, registry, marketplace, wallet, or transaction was used
+in this pilot. A source commit will be frozen before any future live
+interoperability test. These references do not imply affiliation, endorsement,
+registration, or approval.
