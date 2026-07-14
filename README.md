@@ -3,10 +3,10 @@
 The Bluebutterfli AI Founding Beta Demo is now live as a public-safe clickable product flow.
 
 **Live Demo:**
-https://bluebutterfli23.github.io/bluebutterfli-ai-public/website/founding-beta-demo.html
+https://bluebutterfliai.com/founding-beta-demo.html
 
 **Pretty Passport Portal:**
-https://bluebutterfli23.github.io/bluebutterfli-ai-public/website/passport-portal.html
+https://bluebutterfliai.com/passport-portal.html
 
 **Documentation:**
 `FOUNDING-BETA-DEMO.md`
