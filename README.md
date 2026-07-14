@@ -5,7 +5,7 @@ The Bluebutterfli AI Founding Beta Demo is now live as a public-safe clickable p
 **Live Demo:**
 https://bluebutterfliai.com/founding-beta-demo.html
 
-**Pretty Passport Portal:**
+**Passport Portal:**
 https://bluebutterfliai.com/passport-portal.html
 
 **Documentation:**
@@ -17,7 +17,7 @@ FOUNDING_BETA_DEMO_CONNECTED_TO_PASSPORT_PORTAL
 
 ### Demo Flow
 
-Homepage → Founding Beta Demo → Pretty Passport Portal → Back to Founding Beta Demo
+Homepage → Founding Beta Demo → Passport Portal → Back to Founding Beta Demo
 
 This demo shows the intended customer-facing pathway for agent testing, response precheck, human review, and Passport Journey status.
 
