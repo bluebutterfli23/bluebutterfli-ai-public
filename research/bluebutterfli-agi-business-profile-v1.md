@@ -69,14 +69,27 @@ decision authority.
 
 ## Current Agent Status
 
-Bluebutterfli does not currently own or operate a proprietary agent. Codex is a
-work-support tool used by Nancy; it is not a Bluebutterfli-owned or registered
-agent and cannot represent the business, approve reports, sign transactions,
-hold funds, or publish results independently.
+Bluebutterfli now operates Bluebutterfli Evidence Agent 001, a privately
+controlled local MVP limited to verifying explicitly declared public synthetic
+evidence packets and preparing bounded draft summaries for Nancy's review. It
+combines deterministic checks with one local language model and requires human
+review for every output.
 
-A future Bluebutterfli-owned agent would require a separate ownership,
-licensing, authority, privacy, security, and behavioral review. It would not
-automatically inherit any company, registry, or review status.
+The agent cannot access customer, personal, confidential, or proprietary
+evidence; browse the web or contact external services; publish, email, upload,
+or redistribute results; use wallets, tokens, payments, or signing keys; issue
+a Passport Page, Review Stamp, certification, or approval; represent the
+business independently; or make a final Bluebutterfli review decision.
+
+The MVP completed one bounded functional validation on public synthetic
+evidence on July 14, 2026. This validates workflow mechanics only, not a real
+agent's safety or performance. The agent is not externally registered,
+recognized, endorsed, or approved and does not inherit any company, registry,
+or review status.
+
+Codex remains a work-support tool used by Nancy. It is separate from
+Bluebutterfli Evidence Agent 001 and cannot represent the business, approve
+reports, sign transactions, hold funds, or publish results independently.
 
 ## Evidence and Governance
 
@@ -116,7 +129,10 @@ verifiable record controlled by the ecosystem operator.
   with deterministic boundary checks and a human decision; and
 - a bounded
   [public-packet verification job contract](../evidence/task_001/bluebutterfli-public-packet-verification-job-dry-run-v1.json)
-  with a completed, human-accepted, unposted, and unpaid internal dry run.
+  with a completed, human-accepted, unposted, and unpaid internal dry run; and
+- an internally documented functional validation of Bluebutterfli Evidence
+  Agent 001 on the public synthetic packet. Its private implementation and
+  generated draft are intentionally not published.
 
 ## Concept References
 

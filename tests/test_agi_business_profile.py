@@ -26,8 +26,12 @@ def test_business_profile_keeps_core_review_work_inside_bluebutterfli():
 def test_business_profile_states_current_agent_and_ecosystem_boundaries():
     text = " ".join(PROFILE_PATH.read_text().split())
 
-    assert "does not currently own or operate a proprietary agent" in text
-    assert "Codex is a work-support tool" in text
+    assert "operates Bluebutterfli Evidence Agent 001" in text
+    assert "privately controlled local MVP" in text
+    assert "requires human review for every output" in text
+    assert "cannot access customer, personal, confidential" in text
+    assert "Codex remains a work-support tool" in text
+    assert "It is separate from Bluebutterfli Evidence Agent 001" in text
     assert "is not currently affiliated with, endorsed by" in text
     assert "No namespace, wallet, token transaction" in text
     assert "do not imply affiliation, endorsement" in text
@@ -38,5 +42,7 @@ def test_business_profile_references_only_public_readiness_evidence():
 
     assert "AGI Business Readiness Pilot" in text
     assert "execution packet" in text
+    assert "internally documented functional validation" in text
+    assert "private implementation and generated draft are intentionally not published" in text
     assert "confidential beta evidence record" not in text
     assert "private review result" in text
