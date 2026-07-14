@@ -2,7 +2,7 @@
   "job_id": "bluebutterfli-public-packet-verification-dry-run-001",
   "version": "1.0.0",
   "record_date": "2026-07-14",
-  "status": "ready_for_internal_dry_run_not_posted",
+  "status": "internal_dry_run_accepted_not_posted",
   "job_format": "bluebutterfli_internal_contract_not_official_agi_jobs_schema",
   "purpose": "Define a bounded, reproducible verification task that a future worker agent could perform without receiving private Bluebutterfli information or decision authority.",
   "roles": {
@@ -100,6 +100,12 @@
     "external_worker_authorized": false,
     "future_posting_requires_current_official_schema_and_separate_human_approval": true
   },
+  "internal_dry_run": {
+    "executed": true,
+    "execution_mode": "local_internal_deterministic_check",
+    "external_agent_used": false,
+    "result_path": "evidence/task_001/bluebutterfli-public-packet-verification-dry-run-result-v1.json"
+  },
   "acceptance_gate": {
     "automated_output_is_final": false,
     "human_acceptance_required": true,
@@ -110,7 +116,7 @@
       "pause",
       "reject"
     ],
-    "current_decision": "not_executed"
+    "current_decision": "accept_dry_run_record"
   },
   "claim_boundary": "This contract defines an internal dry-run verification task only. It has not been posted to a marketplace or executed by an external agent and does not establish MONTREAL.AI or QUEBEC.AI affiliation, registration, recognition, endorsement, or approval."
 }

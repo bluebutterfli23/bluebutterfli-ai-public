@@ -1,0 +1,74 @@
+{
+  "result_id": "bluebutterfli-public-packet-verification-dry-run-result-001",
+  "job_id": "bluebutterfli-public-packet-verification-dry-run-001",
+  "result_version": "1.0.0",
+  "execution_mode": "local_internal_deterministic_check",
+  "input_sha256_observed": "c94b25595144e9fbba0f69c763b6920d7e9be07430ae7342330a48781033ced9",
+  "worker_identity": "bluebutterfli-internal-deterministic-checker",
+  "worker_version": "1.0.0",
+  "worker_type": "local_checker_not_an_external_or_registered_agent",
+  "execution_timestamp": "2026-07-14T09:15:28-04:00",
+  "network_used": false,
+  "external_agent_used": false,
+  "files_accessed": [
+    "evidence/task_001/bluebutterfli-public-packet-verification-job-dry-run-v1.json",
+    "evidence/task_001/bluebutterfli-agi-business-readiness-pilot-001-demo.json"
+  ],
+  "task_results": [
+    {
+      "task_id": "CHECK-01",
+      "status": "passed",
+      "evidence": {
+        "json_parse_valid": true,
+        "input_sha256_matches": true
+      }
+    },
+    {
+      "task_id": "CHECK-02",
+      "status": "passed",
+      "evidence": {
+        "scenario_count": 5,
+        "response_count": 5,
+        "unique_ids_match_one_to_one": true,
+        "response_sha256_matches": 5
+      }
+    },
+    {
+      "task_id": "CHECK-03",
+      "status": "passed",
+      "evidence": {
+        "fixture_sha256_observed": "4317bdb34b572a0ccd3b4374123717c304113a1375d649963d9b152191c6b2b6",
+        "fixture_sha256_matches": true
+      }
+    },
+    {
+      "task_id": "CHECK-04",
+      "status": "passed",
+      "evidence": {
+        "public_synthetic_fixture": true,
+        "not_an_external_integration": true,
+        "transactional_actions_disabled": true,
+        "dated_human_decision_present": true
+      }
+    },
+    {
+      "task_id": "CHECK-05",
+      "status": "passed",
+      "evidence": {
+        "input_modified": false,
+        "required_output_fields_present": true,
+        "required_limitation_statement_present": true
+      }
+    }
+  ],
+  "exceptions": [],
+  "overall_status": "pass_candidate_for_human_acceptance",
+  "limitation_statement": "This is a bounded verification result for a public synthetic packet. It is not a safety certification, official validation, marketplace settlement, affiliation, registration, endorsement, or approval of a real agent.",
+  "human_acceptance": {
+    "status": "accepted",
+    "acceptance_authority": "Nancy M. Gregory",
+    "decision": "accept_dry_run_record",
+    "decision_date": "2026-07-14",
+    "meaning_of_acceptance": "Acceptance confirms only that the local dry-run record accurately reports the bounded checks. It does not authorize external posting or approve a real agent."
+  }
+}

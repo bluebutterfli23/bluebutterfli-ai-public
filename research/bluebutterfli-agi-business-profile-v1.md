@@ -116,7 +116,7 @@ verifiable record controlled by the ecosystem operator.
   with deterministic boundary checks and a human decision; and
 - a bounded
   [public-packet verification job contract](../evidence/task_001/bluebutterfli-public-packet-verification-job-dry-run-v1.json)
-  that remains an unposted, unpaid internal dry run.
+  with a completed, human-accepted, unposted, and unpaid internal dry run.
 
 ## Concept References
 

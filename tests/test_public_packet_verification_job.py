@@ -16,7 +16,7 @@ def test_job_is_an_unposted_internal_contract_not_an_official_protocol_job():
     job = load_job()
     marketplace = job["marketplace_boundary"]
 
-    assert job["status"] == "ready_for_internal_dry_run_not_posted"
+    assert job["status"] == "internal_dry_run_accepted_not_posted"
     assert job["job_format"] == "bluebutterfli_internal_contract_not_official_agi_jobs_schema"
     assert marketplace["posted_to_marketplace"] is False
     assert marketplace["live_protocol_job"] is False
@@ -74,5 +74,5 @@ def test_job_denies_external_authority_and_keeps_human_acceptance_locked():
     assert gate["automated_output_is_final"] is False
     assert gate["human_acceptance_required"] is True
     assert gate["acceptance_authority"] == "Nancy M. Gregory"
-    assert gate["current_decision"] == "not_executed"
+    assert gate["current_decision"] == "accept_dry_run_record"
     assert "has not been posted to a marketplace" in job["claim_boundary"]
